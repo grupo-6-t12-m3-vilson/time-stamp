@@ -7,7 +7,7 @@ import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={dark}>
       <AppRoutes />
     </ThemeProvider>
   );
