@@ -1,16 +1,17 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import AppRoutes from "./routes";
+import Global from "./styles/global";
 
 import { theme, dark, light } from "./theme/theme";
 
-import AppRoutes from "./AppRoutes";
-
-function App() {
+const App = () => {
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={light}>
+      <Global />
       <AppRoutes />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
