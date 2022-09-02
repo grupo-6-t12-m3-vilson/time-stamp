@@ -1,5 +1,12 @@
+import ModalAddVideo from "../../components/ModalAddvideo";
+import { GrClearOption } from "react-icons/gr";
+
 const Dashboard = () => {
-  return <></>;
+  return (
+    <>
+      <ModalAddVideo />
+    </>
+  );
 };
 
 export default Dashboard;
