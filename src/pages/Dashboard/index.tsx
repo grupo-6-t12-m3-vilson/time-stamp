@@ -1,5 +1,9 @@
+import ContainerSprints from "../../components/ContainerSprints";
+
 const Dashboard = () => {
-  return <></>;
+  return <>
+    <ContainerSprints />
+  </>;
 };
 
 export default Dashboard;
