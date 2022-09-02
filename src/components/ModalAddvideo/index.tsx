@@ -8,6 +8,7 @@ import {
   MarkerFieldContainer,
   Modal,
   ModalContainer,
+  SaveButton,
   UrlFieldContainer,
 } from "./styles";
 
@@ -30,7 +31,7 @@ const ModalAddVideo = () => {
         <ModalContainer>
           <Modal>
             <CloseModalContainer>
-              <h2>Edite o seu vídeo aqui</h2>
+              <h2>Faça suas alterações aqui</h2>
               <AiOutlineClose
                 color="#fff"
                 cursor="pointer"
@@ -79,6 +80,7 @@ const ModalAddVideo = () => {
                 </li>
               </CreatedMarkersList>
             </CreatedMarkersContainer>
+            <SaveButton onClick={toggleModalVisibility}>Salvar</SaveButton>
           </Modal>
         </ModalContainer>
       ) : (

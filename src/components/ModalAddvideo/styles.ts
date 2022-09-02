@@ -25,7 +25,7 @@ export const Modal = styled.div`
   height: 50%;
   position: fixed;
 
-  background-color: ${(props) => props.theme.bg_modal_edit};
+  background-color: ${(props) => props.theme.modalEditVideo.bg_modal_edit};
 
   @media screen and (max-width: 586px) {
     width: 100%;
@@ -44,21 +44,22 @@ export const UrlFieldContainer = styled.div`
     width: 80%;
     height: 22px;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.font_color_input};
-    background-color: ${(props) => props.theme.bg_input_modal};
+    color: ${(props) => props.theme.modalEditVideo.font_color_input};
+    background-color: ${(props) => props.theme.modalEditVideo.bg_input_modal};
     border-radius: 2px;
     border: 1px solid transparent;
     padding: 0.25rem 0.5rem;
 
     &:focus {
-      border: 1px solid ${(props) => props.theme.bg_input_modal};
+      border: 1px solid ${(props) => props.theme.modalEditVideo.bg_input_modal};
       outline: none;
     }
 
     &::placeholder {
       font-size: 0.9rem;
       font-family: "Nunito Sans", sans-serif;
-      color: ${(props) => props.theme.font_color_input_placeholder};
+      color: ${(props) =>
+        props.theme.modalEditVideo.font_color_input_placeholder};
       font-weight: 700;
     }
   }
@@ -73,7 +74,7 @@ export const CloseModalContainer = styled.div`
 
   h2 {
     font-family: "Roboto Mono", monospace;
-    color: ${(props) => props.theme.font_color_primary_modal};
+    color: ${(props) => props.theme.modalEditVideo.font_color_primary_modal};
   }
 `;
 
@@ -92,16 +93,17 @@ export const MarkerFieldContainer = styled.div`
 
     input {
       font-family: "Roboto Mono", monospace;
-      background-color: ${(props) => props.theme.bg_input_modal};
+      background-color: ${(props) => props.theme.modalEditVideo.bg_input_modal};
       font-weight: 700;
-      color: ${(props) => props.theme.font_color_primary_modal};
+      color: ${(props) => props.theme.modalEditVideo.font_color_primary_modal};
       border: 1px solid transparent;
       text-align: center;
       border-radius: 3px;
       height: 55%;
 
       &:focus {
-        border: 1px solid ${(props) => props.theme.bg_input_modal};
+        border: 1px solid
+          ${(props) => props.theme.modalEditVideo.bg_input_modal};
         outline: none;
       }
 
@@ -117,8 +119,9 @@ export const MarkerFieldContainer = styled.div`
       height: 45%;
       font-family: "Noto Sans", sans-serif;
       font-weight: 700;
-      color: ${(props) => props.theme.font_color_button_modal};
-      background-color: ${(props) => props.theme.bg_button_modal};
+      color: ${(props) => props.theme.modalEditVideo.font_color_button_modal};
+      background-color: ${(props) =>
+        props.theme.modalEditVideo.bg_button_modal};
       border: none;
       cursor: pointer;
       border-radius: 0 0 2px 2px;
@@ -128,15 +131,15 @@ export const MarkerFieldContainer = styled.div`
   textarea {
     width: 62%;
     font-family: "Inter", sans-serif;
-    color: ${(props) => props.theme.font_color_input};
-    background-color: ${(props) => props.theme.bg_input_modal};
+    color: ${(props) => props.theme.modalEditVideo.font_color_input};
+    background-color: ${(props) => props.theme.modalEditVideo.bg_input_modal};
     padding: 0.25rem;
     border: 1px solid transparent;
     border-radius: 4px;
     resize: none;
 
     &:focus {
-      border: 1px solid ${(props) => props.theme.bg_input_modal};
+      border: 1px solid ${(props) => props.theme.modalEditVideo.bg_input_modal};
       outline: none;
     }
   }
@@ -153,12 +156,12 @@ export const CreatedMarkersContainer = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    background: #9aadbf;
+    background: #1b4079;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #1b4079;
+    background-color: #9aadbf;
     border-radius: 4px;
   }
 `;
@@ -179,9 +182,10 @@ export const CreatedMarkersList = styled.ul`
       width: 30%;
       font-family: "Nunito Sans", sans-serif;
       font-weight: 800;
-      color: ${(props) => props.theme.font_color_primary_modal};
+      color: ${(props) => props.theme.modalEditVideo.font_color_primary_modal};
       text-align: center;
-      background-color: ${(props) => props.theme.bg_marker_modal};
+      background-color: ${(props) =>
+        props.theme.modalEditVideo.bg_marker_modal};
       border: none;
       border-radius: 8px;
     }
@@ -190,7 +194,7 @@ export const CreatedMarkersList = styled.ul`
       width: 70%;
       font-size: 0.7rem;
       font-family: "Roboto Mono", monospace;
-      color: ${(props) => props.theme.font_color_input};
+      color: ${(props) => props.theme.modalEditVideo.font_color_input};
       border-radius: 0px 5px 5px 0px;
       border: none;
       overflow: hidden;
@@ -199,4 +203,19 @@ export const CreatedMarkersList = styled.ul`
       padding: 0.1rem;
     }
   }
+`;
+
+export const SaveButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  font-size: 1.2rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  color: ${(props) => props.theme.modalEditVideo.font_color_button_modal};
+  background-color: ${(props) => props.theme.bg_input};
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
 `;
