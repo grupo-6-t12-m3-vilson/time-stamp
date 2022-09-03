@@ -6,7 +6,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { ReactComponent as Intro } from "../../assets/intro.svg";
 import { parseClassName } from "react-toastify/dist/utils";
 
-function SignIn() {
+function Login() {
   const [typePassword, setTypePassword] = useState("password");
   const [password, setPassword] = useState("");
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -61,4 +61,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Login;
