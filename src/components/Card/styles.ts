@@ -16,17 +16,18 @@ export const Container = styled.li`
   border-radius: 10px;
 
   h2 {
+    font-family: "Roboto Mono", monospace;
     font-weight: 700;
-    font-size: 23px;
+    font-size: 20px;
     letter-spacing: 0.05em;
     color: ${(props) => props.theme.card.color};
   }
 
   p {
-    font-family: "Roboto";
+    font-family: "Roboto Mono", monospace;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 15px;
 
     letter-spacing: 0.05em;
 

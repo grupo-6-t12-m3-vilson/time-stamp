@@ -25,6 +25,7 @@ export const light = {
   },
   video: {
     backgroundColor: "#ffffff4a",
+    color: "#232A43",
   },
   dashboard: {
     deg: "225deg",
@@ -61,6 +62,7 @@ export const dark = {
   },
   video: {
     backgroundColor: "rgba(17, 23, 43, 0.54)",
+    color: "#D3E0F0",
   },
   dashboard: {
     deg: "145deg",

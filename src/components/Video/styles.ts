@@ -4,9 +4,8 @@ export const Container = styled.ul`
   display: flex;
   flex-direction: row;
   overflow-x: auto;
-  max-width: 1000px;
-  white-space: nowrap;
-
+  max-width: 1100px;
+  flex-wrap: nowrap;
   justify-content: space-between;
 
   gap: 25px;
@@ -19,6 +18,25 @@ export const Container = styled.ul`
   border-radius: 10px;
 
   li {
-    margin-left: 15px;
+    margin-left: 38px;
+
+    h2 {
+      font-family: "Roboto Mono", monospace;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+      letter-spacing: 0.05em;
+      color: ${(props) => props.theme.video.color};
+    }
+
+    span {
+      font-family: "Roboto Mono", monospace;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 19px;
+      letter-spacing: 0.05em;
+    }
   }
 `;
