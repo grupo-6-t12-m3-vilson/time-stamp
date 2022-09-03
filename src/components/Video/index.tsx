@@ -11,12 +11,10 @@ const Video = () => {
       {videos.map((dataVideo, index) => (
         <li key={index}>
           <video controls src={dataVideo.url} width={300} height={300} />
-          <div>
-            <h2>Demo - {dataVideo.day}</h2>
-            <span>
-              {dataVideo.time_video} - {dataVideo.title}
-            </span>
-          </div>
+          <h2>Demo - {dataVideo.day}</h2>
+          <span>
+            {dataVideo.time_video} - {dataVideo.title}
+          </span>
         </li>
       ))}
     </Container>

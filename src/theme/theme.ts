@@ -23,6 +23,9 @@ export const light = {
     colorIcon: "#407bff",
     border: "#407bff",
   },
+  video: {
+    backgroundColor: "#ffffff4a",
+  },
   dashboard: {
     deg: "225deg",
     linear1: "#B5CAD9",
@@ -30,7 +33,6 @@ export const light = {
     scrollbarDeg: "225deg",
     scrollbar1: "#B5CAD9",
     scrollbar2: "#E5EBF3",
-    backgroundVideo: "#ffffff4a",
   },
 };
 
@@ -57,14 +59,16 @@ export const dark = {
     colorIcon: "#D3E0F0",
     border: "#D3E0F0",
   },
+  video: {
+    backgroundColor: "rgba(17, 23, 43, 0.54)",
+  },
   dashboard: {
     deg: "145deg",
     linear1: "#253250",
     linear2: "#0F1425",
     scrollbarDeg: "145deg",
     scrollbar1: "#253250",
-    scrollbar2: "##0F1425",
-    backgroundVideo: "rgba(17, 23, 43, 0.54)",
+    scrollbar2: "#0F1425",
   },
 };
 

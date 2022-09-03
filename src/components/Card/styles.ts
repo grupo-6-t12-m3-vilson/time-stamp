@@ -32,6 +32,11 @@ export const Container = styled.li`
 
     color: ${(props) => props.theme.card.colorP};
   }
+
+  @media (max-width: 650px) {
+    min-width: 220px;
+    margin-left: 20px;
+  }
 `;
 
 export const IconContainer = styled.section`

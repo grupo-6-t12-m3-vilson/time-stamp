@@ -29,14 +29,11 @@ export const ContainerSprint = styled.section`
 
     @media (max-width: 650px) {
       display: flex;
-      flex-direction: column;
-
-      display: flex;
       flex-wrap: nowrap;
       overflow-x: scroll;
       justify-content: flex-start;
 
-      ::-webkit-scrollbar {
+      -webkit-scrollbar {
         height: 10px;
         background-color: linear-gradient(
           ${(props) => props.theme.dashboard.scrollbarDeg},
@@ -46,7 +43,7 @@ export const ContainerSprint = styled.section`
         );
       }
 
-      ::-webkit-scrollbar-thumb {
+      -webkit-scrollbar-thumb {
         background-color: gray;
         border-radius: 10px;
       }

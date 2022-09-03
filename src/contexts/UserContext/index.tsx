@@ -60,6 +60,20 @@ const UserProvider = ({ children }: UserProviderProps) => {
       time_video: "15:00",
       title: "Falando sobre Typescript",
     },
+    {
+      url: "https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4",
+      day: "25/08",
+
+      time_video: "15:00",
+      title: "Falando sobre Typescript",
+    },
+    {
+      url: "https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4",
+      day: "25/08",
+
+      time_video: "15:00",
+      title: "Falando sobre Typescript",
+    },
   ]);
 
   return (

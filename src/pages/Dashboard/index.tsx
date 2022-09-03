@@ -7,7 +7,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { ContainerSprint, ContainerVideo, Main } from "./styles";
 
 const Dashboard = () => {
-  const { card, videos } = useContext(UserContext);
+  const { card } = useContext(UserContext);
   return (
     <Main>
       <Header />

@@ -7,7 +7,7 @@ import { theme, dark, light } from "./theme/theme";
 
 const App = () => {
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={light}>
       <Global />
       <AppRoutes />
     </ThemeProvider>
