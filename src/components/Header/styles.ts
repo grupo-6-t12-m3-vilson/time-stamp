@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const ContainerHeader = styled.header`
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 
   height: 100px;
-  gap: 160px;
+  gap: 30px;
 
   background: ${(props) => props.theme.header.backgroundColor};
   box-shadow: ${(props) => props.theme.header.boxShadow};
@@ -27,82 +27,4 @@ export const ContainerHeader = styled.header`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  @media (max-width: 855px) {
-    gap: 25px;
-
-    section {
-      gap: 8px;
-    }
-  }
-
-  @media (max-width: 715px) {
-    h2 {
-      display: none;
-    }
-  }
-
-  @media (max-width: 422px) {
-    gap: 10px;
-
-    section {
-      gap: 0px;
-    }
-  }
 `;
-
-export const Form = styled.form`
-  input {
-    background: #232a43;
-    border-radius: 40px;
-    border: none;
-
-    padding: 10px;
-
-    width: 200px;
-    height: 30px;
-  }
-
-  @media (max-width: 396px) {
-    input {
-      width: 180px;
-      height: 40px;
-      padding: 5px;
-    }
-  }
-
-  @media (max-width: 350px) {
-    input {
-      width: 130px;
-    }
-  }
-`;
-
-export const Search = styled.button`
-  cursor: pointer;
-  position: relative;
-  right: 35px;
-  top: 3px;
-  background: none;
-  border: none;
-
-  @media (max-width: 368px) {
-    position: relative;
-    right: -185px;
-
-    top: -32px;
-  }
-
-  @media (max-width: 320px) {
-    right: 35px;
-    top: 3px;
-  }
-`;
-
-export const Profile = styled.div``;

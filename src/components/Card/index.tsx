@@ -11,7 +11,6 @@ const Card = ({ module, sprint, dia }: IProps) => {
         {module} - Sprint {sprint}
       </h2>
       <p>Atualizado em: {dia}</p>
-      <p>{}</p>
 
       <IconContainer>
         <HiOutlineBookOpen size={40} />

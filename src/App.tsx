@@ -6,15 +6,8 @@ import Global from "./styles/global";
 import { theme, dark, light } from "./theme/theme";
 
 const App = () => {
-  /*   const [currentTheme, setCurrentTheme] = useState("light");
-
-  const getOpositeTheme = useCallback(
-    () => (currentTheme === "light" ? "dark" : "light"),
-    [currentTheme]
-  ); */
-
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={light}>
       <Global />
       <AppRoutes />
     </ThemeProvider>

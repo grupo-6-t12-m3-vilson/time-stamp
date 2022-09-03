@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
+export const Container = styled.li`
   display: flex;
   justify-content: center;
-
   flex-direction: column;
 
-  min-width: 250px;
-  height: 140px;
   gap: 15px;
-  padding: 25px;
+  padding: 15px;
+
   cursor: pointer;
 
   background-color: ${(props) => props.theme.card.background};
@@ -33,23 +31,6 @@ export const Container = styled.section`
     letter-spacing: 0.05em;
 
     color: ${(props) => props.theme.card.colorP};
-  }
-
-  @media (max-width: 650px) {
-    min-width: 250px;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 525px) {
-    margin-left: 65px;
-  }
-
-  @media (max-width: 420px) {
-    margin-left: 35px;
-  }
-
-  @media (max-width: 350px) {
-    margin-left: 8px;
   }
 `;
 

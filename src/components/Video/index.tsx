@@ -1,18 +1,25 @@
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import { IProps } from "./interface";
+import { Container } from "./styles";
 
-import { SectionVideo } from "./styles";
+const Video = () => {
+  const { videos } = useContext(UserContext);
 
-const Video = ({ url, day, time_video, title }: IProps) => {
   return (
-    <SectionVideo>
-      <video controls src={url} />
-      <section>
-        <h2>Demo - {day}</h2>
-        <span>
-          {time_video} - {title}
-        </span>
-      </section>
-    </SectionVideo>
+    <Container>
+      {videos.map((dataVideo, index) => (
+        <li key={index}>
+          <video controls src={dataVideo.url} width={300} height={300} />
+          <div>
+            <h2>Demo - {dataVideo.day}</h2>
+            <span>
+              {dataVideo.time_video} - {dataVideo.title}
+            </span>
+          </div>
+        </li>
+      ))}
+    </Container>
   );
 };
 

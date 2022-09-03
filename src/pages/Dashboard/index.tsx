@@ -11,25 +11,22 @@ const Dashboard = () => {
   return (
     <Main>
       <Header />
+
       <ContainerSprint>
         <ul>
-          {card.map((data) => (
-            <Card module={data.module} sprint={data.sprint} dia={data.dia} />
+          {card.map((data, index) => (
+            <Card
+              key={index}
+              module={data.module}
+              sprint={data.sprint}
+              dia={data.dia}
+            />
           ))}
         </ul>
       </ContainerSprint>
 
       <ContainerVideo>
-        <ul>
-          {videos.map((dataVideo) => (
-            <Video
-              url={dataVideo.url}
-              day={dataVideo.day}
-              time_video={dataVideo.time_video}
-              title={dataVideo.title}
-            />
-          ))}
-        </ul>
+        <Video />
       </ContainerVideo>
     </Main>
   );
