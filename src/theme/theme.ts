@@ -9,7 +9,26 @@ export const light = {
   font_color_second: "#CED9E7",
   fill: "#407BFF",
   color_place_holder: "#C5C5C5",
-  transparent_gray: "rgba(0, 0, 0, 0.25)",
+  transparent_gray: "rgba( 0 , 0 , 0  , 0.25) ",
+
+  card: {
+    background: "#d3e0f0",
+    color: "black",
+    colorP: "#4d4d4d",
+    colorIcon: "#407bff",
+    border: "#407bff",
+  },
+
+  dashboard: {
+    deg: "225deg",
+    linear1: "#B5CAD9",
+    linear2: "#E5EBF3",
+    scrollbarDeg: "225deg",
+    scrollbar1: "#B5CAD9",
+    scrollbar2: "#E5EBF3",
+    transparent_gray: "rgba(0, 0, 0, 0.25)",
+  },
+
   modalEditVideo: {
     bg_modal_edit: "#DCE1DE",
     font_color_input: "#EAF6FF",
@@ -37,6 +56,24 @@ export const dark = {
   fill: "#2B3D64",
   color_place_holder: "#C5C5C5",
   transparent_gray: "rgba( 0 , 0 , 0  , 0.25) ",
+
+  card: {
+    background: "#0F2D51",
+    color: "#D3E0F0",
+    colorP: "#618BBE",
+    colorIcon: "#D3E0F0",
+    border: "#D3E0F0",
+  },
+
+  dashboard: {
+    deg: "145deg",
+    linear1: "#253250",
+    linear2: "#0F1425",
+    scrollbarDeg: "145deg",
+    scrollbar1: "#253250",
+    scrollbar2: "#0F1425",
+  },
+
   modalEditVideo: {
     bg_modal_edit: "#0d1b2d",
     font_color_input: "#fbf5f3",
