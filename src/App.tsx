@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import AppRoutes from "./routes";
 import Global from "./styles/global";
 
-import { theme, dark, light } from "./theme/theme";
+import { dark, light } from "./theme/theme";
+import { UserContext } from "./contexts/UserContext";
 
 const App = () => {
+  const { theme } = useContext(UserContext);
   return (
-    <ThemeProvider theme={light}>
+    <ThemeProvider theme={theme ? dark : light}>
       <Global />
       <AppRoutes />
     </ThemeProvider>
