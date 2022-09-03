@@ -5,6 +5,8 @@ export const Container = styled.li`
   justify-content: center;
   flex-direction: column;
 
+  min-width: 220px;
+
   gap: 15px;
   padding: 15px;
 
@@ -16,7 +18,7 @@ export const Container = styled.li`
   border-radius: 10px;
 
   h2 {
-    font-family: "Roboto Mono", monospace;
+    font-family: Poppins;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0.05em;
@@ -32,11 +34,6 @@ export const Container = styled.li`
     letter-spacing: 0.05em;
 
     color: ${(props) => props.theme.card.colorP};
-  }
-
-  @media (max-width: 650px) {
-    min-width: 220px;
-    margin-left: 20px;
   }
 `;
 

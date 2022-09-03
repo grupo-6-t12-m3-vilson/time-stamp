@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
   background: linear-gradient(
     ${(props) => props.theme.dashboard.deg},
     ${(props) => props.theme.dashboard.linear2},
@@ -16,22 +21,20 @@ export const ContainerSprint = styled.section`
   align-items: center;
   justify-content: center;
 
+  width: 85%;
+
   ul {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 35px;
 
-    margin-top: 50px;
-
-    max-width: 1200px;
+    padding-bottom: 1.5rem;
 
     @media (max-width: 650px) {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: scroll;
-      justify-content: flex-start;
 
       -webkit-scrollbar {
         height: 10px;
@@ -49,10 +52,4 @@ export const ContainerSprint = styled.section`
       }
     }
   }
-`;
-
-export const ContainerVideo = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

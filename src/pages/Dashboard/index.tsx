@@ -1,17 +1,14 @@
-import { useContext, useState } from "react";
-import { StringSchema } from "yup";
+import { useContext } from "react";
+
 import Card from "../../components/Card";
-import Header from "../../components/Header";
-import Video from "../../components/Video";
 import { UserContext } from "../../contexts/UserContext";
-import { ContainerSprint, ContainerVideo, Main } from "./styles";
+
+import { ContainerSprint, Main } from "./styles";
 
 const Dashboard = () => {
   const { card } = useContext(UserContext);
   return (
     <Main>
-      <Header />
-
       <ContainerSprint>
         <ul>
           {card.map((data, index) => (
@@ -24,10 +21,6 @@ const Dashboard = () => {
           ))}
         </ul>
       </ContainerSprint>
-
-      <ContainerVideo>
-        <Video />
-      </ContainerVideo>
     </Main>
   );
 };
