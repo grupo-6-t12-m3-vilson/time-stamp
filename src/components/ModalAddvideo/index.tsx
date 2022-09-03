@@ -32,19 +32,10 @@ const ModalAddVideo = () => {
           <Modal>
             <CloseModalContainer>
               <h2>Faça suas alterações aqui</h2>
-              <AiOutlineClose
-                color="#fff"
-                cursor="pointer"
-                onClick={toggleModalVisibility}
-              />
+              <AiOutlineClose onClick={toggleModalVisibility} />
             </CloseModalContainer>
             <UrlFieldContainer>
-              <AiOutlineCloseCircle
-                size={25}
-                cursor="pointer"
-                color={"#D7D9CE"}
-                onClick={clearUrl}
-              />
+              <AiOutlineCloseCircle size={25} onClick={clearUrl} />
 
               <input
                 type="text"

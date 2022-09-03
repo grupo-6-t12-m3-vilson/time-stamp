@@ -33,12 +33,35 @@ export const Modal = styled.div`
   }
 `;
 
+export const CloseModalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+
+  h2 {
+    font-family: "Roboto Mono", monospace;
+    color: ${(props) => props.theme.modalEditVideo.font_color_h1};
+  }
+
+  svg {
+    fill: ${(props) => props.theme.modalEditVideo.font_color_marker};
+    cursor: pointer;
+  }
+`;
+
 export const UrlFieldContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  width: 78%;
+  width: 83%;
+
+  svg {
+    fill: ${(props) => props.theme.modalEditVideo.font_color_icon_clear_url};
+    cursor: pointer;
+  }
 
   input {
     width: 80%;
@@ -62,19 +85,6 @@ export const UrlFieldContainer = styled.div`
         props.theme.modalEditVideo.font_color_input_placeholder};
       font-weight: 700;
     }
-  }
-`;
-
-export const CloseModalContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-
-  h2 {
-    font-family: "Roboto Mono", monospace;
-    color: ${(props) => props.theme.modalEditVideo.font_color_primary_modal};
   }
 `;
 
@@ -108,6 +118,8 @@ export const MarkerFieldContainer = styled.div`
       }
 
       &::placeholder {
+        color: ${(props) =>
+          props.theme.modalEditVideo.font_color_primary_modal};
         font-family: "Nunito Sans", sans-serif;
         font-weight: 700;
       }
@@ -141,6 +153,11 @@ export const MarkerFieldContainer = styled.div`
     &:focus {
       border: 1px solid ${(props) => props.theme.modalEditVideo.bg_input_modal};
       outline: none;
+    }
+
+    &::placeholder {
+      color: ${(props) =>
+        props.theme.modalEditVideo.font_color_input_placeholder};
     }
   }
 `;
@@ -194,7 +211,7 @@ export const CreatedMarkersList = styled.ul`
       width: 70%;
       font-size: 0.7rem;
       font-family: "Roboto Mono", monospace;
-      color: ${(props) => props.theme.modalEditVideo.font_color_input};
+      color: ${(props) => props.theme.modalEditVideo.font_color_marker};
       border-radius: 0px 5px 5px 0px;
       border: none;
       overflow: hidden;
@@ -213,8 +230,8 @@ export const SaveButton = styled.button`
   font-size: 1.2rem;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
-  color: ${(props) => props.theme.modalEditVideo.font_color_button_modal};
-  background-color: ${(props) => props.theme.bg_input};
+  color: ${(props) => props.theme.modalEditVideo.font_color_button_save};
+  background-color: ${(props) => props.theme.modalEditVideo.bg_button_save};
   border: none;
   cursor: pointer;
   border-radius: 8px;
