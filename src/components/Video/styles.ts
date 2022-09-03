@@ -17,6 +17,16 @@ export const Container = styled.ul`
   box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.11);
   border-radius: 10px;
 
+  ::-webkit-scrollbar {
+    height: 10px;
+    background-color: ${(props) => props.theme.video.backgroundScrollbar};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+
   li {
     margin-left: 38px;
 
