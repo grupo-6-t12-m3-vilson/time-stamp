@@ -41,7 +41,7 @@ export const Container = styled.ul`
     }
 
     span {
-      font-family: "Roboto Mono", monospace;
+      font-family: "Nunito";
       font-style: normal;
       font-weight: 800;
       font-size: 14px;
