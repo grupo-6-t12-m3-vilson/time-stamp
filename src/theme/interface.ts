@@ -13,6 +13,7 @@ export interface ITheme {
   bg_button: string;
   color_logo_left: string;
   color_logo_right: string;
+  background_transparent: string;
 
   card: {
     background: string;
@@ -20,6 +21,10 @@ export interface ITheme {
     colorP: string;
     colorIcon: string;
     border: string;
+  };
+
+  searchVideos: {
+    background: string;
   };
 
   dashboard: {

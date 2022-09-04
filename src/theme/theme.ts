@@ -15,6 +15,7 @@ export const light = {
   bg_button: "#232A43",
   color_logo_left: "#111",
   color_logo_right: "#01A5B1",
+  background_transparent: "rgba(255, 255, 255, 0.29)",
 
   card: {
     background: "#d3e0f0",
@@ -22,6 +23,10 @@ export const light = {
     colorP: "#4d4d4d",
     colorIcon: "#407bff",
     border: "#407bff",
+  },
+
+  searchVideos: {
+    background: "rgba(255, 255, 255, 0.29)",
   },
 
   dashboard: {
@@ -66,6 +71,7 @@ export const dark = {
   bg_button: "#E5EBF3",
   color_logo_left: "#fff",
   color_logo_right: "#01A5B1",
+  background_transparent: "rgba(17, 23, 43, 0.54);",
 
   card: {
     background: "#0F2D51",
@@ -73,6 +79,10 @@ export const dark = {
     colorP: "#618BBE",
     colorIcon: "#D3E0F0",
     border: "#D3E0F0",
+  },
+
+  searchVideos: {
+    background: "rgba(17, 23, 43, 0.54);",
   },
 
   dashboard: {
