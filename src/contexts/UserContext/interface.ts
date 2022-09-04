@@ -14,4 +14,9 @@ export interface IUserContext {
   card: ICard[];
   theme: boolean;
   themeDark: () => void;
+  clearUrl: () => void;
+  toggleModalVisibility: () => void;
+  urlValue: string;
+  setUrlValue: (value: string) => void;
+  modalEditVideoIsOpen: boolean;
 }
