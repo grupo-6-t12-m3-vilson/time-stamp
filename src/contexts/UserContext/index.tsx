@@ -12,6 +12,13 @@ interface ICard {
 
 interface UserContext {
   card: ICard[];
+  clearUrl: () => void;
+  toggleModalVisibility: () => void;
+  urlValue: string
+  setUrlValue: (value: string) => void;
+  modalEditVideoIsOpen: boolean;
+ 
+ 
 }
 
 export const UserContext = createContext({} as UserContext);
@@ -28,8 +35,23 @@ const UserProvider = ({ children }: UserProviderProps) => {
     { module: "M3", dia: "28/08/22", sprint: 8 },
   ]);
 
+  const [urlValue, setUrlValue] = useState<string>("");
+  const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
+    useState<boolean>(false);
+
+  const clearUrl = () => {
+    setUrlValue("");
+  };
+
+  const toggleModalVisibility = () => {
+    setModalEditVideoIsOpen(!modalEditVideoIsOpen);
+  };
+
+
+  
+  
   return (
-    <UserContext.Provider value={{ card }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={ {card , clearUrl, toggleModalVisibility, urlValue, setUrlValue, modalEditVideoIsOpen} }>{children}</UserContext.Provider>
   );
 };
 export default UserProvider;

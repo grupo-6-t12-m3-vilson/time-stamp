@@ -53,8 +53,7 @@ const LiContainer = ({children}: Children) => {
       {showSelect && (
         <DivSelect>
           <LiSelect onClick={handleSelectVideo}>Tipando Funções</LiSelect>
-          <LiSelect onClick={handleSelectVideo}>Tipando Funções</LiSelect>
-          <LiSelect onClick={handleSelectVideo}>Tipando Funções</LiSelect>
+          <LiSelect onClick={handleSelectVideo}>Tipando Funções</LiSelect>          
         </DivSelect>
         )
         }

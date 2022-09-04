@@ -1,5 +1,6 @@
-import { useState } from "react";
+import {  useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineCloseCircle } from "react-icons/ai";
+import { UserContext } from "../../contexts/UserContext";
 
 import {
   CloseModalContainer,
@@ -12,22 +13,14 @@ import {
   UrlFieldContainer,
 } from "./styles";
 
+
 const ModalAddVideo = () => {
-  const [urlValue, setUrlValue] = useState<string>("");
-  const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
-    useState<boolean>(false);
-
-  const clearUrl = () => {
-    setUrlValue("");
-  };
-
-  const toggleModalVisibility = () => {
-    setModalEditVideoIsOpen(!modalEditVideoIsOpen);
-  };
-
+  
+  const {toggleModalVisibility, clearUrl, urlValue, setUrlValue} = useContext(UserContext)
+   
+  
   return (
-    <>
-      {modalEditVideoIsOpen ? (
+    <>       
         <ModalContainer>
           <Modal>
             <CloseModalContainer>
@@ -36,7 +29,6 @@ const ModalAddVideo = () => {
             </CloseModalContainer>
             <UrlFieldContainer>
               <AiOutlineCloseCircle size={25} onClick={clearUrl} />
-
               <input
                 type="text"
                 placeholder="URL :"
@@ -47,8 +39,8 @@ const ModalAddVideo = () => {
             <MarkerFieldContainer>
               <textarea placeholder="Descrição:"></textarea>
               <div>
-                <input type="text" placeholder="07:32" />
-                <button type="button">Enviar</button>
+                <input type="text" placeholder="tempo"  />
+                <button type="button" >Enviar</button>
               </div>
             </MarkerFieldContainer>
             <CreatedMarkersContainer>
@@ -73,10 +65,7 @@ const ModalAddVideo = () => {
             </CreatedMarkersContainer>
             <SaveButton onClick={toggleModalVisibility}>Salvar</SaveButton>
           </Modal>
-        </ModalContainer>
-      ) : (
-        <button onClick={toggleModalVisibility}>Abrir modal</button>
-      )}
+        </ModalContainer>      
     </>
   );
 };

@@ -32,14 +32,9 @@ export const DivSelect = styled.div`
   gap: 5px;
   padding: 5px;
   height: 100px;
-  overflow-y: auto;
-  border: 3px solid rgba(0, 0, 0, 0.21);
-  animation: mymove 2s ;
-  
-  @keyframes mymove{
-   from{top:-50px}
-   to{top:0px}   
-  } 
+  overflow-y: auto;  
+  animation: mymove 2s ;  
+ 
 `;
 
 

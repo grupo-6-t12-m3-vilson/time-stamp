@@ -71,7 +71,7 @@ export const DivExtra = styled.div`
   background: #0f2d51;
   border-radius: 10px 10px 0px 0px;
 
-  p {
+  h2 {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
@@ -93,13 +93,13 @@ export const DivInfo = styled.div`
   align-items: center;
 `;
 
-export const DivDetails = styled.div`
+export const UlDetails = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  div {
+  li {
     margin-top: 3px;
     width: 100%;
     gap: 19px;

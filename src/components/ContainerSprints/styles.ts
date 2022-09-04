@@ -69,7 +69,7 @@ interface NavProps {
   sideBar: boolean;
 }
 
-export const NavDate = styled.nav<NavProps>`
+export const AsideDate = styled.aside<NavProps>`
   display: flex;
   flex-direction: column;
   margin: 0 45px;

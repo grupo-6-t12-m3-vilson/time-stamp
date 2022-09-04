@@ -4,8 +4,8 @@ import ModalAddVideo from "../../components/ModalAddvideo";
 const DashboardSprint = () => {
   return (
     <>
-      <ContainerSprints />
-      <ModalAddVideo />
+      <ContainerSprints  />
+      
     </>
   );
 };

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { MainContainer, NavDate } from "./styles";
 
+import { AsideDate, MainContainer} from "./styles";
 import ShowPlay from "./ShowPlay/indes";
 import NavDay from "./NavDay";
 
@@ -25,11 +24,9 @@ const ContainerSprints = () => {
           </div>
         </div>
         <section>
-          <NavDate sideBar={sideBar}>
-            <NavDay />
-            {/* <NavLink to="/"> */}
-            {/* </NavLink> */}
-          </NavDate>
+          <AsideDate sideBar={sideBar}>
+            <NavDay />           
+          </AsideDate>
 
           <ShowPlay />
         </section>
