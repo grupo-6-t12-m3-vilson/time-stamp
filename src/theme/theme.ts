@@ -55,7 +55,7 @@ export const dark = {
   bg_linear_1: "#253250",
   bg_linear_2: "#0F1425",
   bg_input: "#1F2D61",
-  bg_header: "transparent",
+  bg_header: "#0F1425",
   bg_header_form: "#D3E0F0",
   font_color_primary: "#fff",
   font_color_second: "#CED9E7",
@@ -82,6 +82,7 @@ export const dark = {
     scrollbarDeg: "145deg",
     scrollbar1: "#253250",
     scrollbar2: "#0F1425",
+    transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
   modalEditVideo: {
