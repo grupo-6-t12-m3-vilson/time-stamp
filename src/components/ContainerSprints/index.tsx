@@ -17,11 +17,11 @@ const ContainerSprints = () => {
       <MainContainer>
         <div id="divSprint">
           <h1>SPRINT 1</h1>
-          <div id="divShow">
-            <FaBars onClick={showSiderBar} />
+          <div id="divShow" >
+            <FaBars style={{display: sideBar === true ?  "none" : "flex"}} onClick={showSiderBar} />
           </div>
-          <div id="divClose" onClick={showSiderBar}>
-            <FaTimes />
+          <div id="divClose" style={{display: sideBar === true ?  "flex" : "none"}} >
+            <FaTimes onClick={showSiderBar}/>
           </div>
         </div>
         <section>

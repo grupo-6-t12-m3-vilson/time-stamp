@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main`  
+export const MainContainer = styled.main`
   width: 100%;
   max-width: 1521px;
   height: 505px;
@@ -19,6 +19,13 @@ export const MainContainer = styled.main`
     border-radius: 3%;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
+    @media (max-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+  
+
     h1 {
       font-family: "Roboto", sans-serif;
       font-style: normal;
@@ -35,25 +42,25 @@ export const MainContainer = styled.main`
       display: none;
       cursor: pointer;
 
-      @media (max-width: 560px) {
+      @media (max-width: 1024px) {
         display: flex;
         flex-direction: row-reverse;
       }
     }
 
-    #divClose {
+    #divClose{
       font-size: 30px;
       display: none;
       cursor: pointer;
 
-      @media (max-width: 560px) {
+      @media (max-width: 1024px) {
         display: flex;
         flex-direction: row-reverse;
       }
     }
   }
 
-  section{
+  section {
     display: flex;
   }
 `;
@@ -61,22 +68,20 @@ export const MainContainer = styled.main`
 interface NavProps {
   sideBar: boolean;
 }
+
 export const NavDate = styled.nav<NavProps>`
   display: flex;
   flex-direction: column;
   margin: 0 45px;
 
-  @media (max-width: 560px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
-    background-color: FFFFF;
-    position: fixed;
-    height: 100%;
-
-    gap: 0px;
-    top: 0px;
-    right: 0px;
-    width: 60%;
-    right: ${props => props.sideBar ? '0' : '-100%'};
+    background-color: #d3e0f0;
+    position: fixed;  
+    margin: 4% auto;
+    top: 10%;    
+    width: 30%;
+    right: ${(props) => (props.sideBar ? "0" : "-100%")};
     transition: 0.5s;
 
     a {
@@ -86,5 +91,11 @@ export const NavDate = styled.nav<NavProps>`
       justify-content: space-around;
     }
   }
-`;
+  
+  @media (max-width: 425px) {    
+    width: 300px;
+    margin: 8% auto;    
+  }
 
+ 
+`;

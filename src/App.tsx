@@ -1,4 +1,3 @@
-import React from "react";
 import { ThemeProvider } from "styled-components";
 import AppRoutes from "./routes";
 import Global from "./styles/global";
