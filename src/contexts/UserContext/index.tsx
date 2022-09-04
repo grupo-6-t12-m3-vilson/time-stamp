@@ -1,24 +1,9 @@
 import { createContext, ReactNode, useState } from "react";
+import { ICard, IUserContext, IUserProviderProps } from "./interface";
 
-interface UserProviderProps {
-  children: ReactNode;
-}
+export const UserContext = createContext({} as IUserContext);
 
-interface ICard {
-  module: string;
-  dia: string;
-  sprint: number;
-}
-
-interface UserContext {
-  card: ICard[];
-  theme: boolean;
-  themeDark: () => void;
-}
-
-export const UserContext = createContext({} as UserContext);
-
-const UserProvider = ({ children }: UserProviderProps) => {
+const UserProvider = ({ children }: IUserProviderProps) => {
   const [theme, setTheme] = useState<boolean>(true);
 
   const themeDark = () => {
