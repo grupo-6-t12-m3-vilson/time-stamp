@@ -1,29 +1,14 @@
 import { createContext, ReactNode, useState } from "react";
+import { IUserContext, IUserProviderProps } from "./interface";
 
-interface UserProviderProps {
-  children: ReactNode;
-}
+export const UserContext = createContext({} as IUserContext);
 
-interface ICard {
-  module: string;
-  dia: string;
-  sprint: number;
-}
+const UserProvider = ({ children }: IUserProviderProps) => {
+  const [theme, setTheme] = useState<boolean>(true);
+  const themeDark = () => {
+    setTheme(!theme);
+  };
 
-interface UserContext {
-  card: ICard[];
-  clearUrl: () => void;
-  toggleModalVisibility: () => void;
-  urlValue: string
-  setUrlValue: (value: string) => void;
-  modalEditVideoIsOpen: boolean;
- 
- 
-}
-
-export const UserContext = createContext({} as UserContext);
-
-const UserProvider = ({ children }: UserProviderProps) => {
   const [card, setCard] = useState([
     { module: "M3", dia: "05/07/22", sprint: 1 },
     { module: "M3", dia: "12/07/22", sprint: 2 },
@@ -47,11 +32,22 @@ const UserProvider = ({ children }: UserProviderProps) => {
     setModalEditVideoIsOpen(!modalEditVideoIsOpen);
   };
 
-
-  
-  
   return (
-    <UserContext.Provider value={ {card , clearUrl, toggleModalVisibility, urlValue, setUrlValue, modalEditVideoIsOpen} }>{children}</UserContext.Provider>
+    <UserContext.Provider
+      value={{
+        card,
+        theme,
+        themeDark,
+        clearUrl,
+        toggleModalVisibility,
+        urlValue,
+        setUrlValue,
+        modalEditVideoIsOpen,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
   );
 };
+
 export default UserProvider;

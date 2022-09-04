@@ -6,7 +6,7 @@ const SignInContainer = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
-  color: ${(props) => props.theme.font_color};
+  color: ${(props) => props.theme.font_color_primary};
   background: linear-gradient(
     145deg,
     ${(props) => props.theme.bg_linear_2},
@@ -94,7 +94,7 @@ const ContentIntro = styled.section`
       transform: inherit;
     }
   }
-  @media screen and (max-width: 1054px) {
+  @media screen and (max-width: 1024px) {
     width: 100vw;
     justify-content: center;
 
@@ -126,7 +126,7 @@ const FormContent = styled.div`
     }
   }
 
-  @media screen and (max-width: 1054px) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
     max-width: 400px;
     div {
@@ -211,7 +211,7 @@ const FormSign = styled.form`
       touch-action: none;
     }
   }
-  @media screen and (max-width: 1054px) {
+  @media screen and (max-width: 1024px) {
     background-color: transparent;
   }
 `;

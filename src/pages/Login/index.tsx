@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { ContentIntro, FormContent, FormSign, SignInContainer } from "./styles";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-
+import HeaderComponent from "../../components/HeaderComponent";
 import { ReactComponent as Intro } from "../../assets/intro.svg";
-import { parseClassName } from "react-toastify/dist/utils";
 
 function Login() {
   const [typePassword, setTypePassword] = useState("password");
   const [password, setPassword] = useState("");
-  const passwordRef = useRef<HTMLInputElement | null>(null);
 
   function showPassword() {
     typePassword === "password"
@@ -19,32 +17,22 @@ function Login() {
 
   return (
     <SignInContainer>
+      <HeaderComponent />
       <ContentIntro>
         <FormContent>
           <div>
             <h2>Seja, bem vindo(a)!</h2>
           </div>
           <FormSign>
-            <input type="text" name="" placeholder="email" autoFocus />
+            <input type="email" name="" placeholder="email" autoFocus />
             <div>
               <input
                 type={typePassword}
                 name="password"
-                ref={(passwordRef) => {
-                  if (passwordRef) {
-                    passwordRef.focus();
-                  }
-                }}
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  showPassword();
-                }}
-                autoFocus={false}
-              >
+              <button type="button" onClick={showPassword}>
                 {typePassword === "password" ? (
                   <FiEye width={40} color="#fff" />
                 ) : (

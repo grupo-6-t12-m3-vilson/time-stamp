@@ -1,11 +1,11 @@
 import ContainerSprints from "../../components/ContainerSprints";
-import ModalAddVideo from "../../components/ModalAddvideo";
+import HeaderComponent from "../../components/HeaderComponent";
 
 const DashboardSprint = () => {
   return (
     <>
-      <ContainerSprints  />
-      
+      <HeaderComponent />
+      <ContainerSprints />
     </>
   );
 };
