@@ -6,6 +6,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 135px;
   width: 100%;
+  box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.08);
   color: ${(props) => props.theme.font_color_primary};
   background: ${(props) => props.theme.bg_header};
   max-width: 1440px;
@@ -17,7 +18,7 @@ const HeaderContainer = styled.header`
     align-items: center;
 
     h1 {
-      font-family: "Nunito";
+      font-family: "Nunito", sans-serif;
       font-size: 2.75rem;
       letter-spacing: 2px;
       background: linear-gradient(
