@@ -24,11 +24,17 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     { module: "M3", dia: "28/08/22", sprint: 8 },
   ]);
 
-  const [urlValue, setUrlValue] = useState<string>("");
   const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
     useState<boolean>(false);
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
+  const [urlValue, setUrlValue] = useState<string>("");
+  const [marcadores, setMarcadores] = useState([
+    {
+      url: "",
+      marks: [],
+    },
+  ]);
 
   const {
     register,
@@ -44,9 +50,9 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setModalEditVideoIsOpen(!modalEditVideoIsOpen);
   };
 
-  function onSubmit(data: IMarkers) {
+  const onSubmit = (data: IMarkers) => {
     setMarkers([...markers, data]);
-  }
+  };
 
   return (
     <UserContext.Provider

@@ -28,6 +28,7 @@ const ModalAddVideo = () => {
   return (
     <>
       {console.log(markers)}
+      {console.log(urlValue)}
       <ModalContainer>
         <Modal>
           <CloseModalContainer>
@@ -44,8 +45,7 @@ const ModalAddVideo = () => {
             />
           </UrlFieldContainer>
 
-          <MarkerFieldContainer>
-            {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+          <MarkerFieldContainer onSubmit={handleSubmit(onSubmit)}>
             <textarea
               placeholder="Descrição:"
               {...register("title")}
@@ -58,18 +58,17 @@ const ModalAddVideo = () => {
               />
               <button type="submit">Enviar</button>
             </div>
-            {/*        </form> */}
           </MarkerFieldContainer>
 
           <CreatedMarkersContainer>
             <CreatedMarkersList>
-              {/*   {markers.map((mark) => (
-                <li>
+              {markers.map((mark, index) => (
+                <li key={index}>
                   <span>{mark.time_video}</span>
                   <p>{mark.title}</p>
                 </li>
-              ))} */}
-              <li>
+              ))}
+              {/*  <li>
                 <span>07:22</span>
                 <p>useEffect e suas dependências</p>
               </li>
@@ -84,7 +83,7 @@ const ModalAddVideo = () => {
               <li>
                 <span>52:01</span>
                 <p>useEffect, useRef e useState</p>
-              </li>
+              </li> */}
             </CreatedMarkersList>
           </CreatedMarkersContainer>
           <SaveButton onClick={toggleModalVisibility}>Salvar</SaveButton>

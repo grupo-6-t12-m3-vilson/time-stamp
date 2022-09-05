@@ -27,7 +27,7 @@ export interface IUserContext {
   clearUrl: () => void;
   toggleModalVisibility: () => void;
   urlValue: string;
-  setUrlValue: (value: string) => void;
+  setUrlValue: Dispatch<SetStateAction<string>>;
   modalEditVideoIsOpen: boolean;
   markers: IMarkers[];
   setMarkers: Dispatch<SetStateAction<IMarkers[]>>;
