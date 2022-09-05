@@ -5,7 +5,7 @@ const SignInContainer = styled.div`
   font-weight: 800;
   display: flex;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   color: ${(props) => props.theme.font_color_primary};
   background: linear-gradient(
     145deg,
@@ -13,7 +13,6 @@ const SignInContainer = styled.div`
     ${(props) => props.theme.bg_linear_1},
     ${(props) => props.theme.bg_linear_2}
   );
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow-y: auto;
@@ -23,7 +22,8 @@ const ContentIntro = styled.section`
   display: flex;
   align-items: center;
   width: 80vw;
-  height: 100vh;
+  height: fit-content;
+  margin-top: 10px;
   max-width: 1400px;
   justify-content: space-between;
 

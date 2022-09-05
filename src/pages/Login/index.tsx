@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { ContentIntro, FormContent, FormSign, SignInContainer } from "./styles";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import HeaderComponent from "../../components/HeaderComponent";
+import HeaderComponentLogin from "../../components/HeaderComponentLogin";
 import { ReactComponent as Intro } from "../../assets/intro.svg";
 
 function Login() {
@@ -17,7 +17,7 @@ function Login() {
 
   return (
     <SignInContainer>
-      <HeaderComponent />
+      <HeaderComponentLogin />
       <ContentIntro>
         <FormContent>
           <div>

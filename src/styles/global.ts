@@ -30,6 +30,24 @@ body, html {
     width: 100%;
     min-height: 100vh;
 
+    ::-webkit-scrollbar {
+    width: 7px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+    }
+
+    ::-webkit-scrollbar-thumb:vertical,
+     ::-webkit-scrollbar-thumb:horizontal {
+    background-color: #96a0b9;
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:vertical:hover,
+    ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #96a0b9;
+    }
+
 }
 ol, ul {
     list-style: none;
