@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { BsFileEarmarkPlay } from "react-icons/bs";
 
+import { UserContext } from "../../../contexts/UserContext";
+import ModalAddVideo from "../../ModalAddvideo";
+
 import {
   ContainerPlay,
   DivAddVideo,
@@ -10,8 +13,6 @@ import {
   DivPlay,
   UlDetails,
 } from "./styles";
-import { UserContext } from "../../../contexts/UserContext";
-import ModalAddVideo from "../../ModalAddvideo";
 
 const ShowPlay = () => {
   const { toggleModalVisibility, modalEditVideoIsOpen } =

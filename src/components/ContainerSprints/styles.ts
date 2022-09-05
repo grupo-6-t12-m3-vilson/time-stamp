@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MainContainer = styled.main`
   width: 90%;
-
   margin: 2rem auto;
+
   #divSprint {
     display: flex;
     align-items: center;
@@ -60,19 +60,19 @@ export const AsideDate = styled.aside<NavProps>`
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    background-color: #d3e0f0;
     position: fixed;
-    margin: 4% auto;
     top: 10%;
-    width: 30%;
     right: ${(props) => (props.sideBar ? "0" : "-100%")};
+    width: 30%;
+    margin: 4% auto;
+    background-color: #d3e0f0;
     transition: 0.5s;
 
     a {
-      margin-top: 100px;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      margin-top: 100px;
     }
   }
 
