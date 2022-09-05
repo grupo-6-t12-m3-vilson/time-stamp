@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import { AsideDate, MainContainer } from "./styles";
-import ShowPlay from "./ShowPlay/indes";
+import ShowPlay from "./ShowPlay/index";
 import NavDay from "./NavDay";
 
 const ContainerSprints = () => {

@@ -116,10 +116,10 @@ export const UlDetails = styled.ul`
       font-weight: 800;
       color: rgba(255, 255, 255, 0.29);
       background: #555d76;
-      cursor: pointer;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      cursor: pointer;
     }
   }
 `;
