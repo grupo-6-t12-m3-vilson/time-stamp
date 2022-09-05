@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContainerVideoSearch = styled.section`
   width: 85vw;
   margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 10px;
   background: ${(props) => props.theme.containerSearchVideo.background};
   box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.11);
