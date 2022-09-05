@@ -23,7 +23,7 @@ export const ContainerSprint = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 
   width: 85%;
 
