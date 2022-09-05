@@ -1,5 +1,9 @@
-import { createContext, ReactNode, useState } from "react";
-import { IUserContext, IUserProviderProps } from "./interface";
+import { createContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import schemaMarkers from "../../utils/schema";
+import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -24,6 +28,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
     useState<boolean>(false);
 
+  const [markers, setMarkers] = useState<IMarkers[]>([]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IMarkers>({ resolver: yupResolver(schemaMarkers) });
+
   const clearUrl = () => {
     setUrlValue("");
   };
@@ -31,6 +43,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const toggleModalVisibility = () => {
     setModalEditVideoIsOpen(!modalEditVideoIsOpen);
   };
+
+  function onSubmit(data: IMarkers) {
+    setMarkers([...markers, data]);
+  }
 
   return (
     <UserContext.Provider
@@ -43,6 +59,12 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         urlValue,
         setUrlValue,
         modalEditVideoIsOpen,
+        markers,
+        setMarkers,
+        onSubmit,
+        register,
+        handleSubmit,
+        errors,
       }}
     >
       {children}

@@ -1,3 +1,8 @@
-const schema = () => {};
+import * as yup from "yup";
 
-export default schema;
+const schemaMarkers = yup.object({
+  time_video: yup.string().required("Campo obrigatorio"),
+  title: yup.string().required("Campo obrigatorio"),
+});
+
+export default schemaMarkers;
