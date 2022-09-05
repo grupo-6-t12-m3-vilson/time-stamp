@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import Card from "../../components/Card";
 import HeaderComponent from "../../components/HeaderComponent";
+import ContainerVideosSearch from "../../components/ContainerVideosSearch";
+
 import { UserContext } from "../../contexts/UserContext";
 
 import { ContainerSprint, Main } from "./styles";
@@ -24,6 +26,7 @@ const Dashboard = () => {
             ))}
           </ul>
         </ContainerSprint>
+        <ContainerVideosSearch></ContainerVideosSearch>
       </Main>
     </>
   );
