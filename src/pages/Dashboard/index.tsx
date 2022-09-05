@@ -6,12 +6,12 @@ import ContainerVideosSearch from "../../components/ContainerVideosSearch";
 
 import { UserContext } from "../../contexts/UserContext";
 
-import { ContainerSprint, Main } from "./styles";
+import { Container, ContainerSprint, Main } from "./styles";
 
 const Dashboard = () => {
   const { card } = useContext(UserContext);
   return (
-    <>
+    <Container>
       <HeaderComponent />
       <Main>
         <ContainerSprint>
@@ -28,7 +28,7 @@ const Dashboard = () => {
         </ContainerSprint>
         <ContainerVideosSearch></ContainerVideosSearch>
       </Main>
-    </>
+    </Container>
   );
 };
 
