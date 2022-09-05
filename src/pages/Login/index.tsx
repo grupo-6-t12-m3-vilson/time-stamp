@@ -43,7 +43,7 @@ function Login() {
             <button type="submit">Login</button>
           </FormSign>
         </FormContent>
-        <Intro width="90vh" />
+        <Intro width="50%" />
       </ContentIntro>
     </SignInContainer>
   );

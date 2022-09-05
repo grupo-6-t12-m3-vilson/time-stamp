@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
+export const Container = styled.div`
   background: linear-gradient(
     ${(props) => props.theme.dashboard.deg},
     ${(props) => props.theme.dashboard.linear2},
@@ -16,10 +11,19 @@ export const Main = styled.main`
   min-height: 100vh;
 `;
 
+export const Main = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const ContainerSprint = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 
   width: 85%;
 
@@ -34,7 +38,8 @@ export const ContainerSprint = styled.section`
     @media (max-width: 650px) {
       display: flex;
       flex-wrap: nowrap;
-      overflow-x: scroll;
+      overflow-x: auto;
+      margin-top: 0;
 
       -webkit-scrollbar {
         height: 10px;
