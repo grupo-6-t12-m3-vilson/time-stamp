@@ -34,6 +34,11 @@ export const light = {
     transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
+  containerSearchVideo: {
+    title_card: "rgba(35, 42, 67, 1)",
+    background: "rgba(255, 255, 255, 0.29);",
+  },
+
   modalEditVideo: {
     bg_modal_edit: "#DCE1DE",
     font_color_input: "#EAF6FF",
@@ -83,6 +88,11 @@ export const dark = {
     scrollbar1: "#253250",
     scrollbar2: "#0F1425",
     transparent_gray: "rgba(0, 0, 0, 0.25)",
+  },
+
+  containerSearchVideo: {
+    title_card: "rgba(211, 224, 240, 1)",
+    background: "rgba(17, 23, 43, 0.54);",
   },
 
   modalEditVideo: {

@@ -32,6 +32,11 @@ export interface ITheme {
     transparent_gray: string;
   };
 
+  containerSearchVideo: {
+    title_card: string;
+    background: string;
+  };
+
   modalEditVideo: {
     bg_modal_edit: string;
     font_color_input: string;
