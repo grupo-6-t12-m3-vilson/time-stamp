@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SignInContainer = styled.div`
-  font-family: "Nunito";
+  font-family: "Nunito", sans-serif;
   font-weight: 800;
   display: flex;
   height: 100vh;
@@ -161,6 +161,8 @@ const FormSign = styled.form`
     color: ${(props) => props.theme.font_color_second};
     border: none;
     font-size: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
   }
 
   input {
@@ -170,10 +172,14 @@ const FormSign = styled.form`
     width: 80%;
     border-radius: 10px;
     padding-left: 20px;
+    outline: none;
+    font-size: 16px;
 
     color: ${(props) => props.theme.font_color_second};
 
     &::placeholder {
+      font-family: "Nunito", sans-serif;
+      font-weight: 700;
       opacity: 1;
       color: ${(props) => props.theme.color_place_holder};
       font-size: 1rem;

@@ -4,11 +4,12 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 135px;
+  height: 100px;
   width: 100%;
   color: ${(props) => props.theme.font_color_primary};
   background: ${(props) => props.theme.bg_header};
   max-width: 1440px;
+
   div.logo {
     display: flex;
     gap: 14px;
