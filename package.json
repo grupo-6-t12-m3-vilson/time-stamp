@@ -23,6 +23,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.1.19",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-icons": "^3.0.0",

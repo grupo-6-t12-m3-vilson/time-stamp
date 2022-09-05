@@ -1,168 +1,142 @@
 import styled from "styled-components";
 
 export const ContainerPlay = styled.div`
-  width: 100%;
-  max-width: 1205px;
-  height: 416px;
-  border-radius: 8px;
-
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-
+  justify-content: flex-end;
+  width: 100%;
   background-color: #d3e0f0;
+  border-radius: 8px;
 
   @media (max-width: 1024px) {
     display: flex;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
   }
 `;
 
 export const DivPlay = styled.div`
-  width: calc(100% - 350px);
-  height: calc(100% - 50px);
-  font-size: 100px;
-  background-color: #22282f;
-  color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  padding: 0;
+  color: white;
+  background-color: #22282f;
 
   video {
     width: 100%;
     height: 100%;
-   
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
+    width: 100%;
     height: 250px;
-    width: 310px;
-    border: 10px solid #fff;
-    border-radius: 10%;
+    border: 2.5px solid #fff;
   }
 `;
 
 export const DivBox = styled.div`
-  width: 310px;
-  height: 371px;
+  width: 40%;
+  height: 100%;
   margin-right: 1%;
   margin-left: 1%;
   background: rgba(255, 255, 255, 0.54);
   border-radius: 10px;
 
-  @media (max-width: 425px) {
-    max-height: 150px;
-    max-width: 400px;
-    margin-bottom: 1%;
+  @media (max-width: 768px) {
+    width: 100%;
+    max-height: 375px;
   }
 `;
 
 export const DivExtra = styled.div`
-  width: 100%;
-  height: 51px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 100%;
+  height: 51px;
   background: #0f2d51;
   border-radius: 10px 10px 0px 0px;
 
   h2 {
-    font-family: "Roboto";
-    font-style: normal;
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.5rem;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.05em;
-
     color: #ffffff;
   }
 `;
 
 export const DivInfo = styled.div`
-  height: 320px;
-  width: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  max-height: 225px;
+  margin-top: 0.5rem;
+  overflow-y: auto;
 `;
 
 export const UlDetails = styled.ul`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
 
   li {
-    margin-top: 3px;
-    width: 100%;
-    gap: 19px;
     display: flex;
+    align-items: center;
     justify-content: center;
+    width: 100%;
 
     p {
       width: 30%;
-      font-family: "Nunito";
-      font-style: normal;
+      height: 2rem;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 1.25rem;
       font-weight: 800;
       text-align: center;
-      font-size: 22px;
-      line-height: 30px;    
-      /* identical to box height */
-
-      cursor: pointer;
-      letter-spacing: 0.05em;
-      background: #bcc3d9;
-      border-radius: 10px;
-
       color: rgba(35, 42, 67, 0.87);
+      background: #bcc3d9;
+      border-radius: 2px;
+      cursor: pointer;
     }
 
     span {
-      width: 50%;
-      background: #555d76;
-      border-radius: 10px;
-      font-family: "Nunito";
-      font-style: normal;
+      width: 55%;
+      height: 2rem;
+      padding: 0 0.5rem;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
       font-weight: 800;
-      text-align: center;
-      font-size: 22px;
-      line-height: 30px;
-      /* identical to box height */
-      cursor: pointer;
-      letter-spacing: 0.05em;
-      color: rgba(35, 42, 67, 0.87);
-      letter-spacing: 0.05em;
-
       color: rgba(255, 255, 255, 0.29);
+      background: #555d76;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 `;
 
 export const DivAddVideo = styled.div`
-  width: 100%;
   display: flex;
   justify-content: right;
-  margin-right: 15px;
-  margin-bottom: 10px;
+  width: 100%;
 
   button {
-    height: 50px;
     width: 50px;
-    font-size: 23px;
-    border-style: none;
-    background: #d3e0f0;
-    border-radius: 50%;
+    height: 50px;
+    margin-right: 1rem;
+    font-size: 25px;
     color: #0f2d51;
-  }
-
-  @media (max-width: 425px) {
-    display: none;
+    background: #d3e0f0;
+    border-style: none;
+    border-radius: 50%;
   }
 `;

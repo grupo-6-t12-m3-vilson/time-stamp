@@ -11,14 +11,14 @@ export const ContainerLi = styled.div`
   cursor: pointer;
   gap: 8px;
 
-  p {    
+  p {
     width: 191px;
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
-    line-height: 26px;    
-    letter-spacing: 0.05em;    
+    line-height: 26px;
+    letter-spacing: 0.05em;
     color: #232a43;
   }
 `;
@@ -27,23 +27,21 @@ export const DivSelect = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   margin-top: 5px;
   gap: 5px;
   padding: 5px;
   height: 100px;
-  overflow-y: auto;  
-  animation: mymove 2s ;  
- 
+  overflow-y: auto;
+  animation: mymove 2s;
 `;
 
-
 export const LiSelect = styled.li`
-    cursor: pointer;
-    width: 150px;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;    
-    color: #232a43;
+  cursor: pointer;
+  width: 150px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #232a43;
 `;
