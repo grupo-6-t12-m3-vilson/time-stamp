@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Card from "../../components/Card";
-import HeaderComponentDashboard from "../../components/HeaderComponentDashboard";
+import HeaderComponent from "../../components/HeaderComponent";
 import ContainerVideosSearch from "../../components/ContainerVideosSearch";
 
 import { UserContext } from "../../contexts/UserContext";
@@ -12,7 +12,7 @@ const Dashboard = () => {
   const { card } = useContext(UserContext);
   return (
     <>
-      <HeaderComponentDashboard></HeaderComponentDashboard>
+      <HeaderComponent />
       <Main>
         <ContainerSprint>
           <ul>

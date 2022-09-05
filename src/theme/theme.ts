@@ -11,9 +11,9 @@ export const light = {
   fill: "#407BFF",
   color_place_holder: "#C5C5C5",
   transparent_gray: "rgba( 0 , 0 , 0  , 0.25) ",
-  fillHeader: "rgba(35, 42, 67, 1)",
+  fillHeader: "#222",
   bg_button: "#232A43",
-  color_logo_left: "rgba(35, 42, 67, 1)",
+  color_logo_left: "#111",
   color_logo_right: "#01A5B1",
 
   card: {
