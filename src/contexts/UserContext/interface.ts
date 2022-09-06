@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, RefObject } from "react";
 
 export interface IUserProviderProps {
   children: ReactNode;
@@ -19,4 +19,13 @@ export interface IUserContext {
   urlValue: string;
   setUrlValue: (value: string) => void;
   modalEditVideoIsOpen: boolean;
+  videoRef: RefObject<HTMLVideoElement>;
+  showTime: IShowTime[];
+  jumpShowTime: (time:number) => void;
+}
+
+export interface IShowTime {
+  timeSecunds: number;
+  time: string;
+  description: string;
 }

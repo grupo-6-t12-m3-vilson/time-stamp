@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useState } from "react";
-import { IUserContext, IUserProviderProps } from "./interface";
+import { createContext, ReactNode, useRef, useState } from "react";
+import { IShowTime, IUserContext, IUserProviderProps } from "./interface";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -32,6 +32,34 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setModalEditVideoIsOpen(!modalEditVideoIsOpen);
   };
 
+  const shows = [
+    {
+      timeSecunds: 1000,
+      time: "00:16:40",
+      description: "useState",
+    },
+    {
+      timeSecunds: 2500,
+      time: "00:41:40",
+      description: "useRef",
+    },
+    {
+      timeSecunds: 1700,
+      time: "00:28:20",
+      description: "useContext",
+    },
+  ];
+
+  const [showTime, setShowTime] = useState<IShowTime[]>(shows); 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const jumpShowTime = (time_video: number) => {
+    if (videoRef !== null && videoRef.current) {
+      videoRef.current.currentTime = time_video;
+    }
+  };
+
+
   return (
     <UserContext.Provider
       value={{
@@ -43,6 +71,9 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         urlValue,
         setUrlValue,
         modalEditVideoIsOpen,
+        videoRef,
+        showTime,
+        jumpShowTime
       }}
     >
       {children}
