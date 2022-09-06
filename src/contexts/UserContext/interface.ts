@@ -20,6 +20,12 @@ export interface IMarkers {
   title: string;
 }
 
+export interface IMarcadores {
+  url: string;
+  marks: IMarkers[];
+  userId: number;
+}
+
 export interface IUserContext {
   card: ICard[];
   theme: boolean;
@@ -27,7 +33,7 @@ export interface IUserContext {
   clearUrl: () => void;
   toggleModalVisibility: () => void;
   urlValue: string;
-  setUrlValue: Dispatch<SetStateAction<string>>;
+  setUrlValue: (value: string) => void;
   modalEditVideoIsOpen: boolean;
   markers: IMarkers[];
   setMarkers: Dispatch<SetStateAction<IMarkers[]>>;
@@ -35,4 +41,9 @@ export interface IUserContext {
   register: UseFormRegister<IMarkers>;
   handleSubmit: UseFormHandleSubmit<IMarkers>;
   errors: FieldErrorsImpl<IMarkers>;
+  exemplo: {
+    url: string;
+    marks: IMarkers[];
+    userId: number;
+  };
 }

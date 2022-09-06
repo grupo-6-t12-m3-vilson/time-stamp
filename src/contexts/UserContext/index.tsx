@@ -1,9 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import schemaMarkers from "../../utils/schema";
-import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
+import {
+  IMarcadores,
+  IMarkers,
+  IUserContext,
+  IUserProviderProps,
+} from "./interface";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -29,12 +34,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
   const [urlValue, setUrlValue] = useState<string>("");
-  const [marcadores, setMarcadores] = useState([
-    {
-      url: "",
-      marks: [],
-    },
-  ]);
 
   const {
     register,
@@ -54,6 +53,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setMarkers([...markers, data]);
   };
 
+  const exemplo = {
+    url: urlValue,
+    marks: markers,
+    userId: 3,
+  };
+
+  console.log(exemplo);
+
   return (
     <UserContext.Provider
       value={{
@@ -71,6 +78,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         register,
         handleSubmit,
         errors,
+        exemplo,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineCloseCircle } from "react-icons/ai";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -23,12 +23,11 @@ const ModalAddVideo = () => {
     onSubmit,
     register,
     markers,
+    exemplo,
   } = useContext(UserContext);
 
   return (
     <>
-      {console.log(markers)}
-      {console.log(urlValue)}
       <ModalContainer>
         <Modal>
           <CloseModalContainer>
@@ -86,7 +85,9 @@ const ModalAddVideo = () => {
               </li> */}
             </CreatedMarkersList>
           </CreatedMarkersContainer>
-          <SaveButton onClick={toggleModalVisibility}>Salvar</SaveButton>
+          <SaveButton type="submit" onClick={toggleModalVisibility}>
+            Salvar
+          </SaveButton>
         </Modal>
       </ModalContainer>
     </>

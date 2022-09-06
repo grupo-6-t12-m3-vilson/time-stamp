@@ -15,7 +15,7 @@ import {
 } from "./styles";
 
 const ShowPlay = () => {
-  const { toggleModalVisibility, modalEditVideoIsOpen } =
+  const { toggleModalVisibility, modalEditVideoIsOpen, exemplo } =
     useContext(UserContext);
 
   return (
@@ -24,6 +24,7 @@ const ShowPlay = () => {
         <DivPlay>
           <video
             src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4"
+            /*  src={exemplo.url} */
             controls
           />
         </DivPlay>
@@ -33,6 +34,12 @@ const ShowPlay = () => {
           </DivExtra>
           <DivInfo>
             <UlDetails>
+              {/*     {exemplo.marks.map((teste, index) => (
+                <li key={index}>
+                  <p>{teste.time_video}</p>
+                  <span>{teste.title}</span>
+                </li>
+              ))} */}
               <li>
                 <p>03:21</p>
                 <span>Conceito componentização no react</span>
