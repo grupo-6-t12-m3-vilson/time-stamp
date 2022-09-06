@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const ContainerPlay = styled.div`
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: flex-end;
   width: 100%;
-  background-color: ${(props) => props.theme.containerSprints.background};
+  background-color: ${(props) => props.theme.containerSprints.color_video};
   border-radius: 8px;
+  margin-right: 10px;
 
   @media (max-width: 1024px) {
     display: flex;
@@ -26,11 +27,10 @@ export const DivPlay = styled.div`
   height: 100%;
   padding: 0;
   color: ${(props) => props.theme.containerSprints.font_color_secondary};
-  background-color: ${(props) => props.theme.containerSprints.font_color_primary};
 
   video {
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
 
   @media (max-width: 768px) {
@@ -41,12 +41,12 @@ export const DivPlay = styled.div`
 `;
 
 export const DivBox = styled.div`
-  width: 40%;
-  height: 100%;
+  width: 37%;
+  height: 90%;
   margin-right: 1%;
   margin-left: 1%;
-  background: ${(props) => props.theme.containerSprints.background_secondary};
   border-radius: 10px;
+  background-color: ${(props) => props.theme.containerSprints.colorDivBox};
 
   @media (max-width: 768px) {
     width: 100%;
@@ -79,7 +79,10 @@ export const DivInfo = styled.div`
   max-height: 225px;
   margin-top: 0.5rem;
   overflow-y: auto;
-  background-color: ${(props) => props.theme.containerSprints.background_secondary} ;
+
+  @media screen and (max-width: 1024px) {
+    height: 200px;
+  }
 `;
 
 export const UlDetails = styled.ul`
@@ -88,15 +91,12 @@ export const UlDetails = styled.ul`
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
-  background-color: ${(props) => props.theme.containerSprints.background_secondary};
-  
+
   li {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: rgba(15, 45, 81, 0.5);
-    border-radius: 10px;
 
     p {
       width: 30%;
@@ -106,8 +106,9 @@ export const UlDetails = styled.ul`
       font-weight: 800;
       text-align: center;
       color: ${(props) => props.theme.containerSprints.font_color_secondary};
-      background: #BCC3D9;
-      border-radius: 2px;
+      background: #bcc3d9;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
       cursor: pointer;
     }
 
@@ -120,6 +121,8 @@ export const UlDetails = styled.ul`
       font-weight: 800;
       color: ${(props) => props.theme.containerSprints.font_color_mark};
       background: #555d76;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -136,11 +139,16 @@ export const DivAddVideo = styled.div`
   button {
     width: 50px;
     height: 50px;
+    margin-top: 25px;
     margin-right: 1rem;
     font-size: 25px;
     color: #0f2d51;
     background: ${(props) => props.theme.containerSprints.font_color_button};
     border-style: none;
     border-radius: 50%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 0;
   }
 `;

@@ -33,6 +33,9 @@ export interface ITheme {
   };
 
   containerSprints: {
+    deg: string;
+    linear1: string;
+    linear2: string;
     background: string;
     background_secondary: string;
     background_extra: string;
@@ -41,6 +44,8 @@ export interface ITheme {
     font_color_secondary: string;
     font_color_mark: string;
     font_color_button: string;
+    color_video: string;
+    colorDivBox: string;
   };
   inputSearchVideo: {
     background: string;

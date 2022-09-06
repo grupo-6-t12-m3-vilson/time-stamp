@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-import { AsideDate, MainContainer } from "./styles";
+import { AsideDate, Container } from "./styles";
 import ShowPlay from "./ShowPlay/index";
 import NavDay from "./NavDay";
 
@@ -11,7 +11,7 @@ const ContainerSprints = () => {
   const showSiderBar = () => setSideBar(!sideBar);
   return (
     <>
-      <MainContainer>
+      <Container>
         <div id="divSprint">
           <h1>SPRINT 1</h1>
           <div id="divShow">
@@ -33,7 +33,7 @@ const ContainerSprints = () => {
           </AsideDate>
           <ShowPlay />
         </section>
-      </MainContainer>
+      </Container>
     </>
   );
 };

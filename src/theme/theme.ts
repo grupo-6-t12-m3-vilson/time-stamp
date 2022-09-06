@@ -35,6 +35,9 @@ export const light = {
   },
 
   containerSprints: {
+    deg: "225deg",
+    linear1: "#B5CAD9",
+    linear2: "#E5EBF3",
     background: "rgba(255, 255, 255, 0.29)",
     background_secondary: "#D3E0F0",
     background_extra: "#0F2D51",
@@ -43,6 +46,8 @@ export const light = {
     font_color_secondary: "rgba(35, 42, 67, 0.87)",
     font_color_mark: "rgba(35, 42, 67, 0.87)",
     font_color_button: "#fff",
+    color_video: "#D3E0F0",
+    colorDivBox: "#fff",
   },
   inputSearchVideo: {
     background: "rgba(35, 42, 67, 1)",
@@ -108,6 +113,9 @@ export const dark = {
   },
 
   containerSprints: {
+    deg: "145deg",
+    linear1: "#253250",
+    linear2: "#0F1425",
     background: "#0F2D51",
     background_secondary: "rgba(211, 224, 240, 0.4)",
     background_extra: "#0F2D51",
@@ -116,6 +124,8 @@ export const dark = {
     font_color_secondary: "rgba(35, 42, 67, 0.87)",
     font_color_mark: "rgba(255, 255, 255, 0.29)",
     font_color_button: "#fff",
+    color_video: "rgba(211, 224, 240, 0.4)",
+    colorDivBox: "rgba(15, 45, 81, 0.5)",
   },
 
   inputSearchVideo: {
