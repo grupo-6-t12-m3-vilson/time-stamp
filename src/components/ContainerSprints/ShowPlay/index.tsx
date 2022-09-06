@@ -15,7 +15,7 @@ import {
 } from "./styles";
 
 const ShowPlay = () => {
-  const { toggleModalVisibility, modalEditVideoIsOpen, exemplo } =
+  const { toggleModalVisibility, modalEditVideoIsOpen, marcadores, exemplo } =
     useContext(UserContext);
 
   return (
@@ -24,7 +24,6 @@ const ShowPlay = () => {
         <DivPlay>
           <video
             src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4"
-            /*  src={exemplo.url} */
             controls
           />
         </DivPlay>

@@ -3,7 +3,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import schemaMarkers from "../../utils/schema";
-import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
+import {
+  IMarcadores,
+  IMarkers,
+  IUserContext,
+  IUserProviderProps,
+} from "./interface";
+import { api } from "../../services/api";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -29,6 +35,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
   const [urlValue, setUrlValue] = useState<string>("");
+  const [marcadores, setMarcadores] = useState<IMarcadores[]>([]);
 
   const {
     register,
@@ -54,7 +61,25 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     userId: 3,
   };
 
-  console.log(exemplo);
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ4MTExMSwiZXhwIjoxNjYyNDg0NzExLCJzdWIiOiIzIn0.B26IK3GV7a0ZNfRC9Zw92oopzvX1b4JAYtgBoDLMFP4";
+
+  function postVideos() {
+    toggleModalVisibility();
+
+    api
+      .post("/videos", exemplo, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token} `,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setMarcadores(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <UserContext.Provider
@@ -74,6 +99,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         handleSubmit,
         errors,
         exemplo,
+        postVideos,
       }}
     >
       {children}

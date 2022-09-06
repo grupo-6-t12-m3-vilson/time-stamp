@@ -46,4 +46,6 @@ export interface IUserContext {
     marks: IMarkers[];
     userId: number;
   };
+  postVideos: () => void;
+  marcadores: IMarcadores[];
 }

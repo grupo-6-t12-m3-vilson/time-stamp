@@ -24,6 +24,7 @@ const ModalAddVideo = () => {
     register,
     markers,
     exemplo,
+    postVideos,
   } = useContext(UserContext);
 
   return (
@@ -85,7 +86,7 @@ const ModalAddVideo = () => {
               </li> */}
             </CreatedMarkersList>
           </CreatedMarkersContainer>
-          <SaveButton type="submit" onClick={toggleModalVisibility}>
+          <SaveButton type="submit" onClick={postVideos}>
             Salvar
           </SaveButton>
         </Modal>
