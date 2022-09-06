@@ -32,6 +32,13 @@ export interface ITheme {
     transparent_gray: string;
   };
 
+  inputSearchVideo: {
+    background: string;
+    placeholder: string;
+    icon: string;
+    font_color: string;
+  };
+
   containerSearchVideo: {
     title_card: string;
     background: string;

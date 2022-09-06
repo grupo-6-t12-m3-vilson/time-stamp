@@ -34,6 +34,13 @@ export const light = {
     transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
+  inputSearchVideo: {
+    background: "rgba(35, 42, 67, 1)",
+    placeholder: "rgba(74, 95, 142, 1)",
+    icon: "rgba(211, 224, 240, 1)",
+    font_color: "white",
+  },
+
   containerSearchVideo: {
     title_card: "rgba(35, 42, 67, 1)",
     background: "rgba(255, 255, 255, 0.29);",
@@ -88,6 +95,13 @@ export const dark = {
     scrollbar1: "#253250",
     scrollbar2: "#0F1425",
     transparent_gray: "rgba(0, 0, 0, 0.25)",
+  },
+
+  inputSearchVideo: {
+    background: "rgba(211, 224, 240, 1)",
+    placeholder: "rgba(74, 95, 142, 1)",
+    icon: "rgba(35, 42, 67, 1)",
+    font_color: "black",
   },
 
   containerSearchVideo: {
