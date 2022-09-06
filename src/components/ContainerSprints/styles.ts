@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main`  
+export const Container = styled.div`
   width: 90%;
   margin: 2rem auto;
   background: ${(props) => props.theme.containerSprints.background};
-  
+
   #divSprint {
     display: flex;
     align-items: center;
     height: 60px;
     padding: 0 1rem;
-    background-color: ${(props) => props.theme.containerSprints.background_secondary};
+    background-color: ${(props) =>
+      props.theme.containerSprints.background_secondary};
     border-radius: 8px;
     filter: ${(props) => props.theme.containerSprints.box_shadow};
 
@@ -32,20 +33,18 @@ export const MainContainer = styled.main`
       display: none;
       cursor: pointer;
 
-      @media (max-width: 1024px) {        
+      @media (max-width: 1024px) {
         display: flex;
         flex-direction: row-reverse;
       }
     }
-
-  
   }
 
-  section{
+  section {
     display: flex;
-    padding: 10px 0;    
+    padding: 10px 0;
     background-color: ${(props) => props.theme.containerSprints.background};
-    
+
     #divClose {
       font-size: 30px;
       display: none;
