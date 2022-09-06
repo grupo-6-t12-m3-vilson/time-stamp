@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { BsFileEarmarkPlay } from "react-icons/bs";
 
 import { UserContext } from "../../../contexts/UserContext";
@@ -15,8 +15,14 @@ import {
 } from "./styles";
 
 const ShowPlay = () => {
-  const { toggleModalVisibility, modalEditVideoIsOpen, url, marcadores } =
-    useContext(UserContext);
+  const {
+    toggleModalVisibility,
+    modalEditVideoIsOpen,
+    url,
+    marcadores,
+    videoRef,
+    jumpShowTime,
+  } = useContext(UserContext);
 
   return (
     <>
@@ -26,6 +32,7 @@ const ShowPlay = () => {
             /*    src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4" */
             src={url}
             controls
+            ref={videoRef}
           />
         </DivPlay>
         <DivBox>
@@ -35,7 +42,7 @@ const ShowPlay = () => {
           <DivInfo>
             <UlDetails>
               {marcadores.map((marks, index) => (
-                <li key={index}>
+                <li onClick={() => jumpShowTime(marks.time_video)} key={index}>
                   <p>{marks.time_video}</p>
                   <span>{marks.title}</span>
                 </li>

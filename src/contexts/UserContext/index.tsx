@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -49,6 +49,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setModalEditVideoIsOpen(!modalEditVideoIsOpen);
   };
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const jumpShowTime = (time_video: number) => {
+    if (videoRef !== null && videoRef.current) {
+      videoRef.current.currentTime = time_video;
+    }
+  };
+
   const onSubmit = (data: IMarkers) => {
     setMarkers([...markers, data]);
   };
@@ -60,7 +68,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5MjI1OCwiZXhwIjoxNjYyNDk1ODU4LCJzdWIiOiIzIn0.LnzAJMuDrKYxTx5C-saGfYwfO9lv4dmoy0KOwMa7Ens";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5NjIyNiwiZXhwIjoxNjYyNDk5ODI2LCJzdWIiOiIzIn0.95sWaMYUqNG2l9bukjtKjJtxtdbx0PbALFFS2c7SrMQ";
 
   function postVideos() {
     toggleModalVisibility();
@@ -80,9 +88,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       .catch((err) => console.log(err));
   }
 
-  console.log(marcadores);
-  console.log(url);
-
   return (
     <UserContext.Provider
       value={{
@@ -94,6 +99,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         urlValue,
         setUrlValue,
         modalEditVideoIsOpen,
+        videoRef,
+        jumpShowTime,
         markers,
         setMarkers,
         onSubmit,

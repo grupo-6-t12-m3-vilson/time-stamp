@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction, RefObject } from "react";
 import {
   UseFormRegister,
   UseFormHandleSubmit,
@@ -45,4 +45,6 @@ export interface IUserContext {
   url: string;
   dropDown: boolean;
   setDropDown: (value: boolean) => void;
+  videoRef: RefObject<HTMLVideoElement>;
+  jumpShowTime: (time: number) => void;
 }
