@@ -65,6 +65,7 @@ interface NavProps {
 export const AsideDate = styled.aside<NavProps>`
   display: flex;
   flex-direction: column;
+  z-index: 999;
 
   @media (max-width: 1024px) {
     flex-direction: column;

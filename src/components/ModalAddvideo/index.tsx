@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineClose, AiOutlineCloseCircle } from "react-icons/ai";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -23,7 +23,6 @@ const ModalAddVideo = () => {
     onSubmit,
     register,
     markers,
-    exemplo,
     postVideos,
   } = useContext(UserContext);
 
@@ -69,6 +68,7 @@ const ModalAddVideo = () => {
                 </li>
               ))}
               {/*  <li>
+
                 <span>07:22</span>
                 <p>useEffect e suas dependências</p>
               </li>
