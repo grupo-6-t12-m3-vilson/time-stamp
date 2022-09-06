@@ -5,6 +5,16 @@ import { ContainerLi, DivSelect, LiSelect } from "./styles";
 interface Children {
   children: ReactNode;
 }
+
+interface props {
+  props: string;
+  theme: {
+    containerSprints: {
+      font_color_primary: string;
+    };
+  };
+}
+
 const LiContainer = ({ children }: Children) => {
   const [showSelect, setShowSelect] = useState(false);
 
@@ -26,14 +36,6 @@ const LiContainer = ({ children }: Children) => {
       setShowSelect(!showSelect);
     }
   };
-  interface props {
-    props: string;
-    theme: {
-      containerSprints: {
-        font_color_primary: string;
-      };
-    };
-  }
   const handleDayVerification = (day: ReactNode) => {
     return {
       color:
