@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction, RefObject } from "react";
 import {
   UseFormRegister,
   UseFormHandleSubmit,
@@ -43,4 +43,6 @@ export interface IUserContext {
   postVideos: () => void;
   marcadores: IMarkers[];
   url: string;
+  videoRef: RefObject<HTMLVideoElement>;
+  jumpShowTime: (time: number) => void;
 }
