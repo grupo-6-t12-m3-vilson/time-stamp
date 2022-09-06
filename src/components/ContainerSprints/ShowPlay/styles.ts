@@ -32,6 +32,7 @@ export const DivPlay = styled.div`
     width: 100%;
     height: 90%;
     background-color: black;
+    border-radius: 5px;
   }
 
   @media (max-width: 768px) {
