@@ -20,15 +20,15 @@ const ContainerSprints = () => {
               onClick={showSiderBar}
             />
           </div>
-          <div
-            id="divClose"
-            style={{ display: sideBar === true ? "flex" : "none" }}
-          >
-            <FaTimes onClick={showSiderBar} />
-          </div>
         </div>
         <section>
           <AsideDate sideBar={sideBar}>
+            <div
+              id="divClose"
+              style={{ display: sideBar === true ? "flex" : "none" }}
+            >
+              <FaTimes onClick={showSiderBar} />
+            </div>
             <NavDay />
           </AsideDate>
           <ShowPlay />

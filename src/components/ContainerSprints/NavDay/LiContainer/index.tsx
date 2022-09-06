@@ -26,9 +26,17 @@ const LiContainer = ({ children }: Children) => {
       setShowSelect(!showSelect);
     }
   };
-
+  interface props{
+    props:string
+    theme: {
+      containerSprints:{
+        font_color_primary:string
+      }
+    }
+   
+  }
   const handleDayVerification = (day: ReactNode) => {
-    return { color: day === "Extra" ? "#407bff" : "#232a43" };
+    return { color: day === "Extra" ? "#407bff" : `${(props:props) => props.theme.containerSprints.font_color_primary}` };
   };
 
   const handleSelectVideo = () => {

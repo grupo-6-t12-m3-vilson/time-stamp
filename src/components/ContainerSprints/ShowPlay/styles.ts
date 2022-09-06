@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const ContainerPlay = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center;  
   justify-content: flex-end;
   width: 100%;
-  background-color: #d3e0f0;
+  background-color: ${(props) => props.theme.containerSprints.background};
   border-radius: 8px;
 
   @media (max-width: 1024px) {
@@ -25,8 +25,8 @@ export const DivPlay = styled.div`
   width: 60%;
   height: 100%;
   padding: 0;
-  color: white;
-  background-color: #22282f;
+  color: ${(props) => props.theme.containerSprints.font_color_secondary};
+  background-color: ${(props) => props.theme.containerSprints.font_color_primary};
 
   video {
     width: 100%;
@@ -45,7 +45,7 @@ export const DivBox = styled.div`
   height: 100%;
   margin-right: 1%;
   margin-left: 1%;
-  background: rgba(255, 255, 255, 0.54);
+  background: ${(props) => props.theme.containerSprints.background_secondary};
   border-radius: 10px;
 
   @media (max-width: 768px) {
@@ -60,7 +60,7 @@ export const DivExtra = styled.div`
   align-items: center;
   width: 100%;
   height: 51px;
-  background: #0f2d51;
+  background: ${(props) => props.theme.containerSprints.background_extra};
   border-radius: 10px 10px 0px 0px;
 
   h2 {
@@ -79,6 +79,7 @@ export const DivInfo = styled.div`
   max-height: 225px;
   margin-top: 0.5rem;
   overflow-y: auto;
+  background-color: ${(props) => props.theme.containerSprints.background_secondary} ;
 `;
 
 export const UlDetails = styled.ul`
@@ -87,12 +88,15 @@ export const UlDetails = styled.ul`
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
-
+  background-color: ${(props) => props.theme.containerSprints.background_secondary};
+  
   li {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: rgba(15, 45, 81, 0.5);
+    border-radius: 10px;
 
     p {
       width: 30%;
@@ -101,8 +105,8 @@ export const UlDetails = styled.ul`
       font-size: 1.25rem;
       font-weight: 800;
       text-align: center;
-      color: rgba(35, 42, 67, 0.87);
-      background: #bcc3d9;
+      color: ${(props) => props.theme.containerSprints.font_color_secondary};
+      background: #BCC3D9;
       border-radius: 2px;
       cursor: pointer;
     }
@@ -114,7 +118,7 @@ export const UlDetails = styled.ul`
       font-family: "Inter", sans-serif;
       font-size: 1rem;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.29);
+      color: ${(props) => props.theme.containerSprints.font_color_mark};
       background: #555d76;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -135,7 +139,7 @@ export const DivAddVideo = styled.div`
     margin-right: 1rem;
     font-size: 25px;
     color: #0f2d51;
-    background: #d3e0f0;
+    background: ${(props) => props.theme.containerSprints.font_color_button};
     border-style: none;
     border-radius: 50%;
   }
