@@ -45,7 +45,7 @@ export const light = {
     font_color_primary: "#232a43",
     font_color_secondary: "rgba(35, 42, 67, 0.87)",
     font_color_mark: "rgba(35, 42, 67, 0.87)",
-    font_color_button: "#fff",
+    font_color_button: "#bcc3d9",
     color_video: "#D3E0F0",
     colorDivBox: "#fff",
     scroll_bar: "#fff",
