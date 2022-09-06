@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import schemaMarkers from "../../utils/schema";
-import {
-  IMarcadores,
-  IMarkers,
-  IUserContext,
-  IUserProviderProps,
-} from "./interface";
+import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
 import { api } from "../../services/api";
 
 export const UserContext = createContext({} as IUserContext);
@@ -35,7 +30,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
   const [urlValue, setUrlValue] = useState<string>("");
-  const [marcadores, setMarcadores] = useState<IMarcadores[]>([]);
+  const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
+  const [url, setUrl] = useState<string>("");
 
   const {
     register,
@@ -62,7 +58,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ4MTExMSwiZXhwIjoxNjYyNDg0NzExLCJzdWIiOiIzIn0.B26IK3GV7a0ZNfRC9Zw92oopzvX1b4JAYtgBoDLMFP4";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5MjI1OCwiZXhwIjoxNjYyNDk1ODU4LCJzdWIiOiIzIn0.LnzAJMuDrKYxTx5C-saGfYwfO9lv4dmoy0KOwMa7Ens";
 
   function postVideos() {
     toggleModalVisibility();
@@ -76,10 +72,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       })
       .then((res) => {
         console.log(res);
-        setMarcadores(res.data);
+        setMarcadores(res.data.marks);
+        setUrl(res.data.url);
       })
       .catch((err) => console.log(err));
   }
+
+  console.log(marcadores);
+  console.log(url);
 
   return (
     <UserContext.Provider
@@ -100,6 +100,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         errors,
         exemplo,
         postVideos,
+        marcadores,
+        url,
       }}
     >
       {children}

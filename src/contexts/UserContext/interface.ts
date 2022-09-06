@@ -20,12 +20,6 @@ export interface IMarkers {
   title: string;
 }
 
-export interface IMarcadores {
-  url: string;
-  marks: IMarkers[];
-  userId: number;
-}
-
 export interface IUserContext {
   card: ICard[];
   theme: boolean;
@@ -47,5 +41,6 @@ export interface IUserContext {
     userId: number;
   };
   postVideos: () => void;
-  marcadores: IMarcadores[];
+  marcadores: IMarkers[];
+  url: string;
 }
