@@ -79,7 +79,7 @@ export const DivInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-height: 225px;
+  max-height: 240px;
   margin-top: 0.5rem;
   overflow-y: auto;
 
@@ -94,7 +94,7 @@ export const DivInfo = styled.div`
   }
 
   @media (max-width: 1024px) {
-    max-height: 185px;
+    max-height: 200px;
   }
 `;
 
@@ -152,12 +152,18 @@ export const DivAddVideo = styled.div`
   button {
     width: 50px;
     height: 50px;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-right: 1rem;
     font-size: 25px;
     color: #0f2d51;
     background: ${(props) => props.theme.containerSprints.font_color_button};
     border-style: none;
     border-radius: 50%;
+  }
+
+  @media (max-width: 1024px) {
+    position: relative;
+    bottom: 40px;
+    margin-top: 30px;
   }
 `;
