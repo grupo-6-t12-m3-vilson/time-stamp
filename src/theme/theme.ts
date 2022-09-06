@@ -34,16 +34,22 @@ export const light = {
     transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
-  containerSprints:{
+  containerSprints: {
     background: "rgba(255, 255, 255, 0.29)",
     background_secondary: "#D3E0F0",
     background_extra: "#0F2D51",
-    box_shadow: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",    
+    box_shadow: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
     font_color_primary: "#232a43",
     font_color_secondary: "rgba(35, 42, 67, 0.87)",
-    font_color_mark:   "rgba(35, 42, 67, 0.87)",
-    font_color_button:"#fff"
-    },
+    font_color_mark: "rgba(35, 42, 67, 0.87)",
+    font_color_button: "#fff",
+  },
+  inputSearchVideo: {
+    background: "rgba(35, 42, 67, 1)",
+    placeholder: "rgba(74, 95, 142, 1)",
+    icon: "rgba(211, 224, 240, 1)",
+    font_color: "white",
+  },
 
   containerSearchVideo: {
     title_card: "rgba(35, 42, 67, 1)",
@@ -65,8 +71,6 @@ export const light = {
     bg_button_modal: "#12b886",
     font_color_icon_clear_url: "#DA2C1A",
   },
-
-
 };
 
 export const dark = {
@@ -110,8 +114,15 @@ export const dark = {
     box_shadow: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
     font_color_primary: "#D3E0F0",
     font_color_secondary: "rgba(35, 42, 67, 0.87)",
-    font_color_mark:   "rgba(255, 255, 255, 0.29)",
-    font_color_button: "#fff"
+    font_color_mark: "rgba(255, 255, 255, 0.29)",
+    font_color_button: "#fff",
+  },
+
+  inputSearchVideo: {
+    background: "rgba(211, 224, 240, 1)",
+    placeholder: "rgba(74, 95, 142, 1)",
+    icon: "rgba(35, 42, 67, 1)",
+    font_color: "black",
   },
 
   containerSearchVideo: {
