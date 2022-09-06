@@ -10,6 +10,7 @@ export const ContainerLi = styled.div`
   align-items: center;
   cursor: pointer;
   gap: 8px;
+  color: ${(props) => props.theme.containerSprints.color_li_container};
 
   p {
     width: 191px;

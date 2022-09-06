@@ -47,6 +47,7 @@ export interface ITheme {
     color_video: string;
     colorDivBox: string;
     scroll_bar: string;
+    color_li_container: string;
   };
   inputSearchVideo: {
     background: string;
