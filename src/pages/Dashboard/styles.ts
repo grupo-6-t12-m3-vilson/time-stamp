@@ -35,7 +35,7 @@ export const ContainerSprint = styled.section`
 
     padding-bottom: 1.5rem;
 
-    @media (max-width: 650px) {
+    @media screen and (max-width: 1024px) {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;

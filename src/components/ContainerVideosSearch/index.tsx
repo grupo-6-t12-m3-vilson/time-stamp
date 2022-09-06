@@ -8,6 +8,12 @@ const ContainerVideosSearch = () => {
         <li>
           <CardVideoSearch></CardVideoSearch>
         </li>
+        <li>
+          <CardVideoSearch></CardVideoSearch>
+        </li>
+        <li>
+          <CardVideoSearch></CardVideoSearch>
+        </li>
       </ul>
       {/* <span>Pesquise por um marcador existente</span> */}
     </ContainerVideoSearch>

@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import schemaMarkers from "../../utils/schema";
-import {
-  IMarcadores,
-  IMarkers,
-  IUserContext,
-  IUserProviderProps,
-} from "./interface";
+import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
 
 export const UserContext = createContext({} as IUserContext);
 

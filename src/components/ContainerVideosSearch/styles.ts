@@ -12,6 +12,7 @@ export const ContainerVideoSearch = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30px;
 
   span {
     font-family: "Nunito", sans-serif;

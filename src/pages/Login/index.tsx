@@ -1,19 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import { ContentIntro, FormContent, FormSign, SignInContainer } from "./styles";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import HeaderComponent from "../../components/HeaderComponent";
 import { ReactComponent as Intro } from "../../assets/intro.svg";
 
-function Login() {
+const Login = () => {
   const [typePassword, setTypePassword] = useState("password");
   const [password, setPassword] = useState("");
 
-  function showPassword() {
+  const showPassword = () => {
     typePassword === "password"
       ? setTypePassword("text")
       : setTypePassword("password");
-  }
+  };
 
   return (
     <SignInContainer>
@@ -47,6 +47,6 @@ function Login() {
       </ContentIntro>
     </SignInContainer>
   );
-}
+};
 
 export default Login;

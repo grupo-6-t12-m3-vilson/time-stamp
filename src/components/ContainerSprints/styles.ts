@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main`
+export const Container = styled.div`
   width: 90%;
   margin: 2rem auto;
+  background: ${(props) => props.theme.containerSprints.background};
 
   #divSprint {
     display: flex;
     align-items: center;
     height: 60px;
     padding: 0 1rem;
-    background-color: #d3e0f0;
+    background-color: ${(props) =>
+      props.theme.containerSprints.background_secondary};
     border-radius: 8px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: ${(props) => props.theme.containerSprints.box_shadow};
 
     @media (max-width: 1024px) {
       display: flex;
@@ -23,7 +25,7 @@ export const MainContainer = styled.main`
       font-size: 1.25rem;
       font-family: "Roboto", sans-serif;
       font-weight: 700;
-      color: #232a43;
+      color: ${(props) => props.theme.containerSprints.font_color_primary};
     }
 
     #divShow {
@@ -36,6 +38,12 @@ export const MainContainer = styled.main`
         flex-direction: row-reverse;
       }
     }
+  }
+
+  section {
+    display: flex;
+    padding: 10px 0;
+    background-color: ${(props) => props.theme.containerSprints.background};
 
     #divClose {
       font-size: 30px;
@@ -64,8 +72,9 @@ export const AsideDate = styled.aside<NavProps>`
     top: 10%;
     right: ${(props) => (props.sideBar ? "0" : "-100%")};
     width: 30%;
-    margin: 4% auto;
-    background-color: #d3e0f0;
+    margin: 7% 4.8%;
+    background-color: ${(props) => props.theme.containerSprints.background};
+    border-radius: 0px 0px 10px 10px;
     transition: 0.5s;
 
     a {
@@ -79,5 +88,7 @@ export const AsideDate = styled.aside<NavProps>`
   @media (max-width: 425px) {
     width: 300px;
     margin: 8% auto;
+    background-color: ${(props) => props.theme.containerSprints.background};
+    border-radius: 0px 0px 10px 10px;
   }
 `;
