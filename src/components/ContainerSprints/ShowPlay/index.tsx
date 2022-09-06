@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { BsFileEarmarkPlay } from "react-icons/bs";
 
 import { UserContext } from "../../../contexts/UserContext";
@@ -15,16 +15,24 @@ import {
 } from "./styles";
 
 const ShowPlay = () => {
-  const { toggleModalVisibility, modalEditVideoIsOpen } =
-    useContext(UserContext);
+  const {
+    toggleModalVisibility,
+    modalEditVideoIsOpen,
+    url,
+    marcadores,
+    videoRef,
+    jumpShowTime,
+  } = useContext(UserContext);
 
   return (
     <>
       <ContainerPlay>
         <DivPlay>
           <video
-            src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4"
+            /*    src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4" */
+            src={url}
             controls
+            ref={videoRef}
           />
         </DivPlay>
         <DivBox>
@@ -33,7 +41,13 @@ const ShowPlay = () => {
           </DivExtra>
           <DivInfo>
             <UlDetails>
-              <li>
+              {marcadores.map((marks, index) => (
+                <li onClick={() => jumpShowTime(marks.time_video)} key={index}>
+                  <p>{marks.time_video}</p>
+                  <span>{marks.title}</span>
+                </li>
+              ))}
+              {/*  <li>
                 <p>03:21</p>
                 <span>Conceito componentização no react</span>
               </li>
@@ -60,7 +74,7 @@ const ShowPlay = () => {
               <li>
                 <p>01:05:21</p>
                 <span>Reusabilidade, reaproveitamento de código e etc</span>
-              </li>
+              </li> */}
             </UlDetails>
           </DivInfo>
           <DivAddVideo>

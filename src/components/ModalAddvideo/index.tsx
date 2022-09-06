@@ -14,8 +14,17 @@ import {
 } from "./styles";
 
 const ModalAddVideo = () => {
-  const { toggleModalVisibility, clearUrl, urlValue, setUrlValue } =
-    useContext(UserContext);
+  const {
+    toggleModalVisibility,
+    clearUrl,
+    urlValue,
+    setUrlValue,
+    handleSubmit,
+    onSubmit,
+    register,
+    markers,
+    postVideos,
+  } = useContext(UserContext);
 
   return (
     <>
@@ -34,16 +43,32 @@ const ModalAddVideo = () => {
               onChange={(e) => setUrlValue(e.target.value)}
             />
           </UrlFieldContainer>
-          <MarkerFieldContainer>
-            <textarea placeholder="Descrição:"></textarea>
+
+          <MarkerFieldContainer onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              placeholder="Descrição:"
+              {...register("title")}
+            ></textarea>
             <div>
-              <input type="text" placeholder="tempo" />
-              <button type="button">Enviar</button>
+              <input
+                type="text"
+                placeholder="tempo"
+                {...register("time_video")}
+              />
+              <button type="submit">Enviar</button>
             </div>
           </MarkerFieldContainer>
+
           <CreatedMarkersContainer>
             <CreatedMarkersList>
-              <li>
+              {markers.map((mark, index) => (
+                <li key={index}>
+                  <span>{mark.time_video}</span>
+                  <p>{mark.title}</p>
+                </li>
+              ))}
+              {/*  <li>
+
                 <span>07:22</span>
                 <p>useEffect e suas dependências</p>
               </li>
@@ -58,10 +83,12 @@ const ModalAddVideo = () => {
               <li>
                 <span>52:01</span>
                 <p>useEffect, useRef e useState</p>
-              </li>
+              </li> */}
             </CreatedMarkersList>
           </CreatedMarkersContainer>
-          <SaveButton onClick={toggleModalVisibility}>Salvar</SaveButton>
+          <SaveButton type="submit" onClick={postVideos}>
+            Salvar
+          </SaveButton>
         </Modal>
       </ModalContainer>
     </>
