@@ -37,6 +37,7 @@ export const DivPlay = styled.div`
     width: 100%;
     height: 250px;
     border: 2.5px solid #fff;
+    margin-bottom: 30px;
   }
 `;
 
@@ -80,8 +81,8 @@ export const DivInfo = styled.div`
   margin-top: 0.5rem;
   overflow-y: auto;
 
-  @media screen and (max-width: 1024px) {
-    height: 200px;
+  @media (max-width: 1024px) {
+    max-height: 185px;
   }
 `;
 
@@ -146,9 +147,5 @@ export const DivAddVideo = styled.div`
     background: ${(props) => props.theme.containerSprints.font_color_button};
     border-style: none;
     border-radius: 50%;
-  }
-
-  @media screen and (max-width: 1024px) {
-    margin-top: 0;
   }
 `;
