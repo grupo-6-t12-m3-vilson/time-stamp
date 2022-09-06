@@ -81,6 +81,16 @@ export const DivInfo = styled.div`
   margin-top: 0.5rem;
   overflow-y: auto;
 
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: ${(props) => props.theme.containerSprints.scroll_bar};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+
   @media (max-width: 1024px) {
     max-height: 185px;
   }

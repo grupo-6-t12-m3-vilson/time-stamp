@@ -48,6 +48,7 @@ export const light = {
     font_color_button: "#fff",
     color_video: "#D3E0F0",
     colorDivBox: "#fff",
+    scroll_bar: "#fff",
   },
   inputSearchVideo: {
     background: "rgba(35, 42, 67, 1)",
@@ -126,6 +127,7 @@ export const dark = {
     font_color_button: "#fff",
     color_video: "rgba(211, 224, 240, 0.4)",
     colorDivBox: "rgba(15, 45, 81, 0.5)",
+    scroll_bar: "rgba(15, 45, 81, 0)",
   },
 
   inputSearchVideo: {
