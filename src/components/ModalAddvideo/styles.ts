@@ -88,7 +88,7 @@ export const UrlFieldContainer = styled.div`
   }
 `;
 
-export const MarkerFieldContainer = styled.div`
+export const MarkerFieldContainer = styled.form`
   display: flex;
   flex-direction: row;
   gap: 0.25rem;

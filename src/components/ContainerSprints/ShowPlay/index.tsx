@@ -15,7 +15,7 @@ import {
 } from "./styles";
 
 const ShowPlay = () => {
-  const { toggleModalVisibility, modalEditVideoIsOpen } =
+  const { toggleModalVisibility, modalEditVideoIsOpen, url, marcadores } =
     useContext(UserContext);
 
   return (
@@ -23,7 +23,8 @@ const ShowPlay = () => {
       <ContainerPlay>
         <DivPlay>
           <video
-            src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4"
+            /*    src="https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_6/parte_final.mp4" */
+            src={url}
             controls
           />
         </DivPlay>
@@ -33,7 +34,13 @@ const ShowPlay = () => {
           </DivExtra>
           <DivInfo>
             <UlDetails>
-              <li>
+              {marcadores.map((marks, index) => (
+                <li key={index}>
+                  <p>{marks.time_video}</p>
+                  <span>{marks.title}</span>
+                </li>
+              ))}
+              {/*  <li>
                 <p>03:21</p>
                 <span>Conceito componentização no react</span>
               </li>
@@ -60,7 +67,7 @@ const ShowPlay = () => {
               <li>
                 <p>01:05:21</p>
                 <span>Reusabilidade, reaproveitamento de código e etc</span>
-              </li>
+              </li> */}
             </UlDetails>
           </DivInfo>
           <DivAddVideo>
