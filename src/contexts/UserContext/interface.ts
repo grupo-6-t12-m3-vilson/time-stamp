@@ -43,6 +43,8 @@ export interface IUserContext {
   postVideos: () => void;
   marcadores: IMarkers[];
   url: string;
+  dropDown: boolean;
+  setDropDown: (value: boolean) => void;
   videoRef: RefObject<HTMLVideoElement>;
   jumpShowTime: (time: number) => void;
 }

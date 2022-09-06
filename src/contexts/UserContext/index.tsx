@@ -9,6 +9,8 @@ import { api } from "../../services/api";
 export const UserContext = createContext({} as IUserContext);
 
 const UserProvider = ({ children }: IUserProviderProps) => {
+  const [dropDown, setDropDown] = useState<boolean>(false);
+
   const [theme, setTheme] = useState<boolean>(true);
   const themeDark = () => {
     setTheme(!theme);
@@ -109,6 +111,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         postVideos,
         marcadores,
         url,
+        dropDown,
+        setDropDown,
       }}
     >
       {children}
