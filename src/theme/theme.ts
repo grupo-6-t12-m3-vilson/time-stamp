@@ -34,6 +34,17 @@ export const light = {
     transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
+  containerSprints:{
+    background: "rgba(255, 255, 255, 0.29)",
+    background_secondary: "#D3E0F0",
+    background_extra: "#0F2D51",
+    box_shadow: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",    
+    font_color_primary: "#232a43",
+    font_color_secondary: "rgba(35, 42, 67, 0.87)",
+    font_color_mark:   "rgba(35, 42, 67, 0.87)",
+    font_color_button:"#fff"
+    },
+
   containerSearchVideo: {
     title_card: "rgba(35, 42, 67, 1)",
     background: "rgba(255, 255, 255, 0.29);",
@@ -54,6 +65,8 @@ export const light = {
     bg_button_modal: "#12b886",
     font_color_icon_clear_url: "#DA2C1A",
   },
+
+
 };
 
 export const dark = {
@@ -88,6 +101,17 @@ export const dark = {
     scrollbar1: "#253250",
     scrollbar2: "#0F1425",
     transparent_gray: "rgba(0, 0, 0, 0.25)",
+  },
+
+  containerSprints: {
+    background: "#0F2D51",
+    background_secondary: "rgba(211, 224, 240, 0.4)",
+    background_extra: "#0F2D51",
+    box_shadow: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+    font_color_primary: "#D3E0F0",
+    font_color_secondary: "rgba(35, 42, 67, 0.87)",
+    font_color_mark:   "rgba(255, 255, 255, 0.29)",
+    font_color_button: "#fff"
   },
 
   containerSearchVideo: {

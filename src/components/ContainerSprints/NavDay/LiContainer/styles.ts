@@ -19,7 +19,7 @@ export const ContainerLi = styled.div`
     font-size: 22px;
     line-height: 26px;
     letter-spacing: 0.05em;
-    color: #232a43;
+    color: ${(props) => props.theme.containerSprints.font_color_primary};
   }
 `;
 
@@ -43,5 +43,5 @@ export const LiSelect = styled.li`
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  color: #232a43;
+  color: ${(props) => props.theme.containerSprints.font_color_primary};
 `;

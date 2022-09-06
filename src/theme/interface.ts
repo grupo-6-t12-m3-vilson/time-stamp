@@ -32,6 +32,17 @@ export interface ITheme {
     transparent_gray: string;
   };
 
+  containerSprints:{
+   background: string,
+    background_secondary: string,
+    background_extra: string,
+    box_shadow: string,
+    font_color_primary: string,
+    font_color_secondary: string,    
+    font_color_mark:string,
+    font_color_button: string
+  },
+
   containerSearchVideo: {
     title_card: string;
     background: string;
