@@ -32,6 +32,13 @@ export interface ITheme {
     transparent_gray: string;
   };
 
+  profile: {
+    button_background: string,
+    icon_color: string,
+    dropdown_background: string,
+    font_color: string,
+  };
+
   containerSprints: {
     deg: string;
     linear1: string;

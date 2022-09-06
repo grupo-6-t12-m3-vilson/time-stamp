@@ -34,6 +34,13 @@ export const light = {
     transparent_gray: "rgba(0, 0, 0, 0.25)",
   },
 
+  profile: {
+    button_background: "#d3e0f0",
+    icon_color: "#0f2d51",
+    dropdown_background: "#0f2d51",
+    font_color: "#d3e0f0",
+  },
+
   containerSprints: {
     deg: "225deg",
     linear1: "#B5CAD9",
@@ -112,6 +119,13 @@ export const dark = {
     scrollbar1: "#253250",
     scrollbar2: "#0F1425",
     transparent_gray: "rgba(0, 0, 0, 0.25)",
+  },
+
+  profile: {
+    button_background: "#0f2d51",
+    icon_color: "#d3e0f0",
+    dropdown_background: "#d3e0f0",
+    font_color: "#0f2d51",
   },
 
   containerSprints: {
