@@ -86,9 +86,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       .catch((err) => console.log(err));
   }
 
-  console.log(marcadores);
-  console.log(url);
-
   return (
     <UserContext.Provider
       value={{
