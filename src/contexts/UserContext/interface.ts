@@ -1,9 +1,9 @@
-import { Dispatch, ReactNode, SetStateAction, RefObject } from "react";
+import { Dispatch, ReactNode, SetStateAction, RefObject } from 'react';
 import {
   UseFormRegister,
   UseFormHandleSubmit,
   FieldErrorsImpl,
-} from "react-hook-form";
+} from 'react-hook-form';
 
 export interface IUserProviderProps {
   children: ReactNode;
@@ -49,6 +49,8 @@ export interface IUserContext {
   jumpShowTime: (time: number) => void;
   showTime: IShowTime[];
   showTimeInSeconds: (marks: IShowTimeInSeconds[]) => void;
+  logout: () => void;
+  toggleVideoPlay: () => void;
 }
 
 export interface IShowTimeInSeconds {
@@ -58,4 +60,8 @@ export interface IShowTimeInSeconds {
 
 export interface IShowTime extends IShowTimeInSeconds {
   time_secunds: number;
+
+  
+
+
 }

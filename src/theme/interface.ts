@@ -33,10 +33,10 @@ export interface ITheme {
   };
 
   profile: {
-    button_background: string,
-    icon_color: string,
-    dropdown_background: string,
-    font_color: string,
+    button_background: string;
+    icon_color: string;
+    dropdown_background: string;
+    font_color: string;
   };
 
   containerSprints: {
@@ -55,7 +55,9 @@ export interface ITheme {
     colorDivBox: string;
     scroll_bar: string;
     color_li_container: string;
+    color_empty_marks: string;
   };
+
   inputSearchVideo: {
     background: string;
     placeholder: string;

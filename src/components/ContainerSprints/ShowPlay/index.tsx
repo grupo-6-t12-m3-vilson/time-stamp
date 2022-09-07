@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { BsFileEarmarkPlay } from "react-icons/bs";
+import { FiPlay, FiPause } from "react-icons/fi";
 
 import { UserContext } from "../../../contexts/UserContext";
 import ModalAddVideo from "../../ModalAddvideo";
@@ -11,6 +12,7 @@ import {
   DivExtra,
   DivInfo,
   DivPlay,
+  MarksEmpty,
   UlDetails,
 } from "./styles";
 
@@ -24,6 +26,7 @@ const ShowPlay = () => {
     jumpShowTime,
     showTime,
     showTimeInSeconds,
+    toggleVideoPlay,
   } = useContext(UserContext);
 
   useEffect(() => {
@@ -34,15 +37,16 @@ const ShowPlay = () => {
     <>
       <ContainerPlay>
         <DivPlay>
-          <video src={url} controls ref={videoRef} />
+          <video src={url} controls ref={videoRef} onClick={toggleVideoPlay} />
         </DivPlay>
         <DivBox>
           <DivExtra>
             <h2>Extra</h2>
           </DivExtra>
           <DivInfo>
-            <UlDetails>
-              {showTime.map((marks, index) => (
+            {marcadores?.length !== 0 ? (
+              <UlDetails>
+                {showTime.map((marks, index) => (
                 <li
                   onClick={() => jumpShowTime(marks.time_secunds)}
                   key={index}
@@ -51,7 +55,16 @@ const ShowPlay = () => {
                   <span>{marks.title}</span>
                 </li>
               ))}
-            </UlDetails>
+              </UlDetails>
+            ) : (
+              <MarksEmpty>
+                <p>Olá!</p>
+                <div>
+                  <p>Seus marcadores</p>
+                  <p>aparecerão aqui</p>
+                </div>
+              </MarksEmpty>
+            )}
           </DivInfo>
           <DivAddVideo>
             <button onClick={toggleModalVisibility}>

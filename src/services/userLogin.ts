@@ -8,9 +8,9 @@ export interface UserLoginProps {
 export interface User {
   email: string;
   name: string;
-  module: number;
+  module: number | string;
   isAdmin: boolean;
-  id: number;
+  id: number | string;
 }
 
 export interface UserLoginResponse {
