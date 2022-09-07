@@ -16,20 +16,16 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       const { accessToken, user } = await userLogin(data);
       if (accessToken) {
         localStorage.setItem('@time-stamp:token', accessToken);
-        localStorage.setItem('@time-stamp:userId', '' + user.id);
-        localStorage.setItem('@time-stamp:userEmail', user.email);
-        localStorage.setItem('@time-stamp:userModule', '' + user.module);
-        localStorage.setItem('@time-stamp:userName', user.name);
+        localStorage.setItem('@time-stamp:user', JSON.stringify(user));
+    
 
         toast.success(
-          `Login realizado com sucesso! Seja bem vindo ${localStorage.getItem(
-            '@time-stamp:userName'
-          )}`,
+          `Login realizado com sucesso! Seja bem vindo ${user.name}`,
           {
             draggable: true,
             draggablePercent: 60,
             position: toast.POSITION.BOTTOM_RIGHT,
-            autoClose: 1000,
+            autoClose: 2000,
           }
         );
         Navigate('/dashboard', { replace: true });

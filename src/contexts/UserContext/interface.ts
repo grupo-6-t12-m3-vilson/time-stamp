@@ -51,6 +51,7 @@ export interface IUserContext {
   showTimeInSeconds: (marks: IShowTimeInSeconds[]) => void;
   logout: () => void;
   toggleVideoPlay: () => void;
+  setUrl : React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IShowTimeInSeconds {

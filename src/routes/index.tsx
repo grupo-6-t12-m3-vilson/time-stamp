@@ -9,7 +9,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='/dashboard/sprint' element={<DashboardSprint />} />
+      <Route path='/dashboard/sprint/:sprintId' element={<DashboardSprint />} />
     </Routes>
   );
 };

@@ -163,6 +163,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         showTimeInSeconds,
         logout,
         toggleVideoPlay,
+        setUrl
       }}
     >
       {children}

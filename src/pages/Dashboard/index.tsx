@@ -1,5 +1,6 @@
 import { useContext } from "react";
 
+
 import Card from "../../components/Card";
 import HeaderComponent from "../../components/HeaderComponent";
 import ContainerVideosSearch from "../../components/ContainerVideosSearch";
@@ -10,6 +11,9 @@ import { Container, ContainerSprint, Main } from "./styles";
 
 const Dashboard = () => {
   const { card } = useContext(UserContext);
+
+  
+
   return (
     <Container>
       <HeaderComponent />
@@ -22,6 +26,7 @@ const Dashboard = () => {
                 module={data.module}
                 sprint={data.sprint}
                 dia={data.dia}
+                navigate={data.sprint}
               />
             ))}
           </ul>

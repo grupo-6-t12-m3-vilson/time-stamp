@@ -1,22 +1,16 @@
-import { useState } from "react";
+
 
 import LiContainer from "./LiContainer";
 import Ul from "./styles";
 
-const NavDay = () => {
-  const [showDay] = useState([
-    "Segunda-feira",
-    "Terça-feira",
-    "Quarta-feira",
-    "Quinta-feira",
-    "Sexta-feira",
-    "Extra",
-  ]);
+const NavDay = (props : any) => {
+
+
 
   return (
     <Ul>
-      {showDay.map((day, index) => (
-        <LiContainer key={index}>{day}</LiContainer>
+      {props.props.map((element : any) => (
+        <LiContainer url={element.url} day={element.day} key={element.id}>{element.day}</LiContainer>
       ))}
     </Ul>
   );
