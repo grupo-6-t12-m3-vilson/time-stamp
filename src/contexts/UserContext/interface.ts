@@ -47,4 +47,5 @@ export interface IUserContext {
   setDropDown: (value: boolean) => void;
   videoRef: RefObject<HTMLVideoElement>;
   jumpShowTime: (time: number) => void;
+  toggleVideoPlay: () => void;
 }

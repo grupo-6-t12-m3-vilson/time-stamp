@@ -34,6 +34,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [urlValue, setUrlValue] = useState<string>("");
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
   const [url, setUrl] = useState<string>("");
+  const [playing, setPlaying] = useState<boolean>(false);
 
   const {
     register,
@@ -50,6 +51,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleVideoPlay = () => {
+    setPlaying(!playing);
+  };
+
+  useEffect(() => {
+    playing ? videoRef.current?.play() : videoRef.current?.pause();
+  }, [playing]);
 
   const jumpShowTime = (time_video: number) => {
     if (videoRef !== null && videoRef.current) {
@@ -68,7 +77,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjUwODA2OCwiZXhwIjoxNjYyNTExNjY4LCJzdWIiOiIzIn0.Wea-xeRBed_yhAIk6zkaHiSw5AzCv7zc0ylRzsQtZZs";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGluc3RydXRvci5jb20iLCJpYXQiOjE2NjI1MTY4ODYsImV4cCI6MTY2MjUyMDQ4Niwic3ViIjoiMyJ9.V3DLv1riFTdwm1i2khs2KstKrlJM90kFZhtT2UZovKs";
 
   function postVideos() {
     toggleModalVisibility();
@@ -113,6 +122,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         url,
         dropDown,
         setDropDown,
+        toggleVideoPlay,
       }}
     >
       {children}
