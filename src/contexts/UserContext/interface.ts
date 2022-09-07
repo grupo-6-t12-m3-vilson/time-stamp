@@ -1,9 +1,9 @@
-import { Dispatch, ReactNode, SetStateAction, RefObject } from "react";
+import { Dispatch, ReactNode, SetStateAction, RefObject } from 'react';
 import {
   UseFormRegister,
   UseFormHandleSubmit,
   FieldErrorsImpl,
-} from "react-hook-form";
+} from 'react-hook-form';
 
 export interface IUserProviderProps {
   children: ReactNode;
@@ -47,4 +47,5 @@ export interface IUserContext {
   setDropDown: (value: boolean) => void;
   videoRef: RefObject<HTMLVideoElement>;
   jumpShowTime: (time: number) => void;
+  logout: () => void;
 }

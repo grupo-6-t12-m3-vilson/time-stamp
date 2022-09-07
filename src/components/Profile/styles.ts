@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerProfile = styled.div`
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 
   button {
     width: 42px;
@@ -54,7 +54,7 @@ export const MenuProfile = styled.div`
   }
 
   &::before {
-    content: "";
+    content: '';
     width: 15px;
     height: 15px;
     transform: rotate(45deg);

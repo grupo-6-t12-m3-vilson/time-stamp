@@ -1,39 +1,50 @@
-import { createContext, useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import schemaMarkers from "../../utils/schema";
-import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
-import { api } from "../../services/api";
+import { createContext, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
+import schemaMarkers from '../../utils/schema';
+import { IMarkers, IUserContext, IUserProviderProps } from './interface';
+import { api } from '../../services/api';
+import { toast } from 'react-toastify';
 
 export const UserContext = createContext({} as IUserContext);
 
 const UserProvider = ({ children }: IUserProviderProps) => {
   const [dropDown, setDropDown] = useState<boolean>(false);
-
   const [theme, setTheme] = useState<boolean>(true);
   const themeDark = () => {
     setTheme(!theme);
   };
 
+  const Navigate = useNavigate();
+
   const [card, setCard] = useState([
-    { module: "M3", dia: "05/07/22", sprint: 1 },
-    { module: "M3", dia: "12/07/22", sprint: 2 },
-    { module: "M3", dia: "21/07/22", sprint: 3 },
-    { module: "M3", dia: "28/07/22", sprint: 4 },
-    { module: "M3", dia: "05/08/22", sprint: 5 },
-    { module: "M3", dia: "12/08/22", sprint: 6 },
-    { module: "M3", dia: "19/08/22", sprint: 7 },
-    { module: "M3", dia: "28/08/22", sprint: 8 },
+    { module: 'M3', dia: '05/07/22', sprint: 1 },
+    { module: 'M3', dia: '12/07/22', sprint: 2 },
+    { module: 'M3', dia: '21/07/22', sprint: 3 },
+    { module: 'M3', dia: '28/07/22', sprint: 4 },
+    { module: 'M3', dia: '05/08/22', sprint: 5 },
+    { module: 'M3', dia: '12/08/22', sprint: 6 },
+    { module: 'M3', dia: '19/08/22', sprint: 7 },
+    { module: 'M3', dia: '28/08/22', sprint: 8 },
   ]);
+
+  const logout = () => {
+    localStorage.clear();
+    Navigate('/', { replace: true });
+    toast.success('Vamos sentir saudades, até uma próxima =)', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000,
+    });
+  };
 
   const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
     useState<boolean>(false);
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
-  const [urlValue, setUrlValue] = useState<string>("");
+  const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>('');
 
   const {
     register,
@@ -42,7 +53,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   } = useForm<IMarkers>({ resolver: yupResolver(schemaMarkers) });
 
   const clearUrl = () => {
-    setUrlValue("");
+    setUrlValue('');
   };
 
   const toggleModalVisibility = () => {
@@ -68,15 +79,15 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5NjIyNiwiZXhwIjoxNjYyNDk5ODI2LCJzdWIiOiIzIn0.95sWaMYUqNG2l9bukjtKjJtxtdbx0PbALFFS2c7SrMQ";
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5NjIyNiwiZXhwIjoxNjYyNDk5ODI2LCJzdWIiOiIzIn0.95sWaMYUqNG2l9bukjtKjJtxtdbx0PbALFFS2c7SrMQ';
 
   function postVideos() {
     toggleModalVisibility();
 
     api
-      .post("/videos", exemplo, {
+      .post('/videos', exemplo, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token} `,
         },
       })
@@ -113,6 +124,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         url,
         dropDown,
         setDropDown,
+        logout,
       }}
     >
       {children}
