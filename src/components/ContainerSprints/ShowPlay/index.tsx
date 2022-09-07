@@ -39,7 +39,7 @@ const ShowPlay = () => {
         </DivPlay>
         <DivBox>
           <DivExtra>
-            <h2>Extra</h2>
+            <h2>Marcador</h2>
           </DivExtra>
           <DivInfo>
             {markers.length !== 0 ? (

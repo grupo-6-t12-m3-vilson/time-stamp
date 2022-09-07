@@ -29,7 +29,7 @@ interface Props {
 const LiContainer = ({ children, data }: Children) => {
   const [showSelect, setShowSelect] = useState(false);
 
-  const { setUrl, setMarkers } = useContext(UserContext);
+  const { setUrl, setMarkers, setUrlValue } = useContext(UserContext);
 
   useEffect(() => {
     if (showSelect) {
@@ -61,6 +61,7 @@ const LiContainer = ({ children, data }: Children) => {
     setUrl(data.url);
     const { marks } = data;
     setMarkers(marks as any);
+    setUrlValue(data.url);
   };
   return (
     <>
