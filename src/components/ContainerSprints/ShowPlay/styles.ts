@@ -79,7 +79,7 @@ export const DivInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-height: 240px;
+  height: 240px;
   margin-top: 0.5rem;
   overflow-y: auto;
 
@@ -95,6 +95,26 @@ export const DivInfo = styled.div`
 
   @media (max-width: 1024px) {
     max-height: 200px;
+  }
+`;
+
+export const MarksEmpty = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  gap: 30px;
+
+  p {
+    font-family: "Roboto Mono", monospace;
+    font-size: 24px;
+    line-height: 28px;
+    color: ${(props) => props.theme.containerSprints.color_empty_marks};
+  }
+
+  @media (max-width: 1024px) {
+    max-height: 190px;
   }
 `;
 

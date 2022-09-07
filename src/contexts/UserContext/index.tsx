@@ -44,7 +44,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [markers, setMarkers] = useState<IMarkers[]>([]);
   const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
+  const [playing, setPlaying] = useState<boolean>(false);
 
   const {
     register,
@@ -61,6 +62,14 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleVideoPlay = () => {
+    setPlaying(!playing);
+  };
+
+  useEffect(() => {
+    playing ? videoRef.current?.play() : videoRef.current?.pause();
+  }, [playing]);
 
   const jumpShowTime = (time_video: number) => {
     if (videoRef !== null && videoRef.current) {
@@ -125,6 +134,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         dropDown,
         setDropDown,
         logout,
+        toggleVideoPlay,
+
       }}
     >
       {children}

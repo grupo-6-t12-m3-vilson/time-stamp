@@ -48,4 +48,6 @@ export interface IUserContext {
   videoRef: RefObject<HTMLVideoElement>;
   jumpShowTime: (time: number) => void;
   logout: () => void;
+  toggleVideoPlay: () => void;
+
 }
