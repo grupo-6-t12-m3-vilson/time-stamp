@@ -47,4 +47,15 @@ export interface IUserContext {
   setDropDown: (value: boolean) => void;
   videoRef: RefObject<HTMLVideoElement>;
   jumpShowTime: (time: number) => void;
+  showTime: IShowTime[];
+  showTimeInSeconds: (marks: IShowTimeInSeconds[]) => void;
+}
+
+export interface IShowTimeInSeconds {
+  time_video: number;
+  title: string;
+}
+
+export interface IShowTime extends IShowTimeInSeconds {
+  time_secunds: number;
 }

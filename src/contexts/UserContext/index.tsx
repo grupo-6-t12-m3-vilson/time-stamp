@@ -3,8 +3,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import schemaMarkers from "../../utils/schema";
-import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
-import { api } from "../../services/api";
+import {
+  IMarkers,
+  IShowTime,
+  IShowTimeInSeconds,
+  IUserContext,
+  IUserProviderProps,
+} from "./interface";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -51,9 +56,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const jumpShowTime = (time_video: number) => {
+  const jumpShowTime = (time_secunds: number) => {
+    console.log(time_secunds);
     if (videoRef !== null && videoRef.current) {
-      videoRef.current.currentTime = time_video;
+      videoRef.current.currentTime = time_secunds;
     }
   };
 
@@ -67,27 +73,37 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     userId: 3,
   };
 
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjUwODA2OCwiZXhwIjoxNjYyNTExNjY4LCJzdWIiOiIzIn0.Wea-xeRBed_yhAIk6zkaHiSw5AzCv7zc0ylRzsQtZZs";
+  const [showTime, setShowTime] = useState<IShowTime[]>([]);
+
+  const showTimeInSeconds = (marks: IShowTimeInSeconds[]) => {
+    marks.map((mark: IShowTimeInSeconds) => {
+      const partes: string[] = mark.time_video.toString().split(":");
+
+      if (partes.length < 3) {
+        const result = {
+          time_secunds: parseInt(partes[0]) * 60 + parseInt(partes[1]),
+          time_video: mark.time_video,
+          title: mark.title,
+        };
+
+        return setShowTime((prevShowTime) => [...prevShowTime, result]);
+      }
+
+      const result = {
+        time_secunds:
+          parseInt(partes[0]) * 3600 +
+          parseInt(partes[1]) * 60 +
+          parseInt(partes[2]),
+        time_video: mark.time_video,
+        title: mark.title,
+      };
+      return setShowTime((prevShowTime) => [...prevShowTime, result]);
+    });
+  };
 
   function postVideos() {
     toggleModalVisibility();
-
-    api
-      .post("/videos", exemplo, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token} `,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        setMarcadores(res.data.marks);
-        setUrl(res.data.url);
-      })
-      .catch((err) => console.log(err));
   }
-
   return (
     <UserContext.Provider
       value={{
@@ -113,6 +129,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         url,
         dropDown,
         setDropDown,
+        showTime,
+        showTimeInSeconds,
       }}
     >
       {children}
