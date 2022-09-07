@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { BsFileEarmarkPlay } from "react-icons/bs";
 import { FiPlay, FiPause } from "react-icons/fi";
 
@@ -24,8 +24,14 @@ const ShowPlay = () => {
     marcadores,
     videoRef,
     jumpShowTime,
+    showTime,
+    showTimeInSeconds,
     toggleVideoPlay,
   } = useContext(UserContext);
+
+  useEffect(() => {
+    showTimeInSeconds(marcadores);
+  }, [marcadores]);
 
   return (
     <>
@@ -40,15 +46,15 @@ const ShowPlay = () => {
           <DivInfo>
             {marcadores?.length !== 0 ? (
               <UlDetails>
-                {marcadores.map((marks, index) => (
-                  <li
-                    onClick={() => jumpShowTime(marks.time_video)}
-                    key={index}
-                  >
-                    <p>{marks.time_video}</p>
-                    <span>{marks.title}</span>
-                  </li>
-                ))}
+                {showTime.map((marks, index) => (
+                <li
+                  onClick={() => jumpShowTime(marks.time_secunds)}
+                  key={index}
+                >
+                  <p>{marks.time_video}</p>
+                  <span>{marks.title}</span>
+                </li>
+              ))}
               </UlDetails>
             ) : (
               <MarksEmpty>

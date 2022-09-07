@@ -1,11 +1,19 @@
-import { createContext, useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+
+import { createContext, useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from 'react-router-dom';
-import schemaMarkers from '../../utils/schema';
-import { IMarkers, IUserContext, IUserProviderProps } from './interface';
-import { api } from '../../services/api';
+import schemaMarkers from "../../utils/schema";
+import {
+  IMarkers,
+  IShowTime,
+  IShowTimeInSeconds,
+  IUserContext,
+  IUserProviderProps,
+} from "./interface";
+import { api } from "../../services/api";
 import { toast } from 'react-toastify';
+
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -71,9 +79,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     playing ? videoRef.current?.play() : videoRef.current?.pause();
   }, [playing]);
 
-  const jumpShowTime = (time_video: number) => {
+  const jumpShowTime = (time_secunds: number) => {
+    console.log(time_secunds);
     if (videoRef !== null && videoRef.current) {
-      videoRef.current.currentTime = time_video;
+      videoRef.current.currentTime = time_secunds;
     }
   };
 
@@ -87,8 +96,36 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     userId: 3,
   };
 
+  const [showTime, setShowTime] = useState<IShowTime[]>([]);
+
+  const showTimeInSeconds = (marks: IShowTimeInSeconds[]) => {
+    marks.map((mark: IShowTimeInSeconds) => {
+      const partes: string[] = mark.time_video.toString().split(":");
+
+      if (partes.length < 3) {
+        const result = {
+          time_secunds: parseInt(partes[0]) * 60 + parseInt(partes[1]),
+          time_video: mark.time_video,
+          title: mark.title,
+        };
+
+        return setShowTime((prevShowTime) => [...prevShowTime, result]);
+      }
+
+      const result = {
+        time_secunds:
+          parseInt(partes[0]) * 3600 +
+          parseInt(partes[1]) * 60 +
+          parseInt(partes[2]),
+        time_video: mark.time_video,
+        title: mark.title,
+      };
+      return setShowTime((prevShowTime) => [...prevShowTime, result]);
+    });
+  };
+
   const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5NjIyNiwiZXhwIjoxNjYyNDk5ODI2LCJzdWIiOiIzIn0.95sWaMYUqNG2l9bukjtKjJtxtdbx0PbALFFS2c7SrMQ';
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGluc3RydXRvci5jb20iLCJpYXQiOjE2NjI1MjE3OTQsImV4cCI6MTY2MjUyNTM5NCwic3ViIjoiMyJ9.RVPI8zyAXbYaIAx_9uMZqeTu1JRGv6kLmJjvCw_0atw";
 
   function postVideos() {
     toggleModalVisibility();
@@ -133,9 +170,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         url,
         dropDown,
         setDropDown,
+        showTime,
+        showTimeInSeconds,
         logout,
-        toggleVideoPlay,
-
+        toggleVideoPlay
       }}
     >
       {children}
