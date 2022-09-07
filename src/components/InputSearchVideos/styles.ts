@@ -57,7 +57,7 @@ export const BoxInputSearch = styled.div`
     position: absolute;
     top: 15%;
     right: 5%;
-    width: 275px;
+    width: 230px;
     height: 30px;
 
     input {
@@ -71,13 +71,22 @@ export const BoxInputSearch = styled.div`
       font-size: 16px;
       font-weight: 500;
       padding-left: 20px;
-      width: 70%;
+      width: 75%;
       color: ${(props) => props.theme.inputSearchVideo.font_color};
+
     }
 
     svg {
       width: 20px;
       height: 20px;
+
+      &:hover {
+        padding-left: 0!important;
+      }
+    }
+
+    &:hover {
+      width: 275px;
     }
   }
 `;
