@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ContainerProfile = styled.div`
   font-family: 'Nunito', sans-serif;
   z-index: 999;
+  
   button {
     width: 42px;
     height: 42px;
@@ -37,6 +38,7 @@ export const MenuProfile = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   background: ${(props) => props.theme.profile.dropdown_background};
+  box-shadow: 1px 1px 10px 3px #42424266;
 
   p {
     color: ${(props) => props.theme.profile.font_color};

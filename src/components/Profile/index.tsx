@@ -14,8 +14,8 @@ const Profile = () => {
         <FaUserCircle />
       </button>
       <MenuProfile style={{ display: dropDown ? 'flex' : 'none' }}>
-        <p onClick={logout}>Sair</p>
         <p onClick={() => themeDark()}>Tema</p>
+        <p onClick={logout}>Sair</p>
       </MenuProfile>
     </ContainerProfile>
   );

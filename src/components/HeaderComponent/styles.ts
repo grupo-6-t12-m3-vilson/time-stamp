@@ -17,6 +17,7 @@ const HeaderContainer = styled.header.attrs((props: PropTypeHeight) => ({token: 
   div.logo {
     display: flex;
     gap: 14px;
+    padding-left: 38%;
     align-items: center;
 
     h1 {
@@ -76,7 +77,8 @@ const HeaderContainer = styled.header.attrs((props: PropTypeHeight) => ({token: 
 
     div.logo {
       position: absolute;
-      left: 5%;
+      left: 10%;
+      padding-left: 0;
       margin: 0 auto;
 
       h1 {
