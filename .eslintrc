@@ -23,12 +23,21 @@
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-no-constructed-context-values": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
         "required": {
           "some": ["nesting", "id"]
         }
+      }
+    ],
+    "jsx-a11y/media-has-caption": [
+      2,
+      {
+        "audio": ["Audio"],
+        "video": ["Video"],
+        "track": ["Track"]
       }
     ],
     "jsx-quotes": ["error", "prefer-single"],

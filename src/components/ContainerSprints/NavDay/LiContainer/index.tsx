@@ -1,16 +1,23 @@
-import { useState, useEffect, ReactNode, useContext } from "react";
-import { FaChevronRight, FaChevronDown } from "react-icons/fa";
-import { ContainerLi, DivSelect, LiSelect } from "./styles";
+import { useState, useEffect, ReactNode, useContext } from 'react';
+import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
+import { ContainerLi, DivSelect, LiSelect } from './styles';
 
-import { UserContext } from "../../../../contexts/UserContext";
- 
-interface Children {
-  children: ReactNode;
-  url : string;
+import { UserContext } from '../../../../contexts/UserContext';
+
+import { IMarkers } from '../../../../contexts/UserContext/interface';
+
+interface IData {
   day: string;
+  url: string;
+  marks: IMarkers;
 }
 
-interface props {
+interface Children {
+  children: ReactNode;
+  data: IData;
+}
+
+interface Props {
   props: string;
   theme: {
     containerSprints: {
@@ -19,52 +26,50 @@ interface props {
   };
 }
 
-
-
-const LiContainer = ({ children , url , day }: Children) => {
+const LiContainer = ({ children, data }: Children) => {
   const [showSelect, setShowSelect] = useState(false);
 
-  const {setUrl} = useContext(UserContext)
+  const { setUrl, setMarkers } = useContext(UserContext);
 
-  
   useEffect(() => {
     if (showSelect) {
-      const select = document.querySelector(".selectVideo");
-      select?.classList.add("video-Open");
+      const select = document.querySelector('.selectVideo');
+      select?.classList.add('video-Open');
     }
   }, [showSelect]);
 
   const handleShowSelect = () => {
     if (showSelect) {
-      const select = document.querySelector(".selectVideo");
-      select?.classList.add("select-Open");
-      select?.classList.add("select-Close");
+      const select = document.querySelector('.selectVideo');
+      select?.classList.add('select-Open');
+      select?.classList.add('select-Close');
 
       setTimeout(() => setShowSelect(!showSelect), 600);
     } else {
       setShowSelect(!showSelect);
     }
   };
-  const handleDayVerification = (day: ReactNode) => {
-    return {
-      color:
-        day === "Extra"
-          ? "#407bff"
-          : `${(props: props) =>
-              props.theme.containerSprints.font_color_primary}`,
-    };
-  };
+  const handleDayVerification = (Day: ReactNode) => ({
+    color:
+      Day === 'Extra'
+        ? '#407bff'
+        : `${(props: Props) =>
+            props.theme.containerSprints.font_color_primary}`,
+  });
 
-  const handleSelectVideo = (url : string) => {
-    setUrl(url)
+  const handleSelectVideo = () => {
+    setUrl(data.url);
+    const { marks } = data;
+    setMarkers(marks as any);
   };
   return (
     <>
-      <ContainerLi className="selectVideo">
+      <ContainerLi className='selectVideo'>
         {showSelect ? (
           <>
             <FaChevronDown onClick={handleShowSelect} />
             <p
+              role='presentation'
               style={handleDayVerification(children)}
               onClick={handleShowSelect}
             >
@@ -75,6 +80,7 @@ const LiContainer = ({ children , url , day }: Children) => {
           <>
             <FaChevronRight onClick={handleShowSelect} />
             <p
+              role='presentation'
               style={handleDayVerification(children)}
               onClick={handleShowSelect}
             >
@@ -85,7 +91,9 @@ const LiContainer = ({ children , url , day }: Children) => {
       </ContainerLi>
       {showSelect && (
         <DivSelect>
-          <LiSelect onClick={()=>handleSelectVideo(url)}>Demo {day}</LiSelect>
+          <LiSelect onClick={() => handleSelectVideo()}>
+            Demo {data.day}
+          </LiSelect>
         </DivSelect>
       )}
     </>

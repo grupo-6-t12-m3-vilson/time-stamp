@@ -1,23 +1,22 @@
-import { useParams } from "react-router";
+import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
-import ContainerSprints from "../../components/ContainerSprints";
-import ContainerVideosSearch from "../../components/ContainerVideosSearch";
-import HeaderComponent from "../../components/HeaderComponent";
-import { Container, Main } from "./styles";
-import {TiArrowBack} from "react-icons/ti"
+import { TiArrowBack } from 'react-icons/ti';
+import ContainerSprints from '../../components/ContainerSprints';
+import ContainerVideosSearch from '../../components/ContainerVideosSearch';
+import HeaderComponent from '../../components/HeaderComponent';
+import { Container, Main } from './styles';
 
 const DashboardSprint = () => {
+  const { sprintId } = useParams();
+  const Navigate = useNavigate();
 
-  const {sprintId } = useParams()
-  const Navigate = useNavigate()
-  
   return (
     <Container>
       <HeaderComponent />
-      <TiArrowBack onClick={() => Navigate('/dashboard', { replace: true })}/>
+      <TiArrowBack onClick={() => Navigate('/dashboard', { replace: true })} />
       <Main>
-        <ContainerSprints  sprint={sprintId as string} />
-        <ContainerVideosSearch></ContainerVideosSearch>
+        <ContainerSprints sprint={sprintId as string} />
+        <ContainerVideosSearch />
       </Main>
     </Container>
   );
