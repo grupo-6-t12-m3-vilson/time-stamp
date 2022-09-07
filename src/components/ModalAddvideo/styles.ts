@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   left: 0;
   backdrop-filter: blur(2px);
   background-color: ${(props) => props.theme.transparent_gray};
-  animation: fadeIn 1s;
+  animation: fadeIn 0.3s;
 `;
 
 export const Modal = styled.div`
@@ -24,6 +24,7 @@ export const Modal = styled.div`
   max-width: 450px;
   height: 50%;
   position: fixed;
+  border-radius: 5px;
 
   background-color: ${(props) => props.theme.modalEditVideo.bg_modal_edit};
 
@@ -71,6 +72,7 @@ export const UrlFieldContainer = styled.div`
     background-color: ${(props) => props.theme.modalEditVideo.bg_input_modal};
     border-radius: 2px;
     border: 1px solid transparent;
+    border-radius: 5px;
     padding: 0.25rem 0.5rem;
 
     &:focus {
@@ -108,7 +110,7 @@ export const MarkerFieldContainer = styled.form`
       color: ${(props) => props.theme.modalEditVideo.font_color_primary_modal};
       border: 1px solid transparent;
       text-align: center;
-      border-radius: 3px;
+      border-radius: 5px;
       height: 55%;
 
       &:focus {
@@ -136,7 +138,7 @@ export const MarkerFieldContainer = styled.form`
         props.theme.modalEditVideo.bg_button_modal};
       border: none;
       cursor: pointer;
-      border-radius: 0 0 2px 2px;
+      border-radius: 5px;
     }
   }
 
