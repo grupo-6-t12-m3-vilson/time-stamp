@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 90%;
@@ -23,7 +23,7 @@ export const Container = styled.div`
 
     h1 {
       font-size: 1.25rem;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-weight: 700;
       color: ${(props) => props.theme.containerSprints.font_color_primary};
     }
@@ -71,7 +71,7 @@ export const AsideDate = styled.aside<NavProps>`
     flex-direction: column;
     position: fixed;
     top: 10%;
-    right: ${(props) => (props.sideBar ? "0" : "-100%")};
+    right: ${(props) => (props.sideBar ? '0' : '-100%')};
     width: 30%;
     margin: 7% 4.8%;
     background-color: ${(props) => props.theme.containerSprints.background};
