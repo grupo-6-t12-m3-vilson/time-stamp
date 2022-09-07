@@ -68,7 +68,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjQ5NjIyNiwiZXhwIjoxNjYyNDk5ODI2LCJzdWIiOiIzIn0.95sWaMYUqNG2l9bukjtKjJtxtdbx0PbALFFS2c7SrMQ";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjUwODA2OCwiZXhwIjoxNjYyNTExNjY4LCJzdWIiOiIzIn0.Wea-xeRBed_yhAIk6zkaHiSw5AzCv7zc0ylRzsQtZZs";
 
   function postVideos() {
     toggleModalVisibility();
