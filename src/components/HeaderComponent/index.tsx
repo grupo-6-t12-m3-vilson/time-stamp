@@ -12,13 +12,12 @@ function HeaderComponent() {
   const { themeDark, theme } = useContext(UserContext);
   const token = localStorage.getItem('@time-stamp:token');
   return (
-    <HeaderContainer>
+    <HeaderContainer token={token}>
       <div className='logo'>
         <h1>time stamp</h1>
         <CgPlayTrackNextR />
       </div>
       <div className='search-theme'>
-        {/* dashboard */}
         {token ? (
           <>
             <InputSearchVideos></InputSearchVideos>
@@ -31,12 +30,6 @@ function HeaderComponent() {
             </button>
           </div>
         )}
-        {/* login */}
-        {/* <div className="theme">
-          <button onClick={() => themeDark()}>
-            {!theme ? <CgMoon size="2rem" /> : <BiSun size={"2em"} />}
-          </button>
-        </div> */}
       </div>
     </HeaderContainer>
   );

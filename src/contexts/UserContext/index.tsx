@@ -37,6 +37,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const logout = () => {
     localStorage.clear();
+    setDropDown(false)
     Navigate('/', { replace: true });
     toast.success('Vamos sentir saudades, até uma próxima =)', {
       position: toast.POSITION.TOP_RIGHT,

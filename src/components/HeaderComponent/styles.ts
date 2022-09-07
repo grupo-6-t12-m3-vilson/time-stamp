@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const HeaderContainer = styled.header`
+type PropTypeHeight = {
+  token: string | null;
+}
+
+const HeaderContainer = styled.header.attrs((props: PropTypeHeight) => ({token: props.token}))<PropTypeHeight>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +17,6 @@ const HeaderContainer = styled.header`
   div.logo {
     display: flex;
     gap: 14px;
-    padding-left: 37%;
     align-items: center;
 
     h1 {
@@ -66,13 +69,14 @@ const HeaderContainer = styled.header`
   }
 
   @media screen and (max-width: 1024px) {
-    height: 110px;
+    height: ${props => props.token ? "100px" : "50px"};
     padding: 20px 0;
     display: flex;
     flex-direction: column;
 
     div.logo {
-      padding-left: 0;
+      position: absolute;
+      left: 5%;
       margin: 0 auto;
 
       h1 {
@@ -86,7 +90,8 @@ const HeaderContainer = styled.header`
     }
 
     div.theme {
-      padding-right: 5%;
+      position: absolute;
+      right: 5%;
 
       button {
         width: 35px;

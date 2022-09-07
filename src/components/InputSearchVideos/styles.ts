@@ -54,7 +54,10 @@ export const BoxInputSearch = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    width: 50vw;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 275px;
     height: 30px;
 
     input {

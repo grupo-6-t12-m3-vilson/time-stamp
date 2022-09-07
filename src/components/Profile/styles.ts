@@ -21,7 +21,7 @@ export const ContainerProfile = styled.div`
   @media screen and (max-width: 1024px) {
     position: absolute;
     top: 16px;
-    right: 5px;
+    right: 5%;
   }
 `;
 
