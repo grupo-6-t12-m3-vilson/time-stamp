@@ -23,6 +23,13 @@ export const Container = styled.div`
       filter: brightness(2);
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    > svg {
+      top: 83px;
+      left: 6%;
+    }
+  }
 `;
 
 export const Main = styled.main`
