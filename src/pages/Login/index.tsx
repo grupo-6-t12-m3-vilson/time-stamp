@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   ContentIntro,
@@ -19,6 +20,16 @@ import { ReactComponent as Intro } from '../../assets/intro.svg';
 
 const Login = () => {
   const { loginSubmit } = useContext(AuthContext);
+
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('@time-stamp:token');
+    const userId = localStorage.getItem('@time-stamp:u  serId');
+    if (token && userId) {
+      Navigate('/dashboard', { replace: true });
+    }
+  }, []);
 
   const [typePassword, setTypePassword] = useState('password');
 

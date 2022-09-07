@@ -1,19 +1,17 @@
-
-import { createContext, useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { createContext, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
-import schemaMarkers from "../../utils/schema";
+import schemaMarkers from '../../utils/schema';
 import {
   IMarkers,
   IShowTime,
   IShowTimeInSeconds,
   IUserContext,
   IUserProviderProps,
-} from "./interface";
-import { api } from "../../services/api";
+} from './interface';
+import { api } from '../../services/api';
 import { toast } from 'react-toastify';
-
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -52,7 +50,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [markers, setMarkers] = useState<IMarkers[]>([]);
   const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(false);
 
   const {
@@ -100,7 +98,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const showTimeInSeconds = (marks: IShowTimeInSeconds[]) => {
     marks.map((mark: IShowTimeInSeconds) => {
-      const partes: string[] = mark.time_video.toString().split(":");
+      const partes: string[] = mark.time_video.toString().split(':');
 
       if (partes.length < 3) {
         const result = {
@@ -124,26 +122,17 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     });
   };
 
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGluc3RydXRvci5jb20iLCJpYXQiOjE2NjI1MjE3OTQsImV4cCI6MTY2MjUyNTM5NCwic3ViIjoiMyJ9.RVPI8zyAXbYaIAx_9uMZqeTu1JRGv6kLmJjvCw_0atw";
-
-  function postVideos() {
+  const postVideos = () => {
     toggleModalVisibility();
-
     api
-      .post('/videos', exemplo, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token} `,
-        },
-      })
+      .post('/videos', exemplo, {})
       .then((res) => {
         console.log(res);
         setMarcadores(res.data.marks);
         setUrl(res.data.url);
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   return (
     <UserContext.Provider
@@ -173,7 +162,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         showTime,
         showTimeInSeconds,
         logout,
-        toggleVideoPlay
+        toggleVideoPlay,
       }}
     >
       {children}

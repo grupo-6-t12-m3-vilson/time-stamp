@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useEffect } from 'react';
+import { createContext, ReactNode, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { userLogin, UserLoginProps } from '../../services/userLogin';
 import { useNavigate } from 'react-router-dom';
@@ -10,22 +10,6 @@ export const AuthContext = createContext<AuthProviderData>(
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const Navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('@time-stamp:token');
-    const userId = localStorage.getItem('@time-stamp:userId');
-    const userName = localStorage.getItem('@time-stamp:userName');
-
-    if (token && userId) {
-      toast.success(`Login realizado com sucesso! Seja bem vindo ${userName}`, {
-        draggable: true,
-        draggablePercent: 60,
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: 1000,
-      });
-      Navigate('/dashboard', { replace: true });
-    }
-  }, []);
 
   const loginSubmit = async (data: UserLoginProps) => {
     try {

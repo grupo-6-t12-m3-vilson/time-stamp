@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContainerProfile = styled.div`
   font-family: 'Nunito', sans-serif;
-
+  z-index: 999;
   button {
     width: 42px;
     height: 42px;
