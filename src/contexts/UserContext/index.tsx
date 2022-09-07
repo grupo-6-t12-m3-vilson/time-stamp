@@ -10,6 +10,7 @@ import {
   IUserContext,
   IUserProviderProps,
 } from "./interface";
+import { api } from "../../services/api";
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -101,9 +102,27 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     });
   };
 
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGluc3RydXRvci5jb20iLCJpYXQiOjE2NjI1MjE3OTQsImV4cCI6MTY2MjUyNTM5NCwic3ViIjoiMyJ9.RVPI8zyAXbYaIAx_9uMZqeTu1JRGv6kLmJjvCw_0atw";
+
   function postVideos() {
     toggleModalVisibility();
+
+    api
+      .post("/videos", exemplo, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token} `,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setMarcadores(res.data.marks);
+        setUrl(res.data.url);
+      })
+      .catch((err) => console.log(err));
   }
+
   return (
     <UserContext.Provider
       value={{
