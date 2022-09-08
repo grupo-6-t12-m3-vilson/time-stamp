@@ -60,7 +60,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 }, [])
 
 const getVideos = () => {
-  api.get(`/videos?moduleId=${user.module}`).then((res) => {
+  api.get(`/videos?moduleId=${user?.module}`).then((res) => {
     setVideos(res.data)
   })
   .then((err) => console.log(err))
