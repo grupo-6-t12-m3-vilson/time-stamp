@@ -4,29 +4,22 @@ import CardVideoSearch from '../CardVideoSearch';
 import { UserContext } from '../../contexts/UserContext';
 
 const ContainerVideosSearch = () => {
-  const { videos, searchInput } = useContext(UserContext);
+  const { videos, searchedVideosList, searchInput } = useContext(UserContext);
 
   return (
     <ContainerVideoSearch>
       <ul>
-        {searchInput ? (
-          videos.map((video) => (
-            <li key={video.id}>
-              <CardVideoSearch video={video} />
-            </li>
-          ))
-        ) : (
-          <span>Pesquise por um marcador existente</span>
-        )}
-        {/*         {filterVideos.length > 0 ? (
-          filterVideos.map((video) => (
-            <li key={video.id}>
-              <CardVideoSearch video={video} />
-            </li>
-          ))
-        ) : (
-          <span>Pesquise por um marcador existente</span>
-        )} */}
+        {searchInput == ''
+          ? videos.map((video) => (
+              <li key={video.id}>
+                <CardVideoSearch video={video} />
+              </li>
+            ))
+          : searchedVideosList.map((video) => (
+              <li key={video.id}>
+                <CardVideoSearch video={video} />
+              </li>
+            ))}
       </ul>
     </ContainerVideoSearch>
   );
