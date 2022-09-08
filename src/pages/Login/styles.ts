@@ -185,6 +185,12 @@ const FormSign = styled.form`
       color: ${(props) => props.theme.color_place_holder};
       font-size: 1rem;
     }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: ${(props) => props.theme.font_color_second};
+      transition: background-color 5000s ease-in-out 0s;
+      font-weight: 700;
+    }
   }
 
   div {
