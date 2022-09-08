@@ -1,39 +1,85 @@
-import { createContext, useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import schemaMarkers from "../../utils/schema";
-import { IMarkers, IUserContext, IUserProviderProps } from "./interface";
-import { api } from "../../services/api";
+import { createContext, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import schemaMarkers from '../../utils/schema';
+import {
+  IMarkers,
+  IShowTime,
+  IShowTimeInSeconds,
+  IUserContext,
+  IUserProviderProps,
+} from './interface';
+import { api } from '../../services/api';
 
 export const UserContext = createContext({} as IUserContext);
 
 const UserProvider = ({ children }: IUserProviderProps) => {
   const [dropDown, setDropDown] = useState<boolean>(false);
-
   const [theme, setTheme] = useState<boolean>(true);
   const themeDark = () => {
     setTheme(!theme);
   };
+  
+  const Navigate = useNavigate();
 
-  const [card, setCard] = useState([
-    { module: "M3", dia: "05/07/22", sprint: 1 },
-    { module: "M3", dia: "12/07/22", sprint: 2 },
-    { module: "M3", dia: "21/07/22", sprint: 3 },
-    { module: "M3", dia: "28/07/22", sprint: 4 },
-    { module: "M3", dia: "05/08/22", sprint: 5 },
-    { module: "M3", dia: "12/08/22", sprint: 6 },
-    { module: "M3", dia: "19/08/22", sprint: 7 },
-    { module: "M3", dia: "28/08/22", sprint: 8 },
-  ]);
+  const token = localStorage.getItem('@time-stamp:token')
+  const user = JSON.parse(localStorage.getItem('@time-stamp:user') as any)
+
+  const data = new Date()
+
+  const logout = () => {
+    localStorage.clear();
+    setDropDown(false);
+    Navigate('/', { replace: true });
+    toast.success('Vamos sentir saudades, até uma próxima =)', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000,
+    });
+  };
 
   const [modalEditVideoIsOpen, setModalEditVideoIsOpen] =
     useState<boolean>(false);
 
   const [markers, setMarkers] = useState<IMarkers[]>([]);
-  const [urlValue, setUrlValue] = useState<string>("");
+  const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>('');
+  const [day, setDay] = useState<string>('');
+  const [playing, setPlaying] = useState<boolean>(false);
+  
+ const [videos, setVideos] = useState([])
+ const [searchInput, setSearchInput] = useState("");
+ const [filterVideos, setFilterVideos] = useState([])
+ const [sprint, setSprint] = useState<string>('')
+
+ useEffect(() => {
+  getVideos()
+}, [])
+
+const getVideos = () => {
+  api.get(`/videos?moduleId=${user?.module}`).then((res) => {
+    setVideos(res.data)
+    console.log("Response do getVideos",res.data) 
+  })
+  .then((err) => console.log("Erro do getVideos",err))
+}
+
+function filterInput(searchValue: string) {
+ setSearchInput(searchValue)
+ if (searchInput === "") {
+   setFilterVideos(videos);
+ } else {
+   const itensFiltrados = videos.filter((video) => {
+     return Object.values(video)
+       .join("")
+       .toLowerCase()
+       .includes(searchInput.toLowerCase());
+   });
+   setFilterVideos(itensFiltrados);
+ }
+}
 
   const {
     register,
@@ -42,7 +88,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   } = useForm<IMarkers>({ resolver: yupResolver(schemaMarkers) });
 
   const clearUrl = () => {
-    setUrlValue("");
+    setUrlValue('');
   };
 
   const toggleModalVisibility = () => {
@@ -51,9 +97,43 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const jumpShowTime = (time_video: number) => {
+  const toggleVideoPlay = () => {
+    setPlaying(!playing);
+  };
+
+  useEffect(() => {
+    if (playing) {
+      videoRef.current?.play();
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [playing]);
+
+  const showTimeInSeconds = (timeSecond: string) => {
+    const partes: string[] = timeSecond.toString().split(':');
+
+    if (partes.length < 3) {
+      const result = {
+        time_secunds: parseInt(partes[0], 10) * 60 + parseInt(partes[1], 10),
+      };
+      return result;
+    }
+
+    const result = {
+      time_secunds:
+        parseInt(partes[0], 10) * 3600 +
+        parseInt(partes[1], 10) * 60 +
+        parseInt(partes[2], 10),
+    };
+    return result;
+  };
+
+  const jumpShowTime = (timeSecund: string) => {
+    const result = showTimeInSeconds(timeSecund);
+
+    console.log(result);
     if (videoRef !== null && videoRef.current) {
-      videoRef.current.currentTime = time_video;
+      videoRef.current.currentTime = result.time_secunds;
     }
   };
 
@@ -61,24 +141,29 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setMarkers([...markers, data]);
   };
 
+
+
   const exemplo = {
     url: urlValue,
+    sprintId: sprint,
+    day: day,
+    moduleId: user?.module,
+    userId: user?.id,
+    created_at: data.toLocaleDateString(),
+    update_at: data.toLocaleDateString(),
     marks: markers,
-    userId: 3,
   };
 
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im0zQGludHJ1dG9yLmNvbSIsImlhdCI6MTY2MjUwODA2OCwiZXhwIjoxNjYyNTExNjY4LCJzdWIiOiIzIn0.Wea-xeRBed_yhAIk6zkaHiSw5AzCv7zc0ylRzsQtZZs";
+  const [showTime, setShowTime] = useState<IShowTime[]>([]);
 
-  function postVideos() {
+  const postVideos = () => {
     toggleModalVisibility();
-
     api
-      .post("/videos", exemplo, {
+      .post('/videos', exemplo, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token} `,
-        },
+        }, 
       })
       .then((res) => {
         console.log(res);
@@ -86,12 +171,12 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         setUrl(res.data.url);
       })
       .catch((err) => console.log(err));
-  }
+  };
+
 
   return (
     <UserContext.Provider
       value={{
-        card,
         theme,
         themeDark,
         clearUrl,
@@ -113,6 +198,17 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         url,
         dropDown,
         setDropDown,
+        showTime,
+        logout,
+        toggleVideoPlay,
+        setUrl,
+        filterInput,
+        videos,
+        filterVideos,
+        day,
+        setDay,
+        sprint, 
+        setSprint, 
       }}
     >
       {children}

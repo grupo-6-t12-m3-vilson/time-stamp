@@ -1,40 +1,60 @@
-import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useContext, useEffect, useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-import { AsideDate, Container } from "./styles";
-import ShowPlay from "./ShowPlay/index";
-import NavDay from "./NavDay";
+import { toast } from 'react-toastify';
+import { AsideDate, Container } from './styles';
+import ShowPlay from './ShowPlay/index';
+import NavDay from './NavDay';
 
-const ContainerSprints = () => {
+import { api } from '../../services/api';
+import { UserContext } from '../../contexts/UserContext';
+
+type IProps = {
+  sprint: string;
+};
+
+const ContainerSprints = ({ sprint }: IProps) => {
   const [sideBar, setSideBar] = useState(false);
+  const [data, setData] = useState([]);
+  const {postVideos} = useContext(UserContext)
 
   const showSiderBar = () => setSideBar(!sideBar);
+
+  useEffect(() => {
+    api
+      .get(`/videos/?sprintId=${sprint}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  }, [postVideos]);
+
   return (
-    <>
-      <Container>
-        <div id="divSprint">
-          <h1>SPRINT 1</h1>
-          <div id="divShow">
-            <FaBars
-              style={{ display: sideBar === true ? "none" : "flex" }}
-              onClick={showSiderBar}
-            />
-          </div>
+    <Container>
+      <div id='divSprint'>
+        <h1>SPRINT {sprint}</h1>
+        <div id='divShow'>
+          <FaBars
+            style={{ display: sideBar === true ? 'none' : 'flex' }}
+            onClick={showSiderBar}
+          />
         </div>
-        <section>
-          <AsideDate sideBar={sideBar}>
-            <div
-              id="divClose"
-              style={{ display: sideBar === true ? "flex" : "none" }}
-            >
-              <FaTimes onClick={showSiderBar} />
-            </div>
-            <NavDay />
-          </AsideDate>
-          <ShowPlay />
-        </section>
-      </Container>
-    </>
+      </div>
+      <section>
+        <AsideDate sideBar={sideBar}>
+          <div
+            id='divClose'
+            style={{ display: sideBar === true ? 'flex' : 'none' }}
+          >
+            <FaTimes onClick={showSiderBar} />
+          </div>
+          <NavDay props={data} />
+        </AsideDate>
+        <ShowPlay />
+      </section>
+    </Container>
   );
 };
 

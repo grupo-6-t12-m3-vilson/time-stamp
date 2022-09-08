@@ -10,7 +10,6 @@ export const ContainerVideoSearch = styled.section`
   overflow-y: auto;
   height: 160px;
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-bottom: 30px;
 

@@ -7,8 +7,29 @@ export const Container = styled.div`
     ${(props) => props.theme.containerSprints.linear1},
     ${(props) => props.theme.containerSprints.linear2}
   );
-
   min-height: 100vh;
+
+  > svg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 5%;
+    top: 30px;
+    color: ${props => props.theme.profile.icon_color};
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.2s;
+      filter: brightness(2);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    > svg {
+      top: 83px;
+      left: 6%;
+    }
+  }
 `;
 
 export const Main = styled.main`

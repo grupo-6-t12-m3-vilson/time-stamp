@@ -1,19 +1,51 @@
-import { useState } from "react";
+import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { ContentIntro, FormContent, FormSign, SignInContainer } from "./styles";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import HeaderComponent from "../../components/HeaderComponent";
-import { ReactComponent as Intro } from "../../assets/intro.svg";
+import {
+  ContentIntro,
+  FormContent,
+  FormSign,
+  SignInContainer,
+  Error,
+} from './styles';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+import HeaderComponent from '../../components/HeaderComponent';
+import { UserLoginProps } from '../../services/userLogin';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { AuthContext } from '../../contexts/AuthContext';
+import { loginFormSchema } from '../../utils/schema';
+
+import { ReactComponent as Intro } from '../../assets/intro.svg';
 
 const Login = () => {
-  const [typePassword, setTypePassword] = useState("password");
-  const [password, setPassword] = useState("");
+  const { loginSubmit } = useContext(AuthContext);
+
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('@time-stamp:token');
+    const userId = localStorage.getItem('@time-stamp:u  serId');
+    if (token && userId) {
+      Navigate('/dashboard', { replace: true });
+    }
+  }, []);
+
+  const [typePassword, setTypePassword] = useState('password');
 
   const showPassword = () => {
-    typePassword === "password"
-      ? setTypePassword("text")
-      : setTypePassword("password");
+    typePassword === 'password'
+      ? setTypePassword('text')
+      : setTypePassword('password');
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserLoginProps>({
+    resolver: yupResolver(loginFormSchema),
+  });
 
   return (
     <SignInContainer>
@@ -23,27 +55,33 @@ const Login = () => {
           <div>
             <h2>Seja, bem vindo(a)!</h2>
           </div>
-          <FormSign>
-            <input type="email" name="" placeholder="email" autoFocus />
+          <FormSign onSubmit={handleSubmit(loginSubmit)}>
+            <input
+              type='email'
+              placeholder='email'
+              autoFocus
+              {...register('email')}
+            />
+            <Error>{errors.email?.message} </Error>
             <div>
               <input
                 type={typePassword}
-                name="password"
-                placeholder="password"
-                onChange={(e) => setPassword(e.target.value)}
+                placeholder='password'
+                {...register('password')}
               />
-              <button type="button" onClick={showPassword}>
-                {typePassword === "password" ? (
-                  <FiEye width={40} color="#fff" />
+              <button type='button' onClick={showPassword}>
+                {typePassword === 'password' ? (
+                  <FiEye width={40} color='#fff' />
                 ) : (
-                  <FiEyeOff width={40} color="#fff" />
+                  <FiEyeOff width={40} color='#fff' />
                 )}
               </button>
             </div>
-            <button type="submit">Login</button>
+            <Error>{errors.password?.message} </Error>
+            <button type='submit'>Login</button>
           </FormSign>
         </FormContent>
-        <Intro width="50%" />
+        <Intro width='50%' />
       </ContentIntro>
     </SignInContainer>
   );

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const SignInContainer = styled.div`
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 800;
   display: flex;
   height: 100vh;
@@ -146,12 +146,13 @@ const FormSign = styled.form`
   justify-content: center;
   background: ${(props) => props.theme.bg_header_form};
   height: 18.5rem;
+  max-height: 22.5rem;
   width: 100%;
-  gap: 20px;
+  gap: 12px;
   border-radius: 0 0 5px 5px;
 
   button {
-    display: "flex";
+    display: 'flex';
     justify-content: center;
     align-items: center;
     width: 120px;
@@ -161,7 +162,7 @@ const FormSign = styled.form`
     color: ${(props) => props.theme.font_color_second};
     border: none;
     font-size: 1rem;
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
   }
 
@@ -178,11 +179,17 @@ const FormSign = styled.form`
     color: ${(props) => props.theme.font_color_second};
 
     &::placeholder {
-      font-family: "Nunito", sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-weight: 700;
       opacity: 1;
       color: ${(props) => props.theme.color_place_holder};
       font-size: 1rem;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: ${(props) => props.theme.font_color_second};
+      transition: background-color 5000s ease-in-out 0s;
+      font-weight: 700;
     }
   }
 
@@ -221,4 +228,11 @@ const FormSign = styled.form`
     background-color: transparent;
   }
 `;
-export { SignInContainer, ContentIntro, FormContent, FormSign };
+
+const Error = styled.span`
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: #ff6961;
+`;
+
+export { SignInContainer, ContentIntro, FormContent, FormSign, Error };

@@ -1,17 +1,54 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import { UserContext } from "../../contexts/UserContext";
+import { FilterVideos } from "../../contexts/UserContext/interface";
 import { Card, InfosCard } from "./styles";
 
-const CardVideoSearch = () => {
-  /* testeee */
-  const link =
-    "https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_1/GMT20220718-123537_Recording_1920x1080.mp4";
+/* interface IVideo {
+  url: string,
+	name: string,
+	sprintId: number,
+	day: string,
+	extra: boolean,
+	moduleId: number,
+	userId: number,
+	created_at: string,
+	updated_at: string,
+	marks?: [
+			{
+				id: boolean,
+				time_video: string,
+				title: string
+			}
+		],
+} */
 
-  const title = "Demo alguma coisa";
+const CardVideoSearch = ({video}: any) => {
 
-  const time = "20:00";
-  const description = "UseEffect";
-  /* testeee */
+  const navigate = useNavigate()
 
-  return (
+return (
+  <>
+      <Card key={video.id} onClick={() => navigate("/dashboard/sprint/" + video.sprintId)}>
+        <video>
+          <source src={video.url} type="video/mp4" />
+        </video>
+        {video.marks?.map((mark:any) => (
+          <InfosCard key={mark.id}>            
+            <div>
+              <h3>{video.name}</h3>
+              <span>{mark.title}</span> - <span>{mark.time_video}</span>
+            </div>
+          </InfosCard>
+          )
+          )
+        }
+      </Card>
+  </>
+
+)
+
+ /*  return (
     <Card>
       <video>
         <source src={link} type="video/mp4" />
@@ -25,7 +62,7 @@ const CardVideoSearch = () => {
         </div>
       </InfosCard>
     </Card>
-  );
+  ); */
 };
 
 export default CardVideoSearch;

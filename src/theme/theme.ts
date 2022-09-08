@@ -57,6 +57,7 @@ export const light = {
     colorDivBox: "#fff",
     scroll_bar: "#fff",
     color_li_container: "#232a43",
+    color_empty_marks: "rgba(68, 73, 79, 0.59)",
   },
   inputSearchVideo: {
     background: "rgba(35, 42, 67, 1)",
@@ -144,6 +145,7 @@ export const dark = {
     colorDivBox: "rgba(15, 45, 81, 0.5)",
     scroll_bar: "rgba(15, 45, 81, 0)",
     color_li_container: "#fff",
+    color_empty_marks: "rgba(211, 224, 240, 0.59)",
   },
 
   inputSearchVideo: {
