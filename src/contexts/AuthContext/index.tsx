@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import { createContext, ReactNode, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { userLogin, UserLoginProps } from '../../services/userLogin';
-import { useNavigate } from 'react-router-dom';
 import { AuthProviderData, AuthProviderProps } from './interface';
 
 export const AuthContext = createContext<AuthProviderData>(

@@ -17,17 +17,17 @@ export const UserContext = createContext({} as IUserContext);
 
 const UserProvider = ({ children }: IUserProviderProps) => {
   const [dropDown, setDropDown] = useState<boolean>(false);
-  const [theme, setTheme] = useState<boolean>(true);
+  const [theme, setTheme] = useState<boolean>(false);
   const themeDark = () => {
     setTheme(!theme);
   };
-  
+
   const Navigate = useNavigate();
 
-  const token = localStorage.getItem('@time-stamp:token')
-  const user = JSON.parse(localStorage.getItem('@time-stamp:user') as any)
+  const token = localStorage.getItem('@time-stamp:token');
+  const user = JSON.parse(localStorage.getItem('@time-stamp:user') as any);
 
-  const data = new Date()
+  const data = new Date();
 
   const logout = () => {
     localStorage.clear();
@@ -48,38 +48,46 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [url, setUrl] = useState<string>('');
   const [day, setDay] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(false);
-  
- const [videos, setVideos] = useState([])
- const [searchInput, setSearchInput] = useState("");
- const [filterVideos, setFilterVideos] = useState([])
- const [sprint, setSprint] = useState<string>('')
 
- useEffect(() => {
-  getVideos()
-}, [])
+  const [videos, setVideos] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [filterVideos, setFilterVideos] = useState([]);
+  const [sprint, setSprint] = useState<string>('');
 
-const getVideos = () => {
-  api.get(`/videos?moduleId=${user?.module}`).then((res) => {
-    setVideos(res.data)
-    console.log("Response do getVideos",res.data) 
-  })
-  .then((err) => console.log("Erro do getVideos",err))
-}
+  useEffect(() => {
+    getVideos();
+  }, []);
 
-function filterInput(searchValue: string) {
- setSearchInput(searchValue)
- if (searchInput === "") {
-   setFilterVideos(videos);
- } else {
-   const itensFiltrados = videos.filter((video) => {
-     return Object.values(video)
-       .join("")
-       .toLowerCase()
-       .includes(searchInput.toLowerCase());
-   });
-   setFilterVideos(itensFiltrados);
- }
-}
+  const getVideos = () => {
+    api
+      .get(`/videos?moduleId=${user?.module}`)
+      .then((res) => {
+        setVideos(res.data);
+      })
+      .then((err) => {});
+  };
+
+  /*     function filterInput(searchValue: string) {
+    setSearchInput(searchValue);
+    if (searchInput === '') {
+      setFilterVideos(videos);
+    } else {
+      const itensFiltrados = videos.filter((video) => {
+        Object.values(video)
+          .join('')
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilterVideos(itensFiltrados);
+    }
+  } 
+
+  const searchVideo = (event) => {
+    event.preventDefault();
+    const form = event.target.form;
+    let valueInput = form.valueInput.value;
+    setSearchInput(valueInput);
+  }; */
 
   const {
     register,
@@ -141,8 +149,6 @@ function filterInput(searchValue: string) {
     setMarkers([...markers, data]);
   };
 
-
-
   const exemplo = {
     url: urlValue,
     sprintId: sprint,
@@ -161,9 +167,9 @@ function filterInput(searchValue: string) {
     api
       .post('/videos', exemplo, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token} `,
-        }, 
+        },
       })
       .then((res) => {
         console.log(res);
@@ -172,7 +178,6 @@ function filterInput(searchValue: string) {
       })
       .catch((err) => console.log(err));
   };
-
 
   return (
     <UserContext.Provider
@@ -202,13 +207,15 @@ function filterInput(searchValue: string) {
         logout,
         toggleVideoPlay,
         setUrl,
-        filterInput,
+        /* filterInput, */
         videos,
         filterVideos,
         day,
         setDay,
-        sprint, 
-        setSprint, 
+        sprint,
+        setSprint,
+        searchVideo,
+        searchInput,
       }}
     >
       {children}

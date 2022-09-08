@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BoxInputSearch = styled.div`
   display: flex;
@@ -12,8 +12,17 @@ export const BoxInputSearch = styled.div`
   cursor: pointer;
   transition: 0.3s;
 
+  form {
+    display: flex;
+  }
+
   input {
     display: none;
+  }
+
+  button {
+    background: transparent;
+    border: none;
   }
 
   svg {
@@ -73,7 +82,6 @@ export const BoxInputSearch = styled.div`
       padding-left: 20px;
       width: 75%;
       color: ${(props) => props.theme.inputSearchVideo.font_color};
-
     }
 
     svg {
@@ -81,12 +89,12 @@ export const BoxInputSearch = styled.div`
       height: 20px;
 
       &:hover {
-        padding-left: 0!important;
+        padding-left: 0 !important;
       }
     }
 
     &:hover {
-      width: 275px;
+      width: 230px;
     }
   }
 `;

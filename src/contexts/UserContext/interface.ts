@@ -79,4 +79,6 @@ export interface IUserContext {
   setDay: (value: string) => void;
   sprint: string | undefined
   setSprint: any;
+  searchVideo: (event: any) => void;
+  searchInput: any
 }

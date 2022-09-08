@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerVideoSearch = styled.section`
   width: 85vw;
@@ -14,9 +14,10 @@ export const ContainerVideoSearch = styled.section`
   margin-bottom: 30px;
 
   span {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 600;
     color: rgba(74, 95, 142, 1);
+    margin: auto;
   }
 
   ul {
