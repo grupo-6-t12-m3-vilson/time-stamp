@@ -6,6 +6,7 @@ import {
   CloseModalContainer,
   CreatedMarkersContainer,
   CreatedMarkersList,
+  Input,
   MarkerFieldContainer,
   Modal,
   ModalContainer,
@@ -24,6 +25,8 @@ const ModalAddVideo = () => {
     register,
     markers,
     postVideos,
+    day,
+    setDay
   } = useContext(UserContext);
 
   return (
@@ -42,6 +45,7 @@ const ModalAddVideo = () => {
             onChange={(e) => setUrlValue(e.target.value)}
           />
         </UrlFieldContainer>
+        <Input type="text" placeholder='Dia da semana' value={day} onChange={(e) => setDay(e.target.value)} />
 
         <MarkerFieldContainer onSubmit={handleSubmit(onSubmit)}>
           <textarea placeholder='Descrição:' {...register('title')} />
@@ -57,8 +61,8 @@ const ModalAddVideo = () => {
 
         <CreatedMarkersContainer>
           <CreatedMarkersList>
-            {markers.map((mark) => (
-              <li key={mark.id}>
+            {markers.map((mark, index) => (
+              <li key={index}>
                 <span>{mark.time_video}</span>
                 <p>{mark.title}</p>
               </li>

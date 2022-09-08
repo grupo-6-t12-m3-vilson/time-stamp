@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import { Card, InfosCard } from "./styles";
 
 const CardVideoSearch = () => {
+
+  const {videos, filterVideos} = useContext(UserContext)
   /* testeee */
   const link =
     "https://demos-kenzie-academy-brasil.s3.amazonaws.com/mar22/m3/Sprint_1/GMT20220718-123537_Recording_1920x1080.mp4";
@@ -11,7 +15,31 @@ const CardVideoSearch = () => {
   const description = "UseEffect";
   /* testeee */
 
-  return (
+return (
+  <>
+  {(filterVideos.length > 0 ? filterVideos : videos).map
+  ((video) => (
+    <Card key={video.id}>
+      <video>
+        <source src={video.url} type="video/mp4" />
+      </video>
+      {video.marks.map((mark, index) => (
+        <InfosCard key={index}>
+    <div>
+      <h3>{mark.title}</h3>
+    </div>
+    <div>{mark.time_video}</div>
+      </InfosCard>
+        ))}
+      </Card>
+  ))
+  }
+
+  </>
+
+)
+
+ /*  return (
     <Card>
       <video>
         <source src={link} type="video/mp4" />
@@ -25,7 +53,7 @@ const CardVideoSearch = () => {
         </div>
       </InfosCard>
     </Card>
-  );
+  ); */
 };
 
 export default CardVideoSearch;

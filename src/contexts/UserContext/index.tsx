@@ -1,7 +1,7 @@
 import { createContext, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import schemaMarkers from '../../utils/schema';
 import {
@@ -21,19 +21,13 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const themeDark = () => {
     setTheme(!theme);
   };
-
+  
   const Navigate = useNavigate();
 
-  const [card, setCard] = useState([
-    { module: 'M3', dia: '05/07/22', sprint: 1 },
-    { module: 'M3', dia: '12/07/22', sprint: 2 },
-    { module: 'M3', dia: '21/07/22', sprint: 3 },
-    { module: 'M3', dia: '28/07/22', sprint: 4 },
-    { module: 'M3', dia: '05/08/22', sprint: 5 },
-    { module: 'M3', dia: '12/08/22', sprint: 6 },
-    { module: 'M3', dia: '19/08/22', sprint: 7 },
-    { module: 'M3', dia: '28/08/22', sprint: 8 },
-  ]);
+  const token = localStorage.getItem('@time-stamp:token')
+  const user = JSON.parse(localStorage.getItem('@time-stamp:user') as any)
+
+  const data = new Date()
 
   const logout = () => {
     localStorage.clear();
@@ -52,7 +46,40 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
   const [url, setUrl] = useState<string>('');
+  const [day, setDay] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(false);
+  
+ const [videos, setVideos] = useState([])
+ const [searchInput, setSearchInput] = useState("");
+ const [filterVideos, setFilterVideos] = useState([])
+ const [sprint, setSprint] = useState<string>('')
+
+
+ useEffect(() => {
+  getVideos()
+}, [])
+
+const getVideos = () => {
+  api.get(`/videos?moduleId=${user.module}`).then((res) => {
+    setVideos(res.data)
+  })
+  .then((err) => console.log(err))
+}
+
+ function filterInput(searchValue: string) {
+  setSearchInput(searchValue)
+  if (searchInput === "") {
+    setFilterVideos(videos);
+  } else {
+    const itensFiltrados = videos.filter((video) => {
+      return Object.values(video)
+        .join("")
+        .toLowerCase()
+        .includes(searchInput.toLowerCase());
+    });
+    setFilterVideos(itensFiltrados);
+  }
+}
 
   const {
     register,
@@ -114,10 +141,17 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     setMarkers([...markers, data]);
   };
 
+
+
   const exemplo = {
     url: urlValue,
+    sprintId: sprint,
+    day: day,
+    moduleId: user?.module,
+    userId: user?.id,
+    created_at: data.toLocaleDateString(),
+    update_at: data.toLocaleDateString(),
     marks: markers,
-    userId: 3,
   };
 
   const [showTime, setShowTime] = useState<IShowTime[]>([]);
@@ -125,7 +159,12 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const postVideos = () => {
     toggleModalVisibility();
     api
-      .post('/videos', exemplo, {})
+      .post('/videos', exemplo, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token} `,
+        }, 
+      })
       .then((res) => {
         console.log(res);
         setMarcadores(res.data.marks);
@@ -134,10 +173,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       .catch((err) => console.log(err));
   };
 
+
   return (
     <UserContext.Provider
       value={{
-        card,
         theme,
         themeDark,
         clearUrl,
@@ -163,6 +202,13 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         logout,
         toggleVideoPlay,
         setUrl,
+        filterInput,
+        videos,
+        filterVideos,
+        day,
+        setDay,
+        sprint, 
+        setSprint, 
       }}
     >
       {children}

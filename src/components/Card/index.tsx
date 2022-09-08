@@ -8,8 +8,6 @@ import { Container, IconContainer } from "./styles";
 const Card = ({ module, sprint, dia , navigate}: IProps) => {
   const navigateLink = useNavigate()
 
-
-
   return (
     <Container onClick={() => {navigateLink(`sprint/${navigate}`)}}>
       <h2>
