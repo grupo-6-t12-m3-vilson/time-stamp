@@ -9,17 +9,15 @@ const ContainerVideosSearch = () => {
   return (
     <ContainerVideoSearch>
       <ul>
-        {searchInput == ''
-          ? videos.map((video) => (
-              <li key={video.id}>
-                <CardVideoSearch video={video} />
-              </li>
-            ))
-          : searchedVideosList.map((video) => (
-              <li key={video.id}>
-                <CardVideoSearch video={video} />
-              </li>
-            ))}
+        {searchInput == '' ? (
+          <span>Os vídeos pesquisados aparecerão aqui</span>
+        ) : (
+          searchedVideosList.map((video) => (
+            <li key={video.id}>
+              <CardVideoSearch video={video} />
+            </li>
+          ))
+        )}
       </ul>
     </ContainerVideoSearch>
   );
