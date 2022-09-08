@@ -53,7 +53,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
  const [searchInput, setSearchInput] = useState("");
  const [filterVideos, setFilterVideos] = useState([])
  const [sprint, setSprint] = useState<string>('')
- const [videosPost, setVideosPost] = useState([])
 
 
  useEffect(() => {
@@ -168,7 +167,6 @@ const getVideos = () => {
       })
       .then((res) => {
         console.log(res);
-        setVideosPost(res.data)
         setMarcadores(res.data.marks);
         setUrl(res.data.url);
       })

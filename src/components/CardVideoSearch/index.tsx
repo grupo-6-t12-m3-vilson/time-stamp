@@ -23,8 +23,8 @@ return (
       <video>
         <source src={video.url} type="video/mp4" />
       </video>
-      {video.marks.map((mark) => (
-        <InfosCard key={mark.id}>
+      {video.marks.map((mark, index) => (
+        <InfosCard key={index}>
     <div>
       <h3>{mark.title}</h3>
     </div>

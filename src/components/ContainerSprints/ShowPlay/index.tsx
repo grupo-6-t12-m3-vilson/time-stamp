@@ -41,13 +41,13 @@ const ShowPlay = () => {
           <DivInfo>
             {markers?.length !== 0 ? (
               <UlDetails>
-                {markers?.map((e) => (
+                {markers?.map((e, index) => (
                   <li
                     role='presentation'
                     onClick={() => {
                       jumpShowTime(e.time_video);
                     }}
-                    key={e.id}
+                    key={index}
                   >
                     <p>{e.time_video}</p>
                     <span>{e.title}</span>

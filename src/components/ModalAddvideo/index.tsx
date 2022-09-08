@@ -61,8 +61,8 @@ const ModalAddVideo = () => {
 
         <CreatedMarkersContainer>
           <CreatedMarkersList>
-            {markers.map((mark) => (
-              <li key={mark.id}>
+            {markers.map((mark, index) => (
+              <li key={index}>
                 <span>{mark.time_video}</span>
                 <p>{mark.title}</p>
               </li>

@@ -16,6 +16,7 @@ export interface IMarkers {
 }
 
 export interface IShowTimeInSeconds {
+  id: string;
   time_video: number;
   title: string;
 }
