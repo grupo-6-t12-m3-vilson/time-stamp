@@ -168,6 +168,21 @@ export const CreatedMarkersContainer = styled.div`
   width: 80%;
   height: 20%;
   overflow-y: auto;
+  position: relative;
+/*   display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  .marker-empty {
+    position: absolute;
+    top: 10px;
+    left: 110px;
+    background: #1b4079;
+    color: #9aadbf;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Nunito", sans-serif;
+  }
 
   ::-webkit-scrollbar {
     width: 9px;
@@ -240,4 +255,28 @@ export const SaveButton = styled.button`
 `;
 
 export const Input = styled.input`
+    width: 73%;
+    height: 22px;
+    font-family: "Inter", sans-serif;
+    color: ${(props) => props.theme.modalEditVideo.font_color_input};
+    background-color: ${(props) => props.theme.modalEditVideo.bg_input_modal};
+    border-radius: 2px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-right: 13px;
+    padding: 0.25rem 0.5rem;
+
+    &:focus {
+      border: 1px solid ${(props) => props.theme.modalEditVideo.bg_input_modal};
+      outline: none;
+    }
+
+    &::placeholder {
+      font-size: 0.9rem;
+      font-family: "Nunito Sans", sans-serif;
+      color: ${(props) =>
+        props.theme.modalEditVideo.font_color_input_placeholder};
+      font-weight: 700;
+    }
+
 `

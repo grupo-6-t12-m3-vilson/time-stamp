@@ -54,7 +54,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
  const [filterVideos, setFilterVideos] = useState([])
  const [sprint, setSprint] = useState<string>('')
 
-
  useEffect(() => {
   getVideos()
 }, [])
@@ -62,23 +61,24 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 const getVideos = () => {
   api.get(`/videos?moduleId=${user?.module}`).then((res) => {
     setVideos(res.data)
+    console.log("Response do getVideos",res.data) 
   })
-  .then((err) => console.log(err))
+  .then((err) => console.log("Erro do getVideos",err))
 }
 
- function filterInput(searchValue: string) {
-  setSearchInput(searchValue)
-  if (searchInput === "") {
-    setFilterVideos(videos);
-  } else {
-    const itensFiltrados = videos.filter((video) => {
-      return Object.values(video)
-        .join("")
-        .toLowerCase()
-        .includes(searchInput.toLowerCase());
-    });
-    setFilterVideos(itensFiltrados);
-  }
+function filterInput(searchValue: string) {
+ setSearchInput(searchValue)
+ if (searchInput === "") {
+   setFilterVideos(videos);
+ } else {
+   const itensFiltrados = videos.filter((video) => {
+     return Object.values(video)
+       .join("")
+       .toLowerCase()
+       .includes(searchInput.toLowerCase());
+   });
+   setFilterVideos(itensFiltrados);
+ }
 }
 
   const {

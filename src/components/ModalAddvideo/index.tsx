@@ -45,14 +45,15 @@ const ModalAddVideo = () => {
             onChange={(e) => setUrlValue(e.target.value)}
           />
         </UrlFieldContainer>
-        <Input type="text" placeholder='Dia da semana' value={day} onChange={(e) => setDay(e.target.value)} />
+
+        <Input type="text" placeholder='Dia da semana. Ex: Segunda-Feira' value={day} onChange={(e) => setDay(e.target.value)}/>
 
         <MarkerFieldContainer onSubmit={handleSubmit(onSubmit)}>
-          <textarea placeholder='Descrição:' {...register('title')} />
+          <textarea placeholder='Defina um marcador' {...register('title')} />
           <div>
             <input
               type='text'
-              placeholder='tempo'
+              placeholder='Tempo'
               {...register('time_video')}
             />
             <button type='submit'>Enviar</button>
@@ -60,6 +61,7 @@ const ModalAddVideo = () => {
         </MarkerFieldContainer>
 
         <CreatedMarkersContainer>
+          {markers.length > 0 ?
           <CreatedMarkersList>
             {markers.map((mark, index) => (
               <li key={index}>
@@ -67,7 +69,9 @@ const ModalAddVideo = () => {
                 <p>{mark.title}</p>
               </li>
             ))}
-          </CreatedMarkersList>
+          </CreatedMarkersList> :
+          <span className='marker-empty'>Sem marcadores</span>
+           }
         </CreatedMarkersContainer>
         <SaveButton type='submit' onClick={postVideos}>
           Salvar

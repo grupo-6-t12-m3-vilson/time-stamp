@@ -28,6 +28,15 @@ export const DivPlay = styled.div`
   padding: 0;
   color: ${(props) => props.theme.containerSprints.font_color_secondary};
 
+  span {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    background: #123;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+  }
+
   video {
     width: 100%;
     height: 90%;
@@ -38,8 +47,9 @@ export const DivPlay = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: 250px;
-    border: 2.5px solid #fff;
-    margin-bottom: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
   }
 `;
 
@@ -50,9 +60,11 @@ export const DivBox = styled.div`
   margin-left: 1%;
   border-radius: 10px;
   background-color: ${(props) => props.theme.containerSprints.colorDivBox};
+  position: relative;
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 95%;
+    margin-bottom: 10px;
     max-height: 375px;
   }
 `;
@@ -67,8 +79,8 @@ export const DivExtra = styled.div`
   border-radius: 10px 10px 0px 0px;
 
   h2 {
-    font-family: "Roboto Mono", monospace;
-    font-size: 1.5rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #ffffff;
   }
@@ -107,8 +119,8 @@ export const MarksEmpty = styled.div`
   gap: 30px;
 
   p {
-    font-family: "Roboto Mono", monospace;
-    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.2rem;
     line-height: 28px;
     color: ${(props) => props.theme.containerSprints.color_empty_marks};
   }
@@ -165,15 +177,13 @@ export const UlDetails = styled.ul`
 `;
 
 export const DivAddVideo = styled.div`
-  display: flex;
-  justify-content: right;
-  width: 100%;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 
   button {
     width: 50px;
     height: 50px;
-    margin-top: 15px;
-    margin-right: 1rem;
     font-size: 25px;
     color: #0f2d51;
     background: ${(props) => props.theme.containerSprints.font_color_button};
@@ -182,7 +192,6 @@ export const DivAddVideo = styled.div`
   }
 
   @media (max-width: 1024px) {
-    position: relative;
     bottom: 40px;
     margin-top: 30px;
   }

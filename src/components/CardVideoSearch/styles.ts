@@ -6,6 +6,13 @@ export const Card = styled.div`
   padding: 20px;
   box-sizing: border-box;
   gap: 10px;
+  cursor: pointer;
+
+  &:hover {
+    div > h3 {
+      color: blue;
+    }
+  }
 
   video {
     border-radius: 5px;

@@ -24,15 +24,18 @@ const ShowPlay = () => {
     jumpShowTime,
     toggleVideoPlay,
     markers,
-  } = useContext(UserContext);
+  } = useContext(UserContext);  
 
   return (
     <>
       <ContainerPlay>
         <DivPlay>
+          {url === "" ? 
+          <span>Vazio</span> 
+          : 
           <video src={url} controls ref={videoRef} onClick={toggleVideoPlay}>
             <track kind='captions' />
-          </video>
+          </video>}
         </DivPlay>
         <DivBox>
           <DivExtra>
