@@ -57,7 +57,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
 
   useEffect(() => {
     getVideos();
-  }, []);
+  }, [filterVideos]);
 
   const getVideos = () => {
     api

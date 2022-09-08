@@ -33,10 +33,10 @@ return (
         <video>
           <source src={video.url} type="video/mp4" />
         </video>
+        <h3>{video.name}</h3>
         {video.marks?.map((mark:any) => (
           <InfosCard key={mark.id}>            
             <div>
-              <h3>{video.name}</h3>
               <span>{mark.title}</span> - <span>{mark.time_video}</span>
             </div>
           </InfosCard>
