@@ -48,15 +48,16 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [url, setUrl] = useState<string>('');
   const [day, setDay] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(false);
+  const [searchedVideosList, setSearchedVideosList] = useState([]);
 
   const [videos, setVideos] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState<string>('');
   const [filterVideos, setFilterVideos] = useState([]);
   const [sprint, setSprint] = useState<string>('');
 
   useEffect(() => {
     getVideos();
-  }, []);
+  }, [filterVideos]);
 
   const getVideos = () => {
     api
@@ -67,27 +68,25 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       .then((err) => {});
   };
 
-  /*     function filterInput(searchValue: string) {
-    setSearchInput(searchValue);
-    if (searchInput === '') {
-      setFilterVideos(videos);
-    } else {
-      const itensFiltrados = videos.filter((video) => {
-        Object.values(video)
-          .join('')
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      setFilterVideos(itensFiltrados);
-    }
-  } 
+  useEffect(() => {
+    if (searchInput !== '') {
+      const filteredVideos = videos.filter(
+        (video: any) =>
+          video.name
+            .toLowerCase()
+            .trim()
+            .includes(searchInput.toLowerCase().trim()) ||
+          video.day
+            .toLowerCase()
+            .trim()
+            .includes(searchInput.toLowerCase().trim())
+      );
 
-  const searchVideo = (event) => {
-    event.preventDefault();
-    const form = event.target.form;
-    let valueInput = form.valueInput.value;
-    setSearchInput(valueInput);
-  }; */
+      setSearchedVideosList(filteredVideos);
+    } else {
+      setSearchedVideosList(videos);
+    }
+  }, [searchInput]);
 
   const {
     register,
@@ -139,7 +138,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const jumpShowTime = (timeSecund: string) => {
     const result = showTimeInSeconds(timeSecund);
 
-    console.log(result);
     if (videoRef !== null && videoRef.current) {
       videoRef.current.currentTime = result.time_secunds;
     }
@@ -172,7 +170,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         },
       })
       .then((res) => {
-        console.log(res);
         setMarcadores(res.data.marks);
         setUrl(res.data.url);
       })
@@ -207,15 +204,15 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         logout,
         toggleVideoPlay,
         setUrl,
-        /* filterInput, */
         videos,
         filterVideos,
         day,
         setDay,
         sprint,
         setSprint,
-        searchVideo,
         searchInput,
+        setSearchInput,
+        searchedVideosList,
       }}
     >
       {children}

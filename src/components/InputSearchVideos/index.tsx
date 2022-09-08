@@ -5,19 +5,17 @@ import { UserContext } from '../../contexts/UserContext';
 import { BoxInputSearch } from './styles';
 
 const InputSearchVideos = () => {
-  /* const { filterInput } = useContext(UserContext); */
-  const { searchVideo, searchInput, setSearchInput, videos } = useContext(UserContext);
-
-/*   const showVideosss = (event: any) => {
-    event?.preventDefault();
-    const videosFiltrados = videos.filter((video) => video.id > 5);
-    console.log('aaaaaaaaaaaa', videosFiltrados);
-  }; */
+  const { setSearchInput } = useContext(UserContext);
 
   return (
     <BoxInputSearch>
-        <input type='text' placeholder='Pesquise aqui' id='valueInput' onChange={(ev) => setSearchInput(ev.target.value)} />
-        <GoSearch />
+      <input
+        type='text'
+        placeholder='Pesquise aqui'
+        id='valueInput'
+        onChange={(ev) => setSearchInput(ev.target.value)}
+      />
+      <GoSearch />
     </BoxInputSearch>
   );
 };

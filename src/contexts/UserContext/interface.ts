@@ -26,17 +26,17 @@ export interface IShowTime extends IShowTimeInSeconds {
 }
 
 export interface FilterVideos {
-  created_at: string
-  day: string
-  extra: boolean
-  id: number
-  marks: IMarkers[]
-  moduleId: number
-  name: string
-  sprintId: number
-  update_at: string
-  url: string
-  userId: number
+  created_at: string;
+  day: string;
+  extra: boolean;
+  id: number;
+  marks: IMarkers[];
+  moduleId: number;
+  name: string;
+  sprintId: number;
+  update_at: string;
+  url: string;
+  userId: number;
 }
 
 export interface IUserContext {
@@ -57,9 +57,9 @@ export interface IUserContext {
     url: string;
     marks: IMarkers[];
     userId: number;
-    moduleId: number | null
-    created_at: string
-    update_at: string
+    moduleId: number | null;
+    created_at: string;
+    update_at: string;
   };
   postVideos: () => void;
   marcadores: IMarkers[];
@@ -72,13 +72,13 @@ export interface IUserContext {
   logout: () => void;
   toggleVideoPlay: () => void;
   setUrl: React.Dispatch<React.SetStateAction<string>>;
-  filterInput: (searchValue: string) => void
-  videos: FilterVideos[]
-  filterVideos: FilterVideos[]
-  day: string
+  videos: FilterVideos[];
+  filterVideos: FilterVideos[];
+  day: string;
   setDay: (value: string) => void;
-  sprint: string | undefined
+  sprint: string | undefined;
   setSprint: any;
-  searchVideo: (event: any) => void;
-  searchInput: any
+  searchInput: string;
+  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+  searchedVideosList: FilterVideos[];
 }
