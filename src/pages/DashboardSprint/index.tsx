@@ -8,11 +8,13 @@ import { Container, Main } from './styles';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
-const DashboardSprint = () => {
+const DashboardSprint = ()   => {
   const { sprintId } = useParams();
   const Navigate = useNavigate();
 
+const {setSprint} = useContext(UserContext)
 
+setSprint(sprintId)
 
   return (
     <Container>

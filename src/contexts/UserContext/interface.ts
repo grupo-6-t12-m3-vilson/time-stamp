@@ -76,4 +76,6 @@ export interface IUserContext {
   filterVideos: FilterVideos[]
   day: string
   setDay: (value: string) => void;
+  sprint: string | undefined
+  setSprint: any;
 }

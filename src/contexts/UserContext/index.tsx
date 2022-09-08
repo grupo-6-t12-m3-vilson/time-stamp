@@ -52,6 +52,9 @@ const UserProvider = ({ children }: IUserProviderProps) => {
  const [videos, setVideos] = useState([])
  const [searchInput, setSearchInput] = useState("");
  const [filterVideos, setFilterVideos] = useState([])
+ const [sprint, setSprint] = useState<string>('')
+ const [videosPost, setVideosPost] = useState([])
+
 
  useEffect(() => {
   getVideos()
@@ -139,14 +142,12 @@ const getVideos = () => {
     setMarkers([...markers, data]);
   };
 
-  const { sprintId } = useParams();
 
-  console.log(sprintId)
 
   const exemplo = {
     url: urlValue,
-    sprintId: sprintId,
-    day: "Quinta-feira",
+    sprintId: sprint,
+    day: day,
     moduleId: user?.module,
     userId: user?.id,
     created_at: data.toLocaleDateString(),
@@ -155,7 +156,6 @@ const getVideos = () => {
   };
 
   const [showTime, setShowTime] = useState<IShowTime[]>([]);
-
 
   const postVideos = () => {
     toggleModalVisibility();
@@ -168,11 +168,13 @@ const getVideos = () => {
       })
       .then((res) => {
         console.log(res);
+        setVideosPost(res.data)
         setMarcadores(res.data.marks);
         setUrl(res.data.url);
       })
       .catch((err) => console.log(err));
   };
+
 
   return (
     <UserContext.Provider
@@ -207,7 +209,8 @@ const getVideos = () => {
         filterVideos,
         day,
         setDay,
-        
+        sprint, 
+        setSprint, 
       }}
     >
       {children}

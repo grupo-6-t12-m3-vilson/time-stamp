@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import { toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import ShowPlay from './ShowPlay/index';
 import NavDay from './NavDay';
 
 import { api } from '../../services/api';
+import { UserContext } from '../../contexts/UserContext';
 
 type IProps = {
   sprint: string;
@@ -15,6 +16,7 @@ type IProps = {
 const ContainerSprints = ({ sprint }: IProps) => {
   const [sideBar, setSideBar] = useState(false);
   const [data, setData] = useState([]);
+  const {postVideos} = useContext(UserContext)
 
   const showSiderBar = () => setSideBar(!sideBar);
 
@@ -27,7 +29,7 @@ const ContainerSprints = ({ sprint }: IProps) => {
       .catch((err) => {
         toast.error(err.message);
       });
-  }, []);
+  }, [postVideos]);
 
   return (
     <Container>
