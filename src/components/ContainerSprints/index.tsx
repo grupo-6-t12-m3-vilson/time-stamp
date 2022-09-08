@@ -16,8 +16,6 @@ const ContainerSprints = ({ sprint }: IProps) => {
   const [sideBar, setSideBar] = useState(false);
   const [data, setData] = useState([]);
 
-  console.log(data)
-
   const showSiderBar = () => setSideBar(!sideBar);
 
   useEffect(() => {

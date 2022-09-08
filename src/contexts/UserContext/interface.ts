@@ -74,4 +74,6 @@ export interface IUserContext {
   filterInput: (searchValue: string) => void
   videos: FilterVideos[]
   filterVideos: FilterVideos[]
+  day: string
+  setDay: (value: string) => void;
 }

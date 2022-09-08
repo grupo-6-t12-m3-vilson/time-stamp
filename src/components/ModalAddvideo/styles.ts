@@ -238,3 +238,6 @@ export const SaveButton = styled.button`
   cursor: pointer;
   border-radius: 8px;
 `;
+
+export const Input = styled.input`
+`

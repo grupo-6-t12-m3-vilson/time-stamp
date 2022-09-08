@@ -21,15 +21,13 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const themeDark = () => {
     setTheme(!theme);
   };
-
+  
   const Navigate = useNavigate();
 
   const token = localStorage.getItem('@time-stamp:token')
   const user = JSON.parse(localStorage.getItem('@time-stamp:user') as any)
 
   const data = new Date()
-
-  const { sprintId } = useParams();
 
   const logout = () => {
     localStorage.clear();
@@ -48,6 +46,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   const [urlValue, setUrlValue] = useState<string>('');
   const [marcadores, setMarcadores] = useState<IMarkers[]>([]);
   const [url, setUrl] = useState<string>('');
+  const [day, setDay] = useState<string>('');
   const [playing, setPlaying] = useState<boolean>(false);
   
  const [videos, setVideos] = useState([])
@@ -57,7 +56,6 @@ const UserProvider = ({ children }: IUserProviderProps) => {
  useEffect(() => {
   getVideos()
 }, [])
-
 
 const getVideos = () => {
   api.get(`/videos?moduleId=${user.module}`).then((res) => {
@@ -141,20 +139,22 @@ const getVideos = () => {
     setMarkers([...markers, data]);
   };
 
+  const { sprintId } = useParams();
+
+  console.log(sprintId)
+
   const exemplo = {
     url: urlValue,
     sprintId: sprintId,
-    day: "Segunda-feira",
+    day: "Quinta-feira",
     moduleId: user?.module,
     userId: user?.id,
     created_at: data.toLocaleDateString(),
     update_at: data.toLocaleDateString(),
     marks: markers,
-
   };
 
   const [showTime, setShowTime] = useState<IShowTime[]>([]);
-
 
 
   const postVideos = () => {
@@ -204,7 +204,10 @@ const getVideos = () => {
         setUrl,
         filterInput,
         videos,
-        filterVideos
+        filterVideos,
+        day,
+        setDay,
+        
       }}
     >
       {children}

@@ -5,10 +5,14 @@ import ContainerSprints from '../../components/ContainerSprints';
 import ContainerVideosSearch from '../../components/ContainerVideosSearch';
 import HeaderComponent from '../../components/HeaderComponent';
 import { Container, Main } from './styles';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 const DashboardSprint = () => {
   const { sprintId } = useParams();
   const Navigate = useNavigate();
+
+
 
   return (
     <Container>
