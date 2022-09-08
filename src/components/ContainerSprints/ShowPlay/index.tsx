@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { BsFileEarmarkPlay } from 'react-icons/bs';
-import { FiPlay, FiPause } from 'react-icons/fi';
 
 import { UserContext } from '../../../contexts/UserContext';
 import ModalAddVideo from '../../ModalAddvideo';
@@ -21,10 +20,8 @@ const ShowPlay = () => {
     toggleModalVisibility,
     modalEditVideoIsOpen,
     url,
-    marcadores,
     videoRef,
     jumpShowTime,
-    showTime,
     toggleVideoPlay,
     markers,
   } = useContext(UserContext);
@@ -42,9 +39,9 @@ const ShowPlay = () => {
             <h2>Marcador</h2>
           </DivExtra>
           <DivInfo>
-            {markers.length !== 0 ? (
+            {markers?.length !== 0 ? (
               <UlDetails>
-                {markers.map((e) => (
+                {markers?.map((e) => (
                   <li
                     role='presentation'
                     onClick={() => {
